@@ -203,7 +203,7 @@ class ThreeDLine(ThreeDCylinder):
         self.shift((self.start + self.end) / 2)
 
     def pointify(
-        self, mob_or_point: Mobject | float, direction: np.ndarray = None
+        self, mob_or_point: Mobject or float, direction: np.ndarray = None
     ) -> np.ndarray:
         """Gets a point representing the center of the :class:`Mobjects <.Mobject>`.
 
@@ -490,6 +490,6 @@ class ThreeDMolecule(OpenGLGroup):
 
         return bonds
 
-    def from_mol_file(filename):
+    def from_mol_file(filename, source_csv):
         atoms, bonds = mol_parser(file=filename)
-        return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds)
+        return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds, source_csv=source_csv)

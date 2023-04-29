@@ -6,17 +6,21 @@ from manim_chemistry import (
     PeriodicTable,
 )
 
+from pathlib import Path
+
+script_path = Path(__file__).absolute().parent
+files_path = script_path / "element_files"
 
 # 2D Molecule example
 class Draw2DMorphine(Scene):
-    def construct(self):
-        self.add(MMoleculeObject.from_mol_file(filename="element_files/morphine.mol"))
+    def construct(self):    
+        self.add(MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol"))
 
 
 # 3D Molecule example
 class Draw3DMorphine(ThreeDScene):
     def construct(self):
-        self.add(ThreeDMolecule.from_mol_file(filename="element_files/morphine3d.mol"))
+        self.add(ThreeDMolecule.from_mol_file(filename=files_path / "morphine3d.mol", source_csv=files_path / "Elementos.csv"))
         self.wait()
 
 
@@ -25,7 +29,7 @@ class DrawCarbonElement(Scene):
     def construct(self):
         self.add(
             MElementObject.from_csv_file_data(
-                filename="element_files/Elementos.csv", atomic_number=6
+                filename=files_path / "Elementos.csv", atomic_number=6
             )
         )
 
@@ -33,7 +37,7 @@ class DrawCarbonElement(Scene):
 # Periodic Table example
 class DrawPeriodicTable(Scene):
     def construct(self):
-        self.add(PeriodicTable(data_file="element_files/Elementos.csv"))
+        self.add(PeriodicTable(data_file=files_path / "Elementos.csv"))
 
 
 # Orbitals example #TODO

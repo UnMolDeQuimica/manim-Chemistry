@@ -31,7 +31,7 @@ class BaseMBondObject(VGroup):
         self.index = index
         self.add(self.bond)
 
-    def define_subtype(self, subtype: str) -> str | bool:
+    def define_subtype(self, subtype: str) -> str or bool:
         """
         Defines the subtype based on atoms' representations. Input options:
             - 'complete'

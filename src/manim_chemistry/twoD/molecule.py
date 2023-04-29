@@ -10,7 +10,7 @@ class MMoleculeObject(VGroup):
         self,
         atoms_dict: dict,
         bonds_dict: dict,
-        representation_type: str | None = None,
+        representation_type: str or None = None,
         explicit_carbons: bool = False,
         explicit_hydrogens: bool = False,
         planar: bool = True,
