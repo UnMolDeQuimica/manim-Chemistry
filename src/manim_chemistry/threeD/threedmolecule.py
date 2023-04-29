@@ -1,4 +1,22 @@
-from manim import TAU, PI, ORIGIN, Z_AXIS, config, RendererType, Circle, IN, Y_AXIS, LEFT, RIGHT, normalize, Mobject, Line3D, ThreeDScene, DOWN, perpendicular_bisector
+from manim import (
+    TAU,
+    PI,
+    ORIGIN,
+    Z_AXIS,
+    config,
+    RendererType,
+    Circle,
+    IN,
+    Y_AXIS,
+    LEFT,
+    RIGHT,
+    normalize,
+    Mobject,
+    Line3D,
+    ThreeDScene,
+    DOWN,
+    perpendicular_bisector,
+)
 from manim.mobject.opengl.opengl_surface import OpenGLSurface
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup, OpenGLMobject
 

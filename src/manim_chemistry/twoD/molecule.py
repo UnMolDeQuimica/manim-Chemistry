@@ -1,4 +1,4 @@
-from manim import VGroup, VDict, MarkupText, RIGHT, RED, GREEN, ORIGIN 
+from manim import VGroup, VDict, MarkupText, RIGHT, RED, GREEN, ORIGIN
 from typing import Dict, Any
 from .atom import MAtomObject
 from .bond import *
