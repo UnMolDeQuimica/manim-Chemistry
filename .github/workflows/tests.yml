@@ -1,0 +1,43 @@
+name: Integration tests
+
+on:
+  push:
+  pull_request:
+  workflow_call:
+    inputs:
+      python_version:
+        description: 'Stringified JSON object listing target Python versions'
+        required: true
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    name: Python ${{ matrix.python-version }} (${{ matrix.os }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macOS
+          - Ubuntu
+          - Windows
+        python-version: ${{ fromJson(inputs.python_version) }}
+    runs-on: ${{ matrix.os }}-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install .[dev]
+    - name: Test with pytest
+      run: |
+        python -m pytest ./tests/
