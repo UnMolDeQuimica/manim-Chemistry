@@ -1,9 +1,9 @@
-from manim import *
+from manim import TAU, PI, ORIGIN, Z_AXIS, config, RendererType, Circle, IN, Y_AXIS, LEFT, RIGHT, normalize, Mobject, Line3D, ThreeDScene, DOWN, perpendicular_bisector
 from manim.mobject.opengl.opengl_surface import OpenGLSurface
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup, OpenGLMobject
 
-from element.element import Element
-from utils.utils import mol_parser
+from ..element import Element
+from ..utils import mol_parser
 
 import numpy as np
 

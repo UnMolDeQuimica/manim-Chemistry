@@ -1,4 +1,4 @@
-from manim import *
+from manim import VGroup, WHITE, MarkupText, RIGHT, LEFT
 import numpy as np
 from typing import Dict, Any
 

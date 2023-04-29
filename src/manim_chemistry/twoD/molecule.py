@@ -1,9 +1,8 @@
-from manim import *
-import numpy as np
+from manim import VGroup, VDict, MarkupText, RIGHT, RED, GREEN, ORIGIN 
 from typing import Dict, Any
 from .atom import MAtomObject
 from .bond import *
-from utils.utils import mol_parser
+from ..utils import mol_parser
 
 
 class MMoleculeObject(VGroup):

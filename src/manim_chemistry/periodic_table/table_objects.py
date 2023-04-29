@@ -1,5 +1,6 @@
-from manim import *
+from manim import VGroup, WHITE, BLACK, BLUE, Rectangle, color_gradient, Text, Tex, RIGHT, ORIGIN, DOWN
 import pandas as pd
+import numpy as np
         
 class MElementObject(VGroup):
     def __init__(

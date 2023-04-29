@@ -1,5 +1,5 @@
-from manim import *
-from manim_chemistry import MMoleculeObject 
+from manim import Scene, ThreeDScene
+from manim_chemistry import MMoleculeObject, ThreeDMolecule, MElementObject, PeriodicTable 
 # 2D Molecule example
 class Draw2DMorphine(Scene):
     def construct(self):
