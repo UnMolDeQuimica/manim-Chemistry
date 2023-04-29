@@ -1,6 +1,20 @@
-from manim import *
+from manim import (
+    VGroup,
+    WHITE,
+    BLACK,
+    BLUE,
+    Rectangle,
+    color_gradient,
+    Text,
+    Tex,
+    RIGHT,
+    ORIGIN,
+    DOWN,
+)
 import pandas as pd
-        
+import numpy as np
+
+
 class MElementObject(VGroup):
     def __init__(
         self,
@@ -8,12 +22,12 @@ class MElementObject(VGroup):
         atomic_mass=1,
         element_name="Hydrogen",
         element_symbol="H",
-        coloring = BLACK, 
-        fill_colors = (WHITE, BLUE), 
-        gradient = 10, 
-        opacity = 1, 
-        text_color = BLACK,
-        **kwargs
+        coloring=BLACK,
+        fill_colors=(WHITE, BLUE),
+        gradient=10,
+        opacity=1,
+        text_color=BLACK,
+        **kwargs,
     ):
         VGroup.__init__(self, **kwargs)
         self.atomic_number = atomic_number
@@ -25,62 +39,80 @@ class MElementObject(VGroup):
         self.gradient = gradient
         self.opacity = opacity
         self.text_color = text_color
-        
+
         element_frame = self.create_frame_with_text()
-        
+
         self.add(element_frame)
-        
+
     def frame_name_width_ratio(self, frame, name_text):
-        return frame.get_width()/(1.25*name_text.get_width())
-    
+        return frame.get_width() / (1.25 * name_text.get_width())
+
     def max_height_ratio(self, name_text):
         text_height = name_text.get_height()
         if text_height > 0.3:
-            ratio = 0.3/text_height
+            ratio = 0.3 / text_height
             name_text.scale(ratio)
-            
+
         return name_text
-        
-    
+
     def create_frame_base(self):
-        frame_rectangle = Rectangle(
-            height=2.8,
-            width=2,
-            color=self.coloring,
-            stroke_width=0.2,
-            fill_opacity=self.opacity
-        ).scale(0.8).set_fill(color_gradient(self.fill_colors, self.gradient))
-        
+        frame_rectangle = (
+            Rectangle(
+                height=2.8,
+                width=2,
+                color=self.coloring,
+                stroke_width=0.2,
+                fill_opacity=self.opacity,
+            )
+            .scale(0.8)
+            .set_fill(color_gradient(self.fill_colors, self.gradient))
+        )
+
         return frame_rectangle
-    
+
     def create_frame_with_text(self):
         frame_rectangle = self.create_frame_base()
-        symbol_text = Text(self.element_symbol, color = self.text_color).scale(1.1).move_to(frame_rectangle.get_center())
-        name_text = Text(self.element_name, color = self.text_color).scale(0.2).next_to(frame_rectangle, DOWN, buff = -0.4)
-        atomic_number_text = Tex(str(self.atomic_number), color = self.text_color).scale(0.65).next_to(frame_rectangle, frame_rectangle.get_top()+frame_rectangle.get_left(), buff = -0.35)
-        
+        symbol_text = (
+            Text(self.element_symbol, color=self.text_color)
+            .scale(1.1)
+            .move_to(frame_rectangle.get_center())
+        )
+        name_text = (
+            Text(self.element_name, color=self.text_color)
+            .scale(0.2)
+            .next_to(frame_rectangle, DOWN, buff=-0.4)
+        )
+        atomic_number_text = (
+            Tex(str(self.atomic_number), color=self.text_color)
+            .scale(0.65)
+            .next_to(
+                frame_rectangle,
+                frame_rectangle.get_top() + frame_rectangle.get_left(),
+                buff=-0.35,
+            )
+        )
+
         ratio = self.frame_name_width_ratio(frame=frame_rectangle, name_text=name_text)
         name_text.scale(ratio)
         name_text = self.max_height_ratio(name_text)
-        
+
         shifting_ammount = 0
         if 10 <= self.atomic_number:
             shifting_ammount += 0.15
-            
+
         if self.atomic_number > 100:
             shifting_ammount += 0.15
 
-        atomic_number_text.shift(shifting_ammount*RIGHT)
-        
+        atomic_number_text.shift(shifting_ammount * RIGHT)
+
         return VGroup(frame_rectangle, symbol_text, name_text, atomic_number_text)
-        
 
     def from_csv_file_data(filename, atomic_number, **kwargs):
-        #TODO: Add option to set manually colors.
-        #TODO: Create a table that adds this data in a prettier way.
+        # TODO: Add option to set manually colors.
+        # TODO: Create a table that adds this data in a prettier way.
         df = pd.read_csv(filename)
-        element = df.loc[df["AtomicNumber"]==atomic_number].squeeze().to_dict()
-        
+        element = df.loc[df["AtomicNumber"] == atomic_number].squeeze().to_dict()
+
         return MElementObject(
             atomic_number=atomic_number,
             atomic_mass=element.get("AtomicMass"),
@@ -88,39 +120,36 @@ class MElementObject(VGroup):
             element_symbol=element.get("Symbol"),
             fill_colors=[element.get("Color"), WHITE],
         )
-        
-    
+
+
 class PeriodicTable(VGroup):
-    #TODO Change to english database
+    # TODO Change to english database
     def __init__(self, data_file, *vmobjects, **kwargs):
         VGroup.__init__(self, *vmobjects, **kwargs)
         self.data_file = data_file
         self.table = self.add_elements()
-        
+
         self.add(self.table)
-        
+
     def add_elements(self):
         positions = self.elements_position_dict()
         base_element = MElementObject()
-        mult_array = np.array([
-            base_element.get_width(),
-            -base_element.get_height(),
-            0
-        ]) 
-        
+        mult_array = np.array([base_element.get_width(), -base_element.get_height(), 0])
+
         table = VGroup()
         for element, position in positions.items():
             new_position = np.multiply(mult_array, np.array(position))
-            new_element = MElementObject.from_csv_file_data(self.data_file, element).move_to(new_position)
-            
+            new_element = MElementObject.from_csv_file_data(
+                self.data_file, element
+            ).move_to(new_position)
+
             table.add(new_element)
-            
+
         table.move_to(ORIGIN).scale(0.25)
         return table
-        
-        
+
     def elements_position_dict(self):
-        #TODO: Think of a better way of doing this. However, it works and looks good
+        # TODO: Think of a better way of doing this. However, it works and looks good
         positions = {
             1: [0, 0, 0],
             2: [17, 0, 0],
@@ -242,4 +271,3 @@ class PeriodicTable(VGroup):
             118: [17, 6, 0],
         }
         return positions
-    

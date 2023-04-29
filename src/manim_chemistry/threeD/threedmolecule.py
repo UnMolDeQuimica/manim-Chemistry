@@ -1,9 +1,27 @@
-from manim import *
+from manim import (
+    TAU,
+    PI,
+    ORIGIN,
+    Z_AXIS,
+    config,
+    RendererType,
+    Circle,
+    IN,
+    Y_AXIS,
+    LEFT,
+    RIGHT,
+    normalize,
+    Mobject,
+    Line3D,
+    ThreeDScene,
+    DOWN,
+    perpendicular_bisector,
+)
 from manim.mobject.opengl.opengl_surface import OpenGLSurface
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup, OpenGLMobject
 
-from element.element import Element
-from utils.utils import mol_parser
+from ..element import Element
+from ..utils import mol_parser
 
 import numpy as np
 
@@ -185,7 +203,7 @@ class ThreeDLine(ThreeDCylinder):
         self.shift((self.start + self.end) / 2)
 
     def pointify(
-        self, mob_or_point: Mobject | float, direction: np.ndarray = None
+        self, mob_or_point: Mobject or float, direction: np.ndarray = None
     ) -> np.ndarray:
         """Gets a point representing the center of the :class:`Mobjects <.Mobject>`.
 
@@ -472,6 +490,6 @@ class ThreeDMolecule(OpenGLGroup):
 
         return bonds
 
-    def from_mol_file(filename):
+    def from_mol_file(filename, source_csv):
         atoms, bonds = mol_parser(file=filename)
-        return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds)
+        return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds, source_csv=source_csv)

@@ -1,9 +1,8 @@
-from manim import *
-import numpy as np
+from manim import VGroup, VDict, MarkupText, RIGHT, RED, GREEN, ORIGIN
 from typing import Dict, Any
 from .atom import MAtomObject
 from .bond import *
-from utils.utils import mol_parser
+from ..utils import mol_parser
 
 
 class MMoleculeObject(VGroup):
@@ -11,7 +10,7 @@ class MMoleculeObject(VGroup):
         self,
         atoms_dict: dict,
         bonds_dict: dict,
-        representation_type: str | None = None,
+        representation_type: str or None = None,
         explicit_carbons: bool = False,
         explicit_hydrogens: bool = False,
         planar: bool = True,

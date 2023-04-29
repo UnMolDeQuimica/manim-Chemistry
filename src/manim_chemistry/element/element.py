@@ -11,7 +11,7 @@ class Element:
         name: str = "H",
         atomic_number: int = 1,
         mass: float = 1.008,
-        color: str | None = "#FFFFFF",
+        color: str or None = "#FFFFFF",
     ):
         self.symbol = symbol
         self.name = name
@@ -19,7 +19,7 @@ class Element:
         self.mass = mass
         self.color = color or "#ff00ff"
 
-    def from_csv_file(filename, element: str | int):
+    def from_csv_file(filename, element: str or int):
         use_valid_reference_string = f"What are you doing? Pass a valid atomic reference. {element} is NOT a valid reference"
         data = pd.read_csv(filename, index_col=False)
 

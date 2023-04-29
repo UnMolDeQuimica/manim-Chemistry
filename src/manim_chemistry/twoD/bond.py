@@ -1,4 +1,4 @@
-from manim import *
+from manim import VGroup, WHITE, Line, Polygram, PI, VMobject
 import numpy as np
 from typing import Dict, Any
 from .atom import MAtomObject
@@ -31,7 +31,7 @@ class BaseMBondObject(VGroup):
         self.index = index
         self.add(self.bond)
 
-    def define_subtype(self, subtype: str) -> str | bool:
+    def define_subtype(self, subtype: str) -> str or bool:
         """
         Defines the subtype based on atoms' representations. Input options:
             - 'complete'

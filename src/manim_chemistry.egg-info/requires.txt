@@ -1,0 +1,7 @@
+manim
+numpy
+pandas
+
+[dev]
+pytest
+black
