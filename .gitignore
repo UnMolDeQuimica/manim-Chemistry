@@ -4,3 +4,4 @@ Pipfile
 *egg
 .pytest_cache
 .vscode
+src/manim_chemistry.egg-info
