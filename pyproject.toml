@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "manim-chemistry"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Natural Language :: English",
+]
+description = "Draws molecules. Nice!"
+dependencies = [
+    "manim",
+    "numpy",
+    "pandas",
+]
+license = {file = "LICENSE.md"}
+readme = "README.md"
+requires-python = ">= 3.9"
+
+authors = [
+    { name = "UMDQ", email = "unmoldequimica@gmail.com" }
+]
+
+maintainers = [
+    { name = "UMDQ", email = "unmoldequimica@gmail.com" }
+]
+
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+]
+#[project.urls]
+#Source = ""
+#"Issue tracker" = ""
+
+[tools.setuptools.dynamic]
+version = {attr = "distromax.__version__"}
+readme = {file = ["README.md"]}
+
+[tools.setuptools.packages.find]
+where = ["src"]
+include = ["manim_chemistry"]
+
+[tool.setuptools_scm]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "WARNING"
+log_file_level = "INFO"
+
+[tool.poetry.plugins."manim.plugins"]
+"manim_chemistry" = "" # FIXME

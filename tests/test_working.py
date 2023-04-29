@@ -1,0 +1,1 @@
+from manim_chemistry import MAtomObjects
