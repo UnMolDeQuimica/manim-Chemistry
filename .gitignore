@@ -2,3 +2,5 @@ media
 __pycache__
 Pipfile
 *egg
+.pytest_cache
+.vscode
