@@ -4,6 +4,8 @@ from manim_chemistry import (
     ThreeDMolecule,
     MElementObject,
     PeriodicTable,
+    Orbital,
+    BohrAtom
 )
 
 from pathlib import Path
@@ -40,4 +42,13 @@ class DrawPeriodicTable(Scene):
         self.add(PeriodicTable(data_file=files_path / "Elementos.csv"))
 
 
-# Orbitals example #TODO
+# Orbitals example 
+class DrawPOrbital(Scene):
+    def construct(self):
+        self.add(Orbital(l=1, m=-1))
+
+
+# Bohr diagram example
+class BohrDiagram(Scene):
+    def construct(self):
+        self.add(BohrAtom())
