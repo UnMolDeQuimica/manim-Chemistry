@@ -1,1 +1,3 @@
-from .threedmolecule import ThreeDAtom, ThreeDBond, ThreeDMolecule
+from .threedatom import ThreeDAtom
+from .threedbond import ThreeDBond
+from .threedmolecule import ThreeDMolecule
