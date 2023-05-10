@@ -4,7 +4,7 @@ if __name__ == "__main__":
     setup(
         entry_points={
             'manim.plugins': [
-                'manim_chemistry = src.manim_chemistry',
+                'manim_chemistry = manim_chemistry',
             ],
         },
     )
