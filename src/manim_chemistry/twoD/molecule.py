@@ -206,7 +206,7 @@ class MMoleculeObject(VGroup):
         supported_atoms = ["O", "S", "N", "P"]
 
         for atom in self.atoms:
-            if atom not in supported_atoms:
+            if atom.element not in supported_atoms:
                 continue
 
             total_bonds = len(atom.bond_to)

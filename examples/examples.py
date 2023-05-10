@@ -16,7 +16,8 @@ files_path = script_path / "element_files"
 # 2D Molecule example
 class Draw2DMorphine(Scene):
     def construct(self):    
-        self.add(MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol"))
+        morphine = MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol")
+        self.add(morphine)
 
 
 # 3D Molecule example
