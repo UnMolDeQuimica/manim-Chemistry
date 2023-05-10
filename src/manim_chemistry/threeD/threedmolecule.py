@@ -57,6 +57,10 @@ class ThreeDAtom(OpenGLSphere):
 
 
 class ThreeDCylinder(OpenGLSurface):
+    """
+    Absolutely yoinked from Cylinder class and
+    adapted to OpenGL rendering.
+    """
     def __init__(
         self,
         radius: float = 1,
@@ -156,6 +160,11 @@ class ThreeDCylinder(OpenGLSurface):
 
 
 class ThreeDLine(ThreeDCylinder):
+
+    """
+    Absolutely yoinked from ThreeDLine class and
+    adapted to OpenGL rendering.
+    """
     def __init__(
         self,
         start: np.ndarray = LEFT,
@@ -468,10 +477,15 @@ class ThreeDMolecule(OpenGLGroup):
     def get_atoms_from_csv(self):
         atoms = OpenGLGroup()
         for _, atom in self.atoms_dict.items():
-            element = Element.from_csv_file(
-                self.source_csv, atom.get("element")
-            )  # TODO: Make the file an option
-            atoms.add(ThreeDAtom(element, atom.get("coords")))
+            try:
+                element = Element.from_csv_file(
+                    self.source_csv, atom.get("element")
+                )  # TODO: Make the file an option
+                atoms.add(ThreeDAtom(element, atom.get("coords")))
+            except:
+                import ipdb
+                ipdb.set_trace()
+            
 
         return atoms
 
