@@ -298,10 +298,10 @@ Inside this repo there is a folder examples with assets and basic files that mig
 Here you have some examples using manimChemistry. Feel free to contribute with your own animations and videos!
 
 Fullerene:
-![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/Fullerene.png)
 
 Beta and alpha tin structures:
-![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/TinPhases.png)
 
 A video using both and more examples:
 
