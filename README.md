@@ -62,7 +62,7 @@ You can run manim as usual:
 
 The result looks like this:
 
-![plot](.\examples\examples_assets\2D_morphine_bad.png)
+![plot](/examples/examples_assets/2D_morphine_bad.png)
 
 Doesn't look really good, right? Double bonds are not in the correct position. We can solve this!
 
@@ -80,7 +80,7 @@ class TwoDMoleculeScene(Scene):
 
 We get
 
-![plot](.\examples\examples_assets\2D_morphine_bond_numbering.png)
+![plot](/examples/examples_assets/2D_morphine_bond_numbering.png)
 
 So we need to rotate bonds 7 and 20. We can add this adding their index to the rotate_bonds list:
 
@@ -95,7 +95,7 @@ class TwoDMoleculeScene(Scene):
 ```
 
 Result:
-![plot](.\examples\examples_assets\2D_morphine_corrected_bonds.png)
+![plot](/examples/examples_assets/2D_morphine_corrected_bonds.png)
 
 Now we are talking!
 
@@ -125,7 +125,7 @@ To be able to run this you need to run manim using opengl as renderer:
 
 Here is the result!
 
-![plot](.\examples\examples_assets\Draw3DMorphine_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/Draw3DMorphine_ManimCE_v0.17.3.png)
 
 As you can see, the coloring is defined in the "Elementos.csv" file, but you can make your own source file to customize colors!
 
@@ -147,7 +147,7 @@ class DrawCarbonElement(Scene):
 
 And there you have it!
 
-![plot](.\examples\examples_assets\DrawCarbonElement_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/DrawCarbonElement_ManimCE_v0.17.3.png)
 
 
 To make the whole periodic table you need data for every element inside that data source file. Elementos.csv already has it, so you just have to copy it and adapt to your needs. Using the cpk coloring and the following code we get that beautiful periodic table:
@@ -161,7 +161,7 @@ class DrawPeriodicTable(Scene):
         self.add(PeriodicTable(data_file="Elementos.csv"))
 ```
 
-![plot](.\examples\examples_assets\DrawPeriodicTable_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/DrawPeriodicTable_ManimCE_v0.17.3.png)
 
 
 ## Making atomic orbitals:
@@ -182,7 +182,7 @@ One again you need to use opengl as renderer:
 
 `manim .\examples.py DrawPOrbital -ps --renderer=opengl`
 
-![plot](.\examples\examples_assets\orbitals_example.png)
+![plot](/examples/examples_assets/orbitals_example.png)
 
 ## Making Bohr diagrams:
 
@@ -199,7 +199,7 @@ class DrawBohrDiagram(Scene):
 ```
 Here you have your nice diagram!
 
-![plot](.\examples\examples_assets\BohrDiagram_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
 
 
 
@@ -298,10 +298,10 @@ Inside this repo there is a folder examples with assets and basic files that mig
 Here you have some examples using manimChemistry. Feel free to contribute with your own animations and videos!
 
 Fullerene:
-![plot](.\examples\examples_assets\BohrDiagram_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
 
 Beta and alpha tin structures:
-![plot](.\examples\examples_assets\BohrDiagram_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
 
 A video using both and more examples:
 
