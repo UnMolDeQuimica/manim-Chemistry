@@ -14,7 +14,13 @@
 
 # Installation.
 
-Right now this can be installed cloning the repo:
+You can install via pip:
+
+```
+pip install manim_chemistry
+```
+
+You can also clone the repo and install it from here:
 
 ```
 git clone https://github.com/UnMolDeQuimica/manim-Chemistry.git
@@ -22,7 +28,14 @@ cd manim-Chemistry
 python -m pip install .
 ```
 
-Soon this will be available in pip.
+or
+
+```
+git clone https://github.com/UnMolDeQuimica/manim-Chemistry.git
+cd manim-Chemistry 
+python -m pip install -e .
+```
+
 
 # What is manim-Chemistry?
 
