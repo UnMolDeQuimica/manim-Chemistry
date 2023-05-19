@@ -30,17 +30,12 @@ maintainers = [
 
 dynamic = ["version"]
 
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "black",
-]
 #[project.urls]
 #Source = ""
 #"Issue tracker" = ""
 
 [tools.setuptools.dynamic]
-version = {attr = "distromax.__version__"}
+version = {attr = "manim_chemistry.__version__"}
 readme = {file = ["README.md"]}
 
 [tools.setuptools.packages.find]
@@ -54,5 +49,5 @@ log_cli = true
 log_cli_level = "WARNING"
 log_file_level = "INFO"
 
-[tool.poetry.plugins."manim.plugins"]
-"manim_chemistry" = "" # FIXME
+[project.entry-points."manim.plugins"]
+"manim_chemistry" = "manim_chemistry"
