@@ -30,9 +30,9 @@ maintainers = [
 
 dynamic = ["version"]
 
-#[project.urls]
-#Source = ""
-#"Issue tracker" = ""
+[project.urls]
+Source = "https://github.com/UnMolDeQuimica/manim-Chemistry"
+"Issue tracker" = "https://github.com/UnMolDeQuimica/manim-Chemistry/issues"
 
 [tools.setuptools.dynamic]
 version = {attr = "manim_chemistry.__version__"}
