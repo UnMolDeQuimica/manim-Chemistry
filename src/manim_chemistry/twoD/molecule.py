@@ -66,6 +66,10 @@ class MMoleculeObject(VGroup):
                 to_atom = self.atoms_by_index.get(bond.get("to"))
                 if from_atom.element == "H" or to_atom.element == "H":
                     stereo = bond.get("stereo")
+                    print("ding")
+                    print("stereo: ", stereo)
+                    print(from_atom.explicit_hydrogens)
+                    print(to_atom.explicit_hydrogens)
                     if stereo:
                         if int(stereo) == 1 or int(stereo) == 4:
                             self.atoms[
@@ -104,13 +108,34 @@ class MMoleculeObject(VGroup):
 
                             bond_index += 1
                             bonds.add(new_bond)
-
+                    
                         else:
+                            
                             continue
-
-                    elif (not from_atom.explicit_hydrogens) and (
-                        not to_atom.explicit_hydrogens
+                    # you don't need not x and not y
+                    # just use De Morgan's law ! (syntactic detail, doesn't change code)
+                    elif (from_atom.explicit_hydrogens) or (
+                        to_atom.explicit_hydrogens
                     ):
+                        # make bonds to explicit hydrogens
+                        # TODO: clean repetitive code
+                        self.atoms[
+                                from_atom.index
+                            ] = from_atom.copy_with_explicit_hydrogens()
+                        self.atoms[
+                            to_atom.index
+                        ] = to_atom.copy_with_explicit_hydrogens()
+                        from_atom = self.atoms[from_atom.index]
+                        to_atom = self.atoms[to_atom.index]
+                        new_bond = SimpleBond(
+                            from_atom=from_atom,
+                            to_atom=to_atom,
+                            index=bond_index,
+                            type=bond_type,
+                        )
+
+                        bond_index += 1
+                        bonds.add(new_bond)
                         continue
 
                 else:
@@ -155,6 +180,8 @@ class MMoleculeObject(VGroup):
                             )
                     bond_index += 1
                     bonds.add(new_bond)
+
+        
         return bonds
 
     def add_atom_numbering(self):
