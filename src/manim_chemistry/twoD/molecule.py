@@ -66,10 +66,7 @@ class MMoleculeObject(VGroup):
                 to_atom = self.atoms_by_index.get(bond.get("to"))
                 if from_atom.element == "H" or to_atom.element == "H":
                     stereo = bond.get("stereo")
-                    print("ding")
-                    print("stereo: ", stereo)
-                    print(from_atom.explicit_hydrogens)
-                    print(to_atom.explicit_hydrogens)
+                
                     if stereo:
                         if int(stereo) == 1 or int(stereo) == 4:
                             self.atoms[
