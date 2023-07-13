@@ -1,4 +1,4 @@
-from manim import VGroup, VDict, MarkupText, RIGHT, RED, GREEN, ORIGIN
+from manim import VGroup, VDict, MarkupText, MathTex, SVGMobject, RIGHT, DOWN, RED, GREEN, ORIGIN
 from typing import Dict, Any
 from .atom import MAtomObject
 from .bond import *
@@ -275,3 +275,30 @@ class MMoleculeObject(VGroup):
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
+
+
+class NamedMolecule(VGroup):
+    def __init__(self, name, molecule_data, direction = DOWN, buff=1, tex = False, font="", *args, **kwargs):
+        if isinstance(molecule_data, MMoleculeObject):
+            molecule = molecule_data
+        
+        else:
+            molecule = MMoleculeObject(molecule_data, *args, **kwargs)
+            
+        if isinstance(name, SVGMobject):
+            name_text = name
+            
+        elif tex:
+            name_text = MathTex(name, *args, **kwargs)
+        else:
+            name_text = MarkupText(name, font=font, *args, **kwargs)
+        
+        name_text.next_to(molecule, direction, buff)
+  
+        super().__init__(*[molecule, name_text], **kwargs)
+        
+        
+    def from_mol_file(name, filename, direction = DOWN, buff=1, tex=False, font="", *args, **kwargs):
+        molecule = MMoleculeObject.from_mol_file(filename, *args, **kwargs)
+        
+        return NamedMolecule(name, molecule, *args, **kwargs)
