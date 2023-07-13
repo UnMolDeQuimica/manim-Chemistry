@@ -10,7 +10,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Natural Language :: English",
 ]
-description = "Draws molecules. Nice!"
+description = "Manim Chemistry is a plugin for Manim which aims to make easier the animation of molecules and other chemistry-related objects such as orbitals, bohr diagrams and more."
 dependencies = [
     "manim",
     "numpy",

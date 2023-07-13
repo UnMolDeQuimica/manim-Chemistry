@@ -21,7 +21,7 @@ This lists things that should be added in the near future to make this library u
 
 Here are listed features that would be cool to implement, don't seem to hard to do but also they are not explicitly necessary for the project. Some of them might seem pretty necessary, but if there is a workaround solving the issue, they are not a priority like the list above. That being said, I will probably develop something from this instead of doing the necessary stuff before.
 
-* [ ] Actual atom numbering. At this moment we are simply numbering using the order from the .mol file, but might be good to be able to show actual numbering without working too hard. (See cannonicalization from [this](https://pubs.acs.org/doi/10.1021/acs.jcim.5b00543)
+* [ ] Actual atom numbering. At this moment we are simply numbering using the order from the .mol file, but might be good to be able to show actual numbering without working too hard. (See cannonicalization from [this](https://pubs.acs.org/doi/10.1021/acs.jcim.5b00543))
 * [ ] Support other formats. Probably something like SMILES will be the next step to improve molnim. Probably the best aproach would be create a custom internal format. When parsing a format we transform to that internal format and then we can create the molecules from it.
 * [ ] Solve the double bond issue. Now, when drawing a double bond, the bond is drawn in a direction defined by the mol file. That means we can draw a benzene ring with all the double bonds outside the ring, which is ugly af. I need to check or come up with an algorithm that solves that issue.
 * [ ] Add functional groups automatic recongition. Check [this paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-017-0225-z). It would be really nice to add this feature.
