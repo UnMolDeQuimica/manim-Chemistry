@@ -87,7 +87,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol")
+        morphine = MMoleculeObject.from_mol_file("morphine.mol", add_bonds_numbering=True)
         self.add(morphine)
 ```
 
@@ -214,7 +214,21 @@ Here you have your nice diagram!
 
 ![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
 
+## Named Molecules:
 
+You may want to add a name to a molecule. It is very simple, but it is handy to do all in the same object. You can create a NamedMolecule similarly to how you create a MMoleculeObject:
+
+```
+from manim import *
+from manim_chemistry import *
+
+class NamedMoleculeExample(Scene):
+    def construct(self):
+        named_molecule = NamedMolecule.from_mol_file(name="Morphine", filename="morphine.mol")
+        self.add(diagram)
+```
+
+You can also provided an already created molecule or an already created text and the NamedMolecule class will group them. This allows greater control for the user.
 
 ## Reading .mol files
 
