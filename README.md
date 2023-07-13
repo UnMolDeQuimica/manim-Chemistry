@@ -11,6 +11,8 @@
 - [Typical issues with .mol files](#typical-issues-with-mol-files)
 - [Take a look to examples](#)
 - [Made with manimChemistry](#made-with-manimchemistry)
+- [How to contact](#how-to-contact)
+- [Great contributers](#great-contributers)
 
 # Installation.
 
