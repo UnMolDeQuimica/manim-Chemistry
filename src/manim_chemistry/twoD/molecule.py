@@ -220,11 +220,16 @@ class MMoleculeObject(VGroup):
         self.add(numbering)
 
     def rotate_bond(self, rotate_bonds):
+        if isinstance(rotate_bonds, int):
+            rotate_bonds = [rotate_bonds]
+            
         for bond in rotate_bonds:
             direction = self.bonds[bond][0][0].end - self.bonds[bond][0][0].start
             self.bonds[bond].rotate(
                 PI, about_point=self.bonds[bond][0][0].get_center(), axis=direction
             )
+            
+        return self
 
     def complete_missing_hydrogens(self):
         supported_atoms = ["O", "S", "N", "P"]
