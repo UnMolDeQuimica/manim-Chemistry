@@ -112,6 +112,23 @@ Result:
 
 Now we are talking!
 
+### Named Molecules:
+
+You may want to add a name to a molecule. It is very simple, but it is handy to do all in the same object. You can create a NamedMolecule similarly to how you create a MMoleculeObject:
+
+```
+from manim import *
+from manim_chemistry import *
+
+class NamedMoleculeExample(Scene):
+    def construct(self):
+        named_molecule = NamedMolecule.from_mol_file(name="Morphine", filename="morphine.mol")
+        self.add(diagram)
+```
+![plot](/examples/examples_assets/NamedMoleculeExample_ManimCE_v0.17.3.png)
+
+You can also provided an already created molecule or an already created text and the NamedMolecule class will group them. This allows greater control for the user.
+
 ## Create 3D molecule:
 
 Creating a 3D molecule requires a bit more effort. We need two things:
@@ -214,21 +231,7 @@ Here you have your nice diagram!
 
 ![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
 
-## Named Molecules:
 
-You may want to add a name to a molecule. It is very simple, but it is handy to do all in the same object. You can create a NamedMolecule similarly to how you create a MMoleculeObject:
-
-```
-from manim import *
-from manim_chemistry import *
-
-class NamedMoleculeExample(Scene):
-    def construct(self):
-        named_molecule = NamedMolecule.from_mol_file(name="Morphine", filename="morphine.mol")
-        self.add(diagram)
-```
-
-You can also provided an already created molecule or an already created text and the NamedMolecule class will group them. This allows greater control for the user.
 
 ## Reading .mol files
 
@@ -330,9 +333,11 @@ Fullerene:
 Beta and alpha tin structures:
 ![plot](/examples/examples_assets/TinPhases.png)
 
-A video using both and more examples:
+Videos using manimChemistry:
 
 https://www.youtube.com/watch?v=L7OXe94_WmA
+
+https://youtu.be/KgiCl_o_Aws
 
 
 # How to contact
@@ -340,3 +345,11 @@ You can open issues and pull requests, but if you want to contact me directly yo
 - Email: unmoldequimica@gmail.com
 - YouTube: https://www.youtube.com/@unmoldequimica
 - Twitter: https://twitter.com/unmoldequimica
+
+
+# Great contributers!
+- [@chemnerd28](https://github.com/chemnerd28)
+- [@Ant-28](https://github.com/Ant-28)
+
+
+Special thanks to [@Rodrigo-Tenorio](https://github.com/Rodrigo-Tenorio) for his help in the creation of this releasable package.
