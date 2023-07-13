@@ -41,14 +41,10 @@ class ThreeDMolecule(OpenGLGroup):
     def get_atoms_from_csv(self):
         atoms = OpenGLGroup()
         for _, atom in self.atoms_dict.items():
-            try:
-                element = Element.from_csv_file(
-                    self.source_csv, atom.get("element")
-                )  # TODO: Make the file an option
-                atoms.add(ThreeDAtom(element, atom.get("coords")))
-            except:
-                import ipdb
-                ipdb.set_trace()
+            element = Element.from_csv_file(
+                self.source_csv, atom.get("element")
+            )  # TODO: Make the file an option
+            atoms.add(ThreeDAtom(element, atom.get("coords")))
             
 
         return atoms
