@@ -1,4 +1,4 @@
-from manim import VGroup, WHITE, MarkupText, RIGHT, LEFT
+from manim import VGroup, WHITE, MarkupText, RIGHT, LEFT, Dot
 import numpy as np
 from typing import Dict, Any
 
@@ -45,9 +45,9 @@ class MAtomObject(VGroup):
             self.add(self.atom)
 
         else:
-            self.add(VGroup())
-        self.move_to(coords)
-        self.set_atom_color(color)
+            self.add(Dot(radius=0))
+        self.move_to(self.coords)
+        self.set_atom_color(self.color)
 
     def set_representation(self, representation_type):
         """
