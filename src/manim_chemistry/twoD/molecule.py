@@ -189,14 +189,14 @@ class MMoleculeObject(VGroup):
                     numbering.add(
                         MarkupText(str(atom.index))
                         .scale(0.5)
-                        .move_to(atom.coords + 0.5 * RIGHT)
+                        .move_to(atom.coords)
                         .set_color(RED)
                     )
             else:
                 numbering.add(
                     MarkupText(str(atom.index))
                     .scale(0.5)
-                    .move_to(atom.coords + 0.5 * RIGHT)
+                    .move_to(atom.coords)
                     .set_color(RED)
                 )
 
@@ -305,7 +305,7 @@ class NamedMolecule(VGroup):
     def from_mol_file(name, filename, direction = DOWN, buff=1, tex=False, font="", *args, **kwargs):
         molecule = MMoleculeObject.from_mol_file(filename, *args, **kwargs)
         
-        return NamedMolecule(name, molecule, *args, **kwargs)
+        return NamedMolecule(name, molecule, direction=direction, buff=buff, tex=tex, font=font, *args, **kwargs)
     
     def rotate_bond(self, bonds: int|list):
         self.molecule = self.molecule.rotate_bond(bonds)
