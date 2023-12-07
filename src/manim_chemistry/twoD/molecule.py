@@ -201,6 +201,8 @@ class MMoleculeObject(VGroup):
                 )
 
         self.add(numbering)
+        
+        return self
 
     def add_bond_numbering(self):
         numbering = VGroup()
@@ -218,6 +220,8 @@ class MMoleculeObject(VGroup):
                     )
 
         self.add(numbering)
+        
+        return self
 
     def rotate_bond(self, rotate_bonds):
         if isinstance(rotate_bonds, int):
@@ -280,10 +284,10 @@ class MMoleculeObject(VGroup):
 class NamedMolecule(VGroup):
     def __init__(self, name, molecule_data, direction = DOWN, buff=1, tex = False, font="", *args, **kwargs):
         if isinstance(molecule_data, MMoleculeObject):
-            molecule = molecule_data
+            self.molecule = molecule_data
         
         else:
-            molecule = MMoleculeObject(molecule_data, *args, **kwargs)
+            self.molecule = MMoleculeObject(molecule_data, *args, **kwargs)
             
         if isinstance(name, SVGMobject):
             name_text = name
@@ -293,12 +297,33 @@ class NamedMolecule(VGroup):
         else:
             name_text = MarkupText(name, font=font, *args, **kwargs)
         
-        name_text.next_to(molecule, direction, buff)
+        name_text.next_to(self.molecule, direction, buff)
   
-        super().__init__(*[molecule, name_text], **kwargs)
+        super().__init__(*[self.molecule, name_text], **kwargs)
         
         
     def from_mol_file(name, filename, direction = DOWN, buff=1, tex=False, font="", *args, **kwargs):
         molecule = MMoleculeObject.from_mol_file(filename, *args, **kwargs)
         
         return NamedMolecule(name, molecule, *args, **kwargs)
+    
+    def rotate_bond(self, bonds: int|list):
+        self.molecule = self.molecule.rotate_bond(bonds)
+        
+        return self
+    
+    
+    def add_bond_numbering(self):
+        self.molecule = self.molecule.add_bond_numbering()
+        self.molecule[-1].move_to(self.molecule[1].get_center())
+        
+        return self
+        
+    def add_atom_numbering(self):
+        # Atom numbering is not working correctly.
+        self.molecule = self.molecule.add_atom_numbering()
+        self.molecule[-1].move_to(self.molecule[0].get_center())
+        
+        return self
+        
+        
