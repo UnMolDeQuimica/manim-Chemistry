@@ -1,7 +1,17 @@
 # Changelog
 
+## 0.3.0
+### New Features
+* Added GenericElement class that will be the base for future developments. [1668d67](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/1668d670752c86b860ff20c2d9e58ba4286329e1)
+* Added GraphMolecule. This class is based on Manim's Graph class and gives simple yet beautiful molecules based. [1668d67](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/1668d670752c86b860ff20c2d9e58ba4286329e1)
+
+
+## 0.2.0
+### New Features
+* Added basic support for chemical formulas. [fcc7110](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/3948d73ff052ad3051b432dd17f9d4e5077e3892)
+
 ## 0.1.1
-### New features
+### New Features
 * Created class NamedMolecule.  [3948d73](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/3948d73ff052ad3051b432dd17f9d4e5077e3892)
 
 ### Bugfixes
