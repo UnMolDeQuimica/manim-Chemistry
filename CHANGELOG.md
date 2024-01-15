@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.1.1
-### New features
+### New Features
 * Created class NamedMolecule.  [3948d73](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/3948d73ff052ad3051b432dd17f9d4e5077e3892)
 
 ### Bugfixes
