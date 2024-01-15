@@ -1,6 +1,7 @@
 from manim import Scene, ThreeDScene
 from manim_chemistry import (
     MMoleculeObject,
+    GraphMolecule,
     ThreeDMolecule,
     MElementObject,
     PeriodicTable,
@@ -19,7 +20,16 @@ class Draw2DMorphine(Scene):
         morphine = MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol")
         self.add(morphine)
 
-
+# 2D Graph Molecule example
+class DrawGraphMorphine(Scene):
+    def construct(self):
+        self.add(GraphMolecule.build_from_mol(filename=files_path / "morphine.mol"))
+        
+# 2D Graph Molecule example
+class DrawLabeledGraphMorphine(Scene):
+    def construct(self):
+        self.add(GraphMolecule.build_from_mol(filename=files_path / "morphine.mol"))
+        
 # 3D Molecule example
 class Draw3DMorphine(ThreeDScene):
     def construct(self):

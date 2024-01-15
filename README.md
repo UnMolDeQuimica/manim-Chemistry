@@ -131,6 +131,37 @@ class NamedMoleculeExample(Scene):
 
 You can also provided an already created molecule or an already created text and the NamedMolecule class will group them. This allows greater control for the user.
 
+### GraphMolecule:
+Another variant of 2D molecules are the GraphMolecules. Those are based on Manim's Graph class, which gives them a lot of superpowers!
+
+You can use them in a very similar way as you did with MMolecules and NamedMolecules:
+
+```
+from manim import *
+from manim_chemistry import *
+
+class GraphMoleculeExample(Scene):
+    def construct(self):
+        graph_molecule = GraphMolecule.build_from_mol(filename="morphine.mol")
+        self.add(graph_molecule)
+```
+![plot](/examples/examples_assets/DrawGraphMorphine_ManimCE_v0.17.3.png)
+
+There you go!
+
+You can also add a label by setting `label=True` when building the GraphMolecule:
+```
+from manim import *
+from manim_chemistry import *
+
+class GraphMoleculeExample(Scene):
+    def construct(self):
+        graph_molecule = GraphMolecule.build_from_mol(filename="morphine.mol")
+        self.add(graph_molecule)
+```
+![plot](/examples/examples_assets/DrawLabeledGraphMorphine_ManimCE_v0.17.3.png)
+
+
 ## Create 3D molecule:
 
 Creating a 3D molecule requires a bit more effort. We need two things:

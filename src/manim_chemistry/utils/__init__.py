@@ -1,1 +1,1 @@
-from .utils import mol_parser
+from .utils import mol_parser, mol_to_graph
