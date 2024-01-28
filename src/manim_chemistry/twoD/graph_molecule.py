@@ -6,14 +6,17 @@ from manim_chemistry.utils import mol_to_graph
 class SimpleLine(VGroup):
     def __init__(self, start=[-1,0,0], end=[1,0,0], *args, **kwargs):
 
-        super().__init__(**kwargs)
         self.start = np.array(start)
         self.end = np.array(end)
+        super().__init__(**kwargs)
         
-        self.base_line = self._make_base_line(**kwargs)
+        #self.base_line = self._make_base_line(**kwargs)
         
-        self.add(self.base_line)
-    
+        #self.add(self.base_line)
+        
+    def generate_points(self) -> None:
+        self.set_points_as_corners([self.start, self.end])
+        
     def _make_base_line(self, **kwargs):
         return Line(start=self.start, end=self.end, sheen_direction=self._get_unit_vector(),**kwargs)
         
@@ -43,10 +46,11 @@ class SimpleLine(VGroup):
 class DoubleLine(SimpleLine):
     def __init__(self, start=[-1,0,0], end=[1,0,0], distance: float=0.1, *args, **kwargs):
         super().__init__(start, end, *args, **kwargs)
-        second_line = self.base_line.copy()
+        base_line = self[0]
+        second_line = base_line.copy()
         
         self._shift_by_unit_vector(
-            base_line=self.base_line,
+            base_line=base_line,
             second_line=second_line,
             distance=distance
         )
