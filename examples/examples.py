@@ -14,6 +14,7 @@ from pathlib import Path
 script_path = Path(__file__).absolute().parent
 files_path = script_path / "element_files"
 
+
 # 2D Molecule example
 class Draw2DMorphine(Scene):
     # Two D Manim Chemistry objects require Cairo renderer
@@ -22,13 +23,15 @@ class Draw2DMorphine(Scene):
         morphine = MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol")
         self.add(morphine)
 
+
 # 2D Graph Molecule example
 class DrawGraphMorphine(Scene):
     # Two D Manim Chemistry objects require Cairo renderer
     config.renderer = "cairo"
     def construct(self):
         self.add(GraphMolecule.build_from_mol(mol_file=files_path / "morphine.mol"))
-        
+    
+    
 # 2D Graph Molecule example
 class DrawLabeledGraphMorphine(Scene):
     # Two D Manim Chemistry objects require Cairo renderer
@@ -36,9 +39,10 @@ class DrawLabeledGraphMorphine(Scene):
     def construct(self):
         self.add(GraphMolecule.build_from_mol(mol_file=files_path / "morphine.mol", label=True))
         
+        
 # 3D Molecule example
 class Draw3DMorphine(ThreeDScene):
-    # Three D Manim Chemistry objects require opengl renderer
+    # Three D Manim Chemistry objects require Opengl renderer
     config.renderer = "opengl"
     def construct(self):
         self.add(ThreeDMolecule.from_mol_file(filename=files_path / "morphine3d.mol", source_csv=files_path / "Elementos.csv"))
@@ -67,7 +71,7 @@ class DrawPeriodicTable(Scene):
 
 # Orbitals example 
 class DrawPOrbital(ThreeDScene):
-    # Three D Manim Chemistry objects require opengl renderer
+    # Three D Manim Chemistry objects require Opengl renderer
     config.renderer = "opengl"
     def construct(self):
         self.add(Orbital(l=1, m=-1))
