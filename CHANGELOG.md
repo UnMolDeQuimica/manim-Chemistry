@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2
+### Fixes
+* Fixed P Orbital example. Special thanks to [@Roseleaves](https://github.com/Roseleaves) for opening the [related issue #15](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/15). [7ffdc5](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/16/commits/7ffdc52f90bae0605c27a3f9d545d0538a51c04b). 
+
+## 0.3.1
+### Bugfixes
+* Fixed animation issue with SimpleLine and its subclasses.
+
 ## 0.3.0
 ### New Features
 * Added GenericElement class that will be the base for future developments. [1668d67](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/1668d670752c86b860ff20c2d9e58ba4286329e1)
