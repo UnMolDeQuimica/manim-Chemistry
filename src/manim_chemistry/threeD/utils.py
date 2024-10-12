@@ -3,6 +3,7 @@ import numpy as np
 from manim import ORIGIN, TAU, PI
 from manim.mobject.opengl.opengl_surface import OpenGLSurface
 
+
 class OpenGLSphere(OpenGLSurface):
     def __init__(
         self,

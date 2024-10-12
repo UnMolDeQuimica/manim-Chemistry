@@ -1,13 +1,7 @@
 import numpy as np
 import scipy.special as spe
 
-from manim import (
-    ORIGIN,
-    PI,
-    TAU,
-    RED,
-    BLUE
-)
+from manim import ORIGIN, PI, TAU, RED, BLUE
 
 from manim.mobject.opengl.opengl_surface import OpenGLSurface
 
@@ -17,6 +11,7 @@ class OrbitalBase(OpenGLSurface):
     Base class for implementing atomic orbitals.
     Not meant to be used directly even when you can.
     """
+
     def add_background_rectangle_to_family_members_with_points(self):
         pass
 
@@ -69,6 +64,7 @@ class OrbitalPositive(OrbitalBase):
     """
     Calculates the positive values of the orbital.
     """
+
     def uv_func(self, u, v):
         psi = self.psi_ang(v, u, l=self.l_value, m=self.m_value)
         if psi < 0:
@@ -81,6 +77,7 @@ class OrbitalNegative(OrbitalBase):
     """
     Calculates the negative values of the orbital.
     """
+
     def uv_func(self, u, v):
         psi = self.psi_ang(v, u, l=self.l_value, m=self.m_value)
         if psi > 0:
@@ -94,6 +91,7 @@ class Orbital(OpenGLSurface):
     Uses positive and negative orbitals to create
     an orbital. n value is still not implemented TODO
     """
+
     def __init__(self, n=None, l=0, m=0, size=3, **kwargs):
         super().__init__(self.uv_func, **kwargs)
         if not n:

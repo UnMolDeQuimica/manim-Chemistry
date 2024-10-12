@@ -1,15 +1,7 @@
 import numpy as np
 import random
-from manim import (
-    VGroup,
-    WHITE,
-    BLUE, 
-    RED,
-    Circle, 
-    Dot,
-    TAU,
-    RIGHT
-)
+from manim import VGroup, WHITE, BLUE, RED, Circle, Dot, TAU, RIGHT
+
 
 class BohrAtom(VGroup):
     """

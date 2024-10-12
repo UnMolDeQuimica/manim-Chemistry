@@ -1,1 +1,1 @@
-from .orbitals import Orbital # noqa F841
+from .orbitals import Orbital  # noqa F841

@@ -26,6 +26,7 @@ class ThreeDCylinder(OpenGLSurface):
     Absolutely yoinked from Cylinder class and
     adapted to OpenGL rendering.
     """
+
     def __init__(
         self,
         radius: float = 1,
@@ -125,11 +126,11 @@ class ThreeDCylinder(OpenGLSurface):
 
 
 class ThreeDLine(ThreeDCylinder):
-
     """
     Absolutely yoinked from ThreeDLine class and
     adapted to OpenGL rendering.
     """
+
     def __init__(
         self,
         start: np.ndarray = LEFT,
@@ -321,6 +322,7 @@ class ThreeDBond(OpenGLGroup):
     Used to create a tridimensional bond.
     Uses an origin atom and a target atom to be drawn.
     """
+
     def __str__(self):
         return f"MBondObject bonding {self.from_atom} with {self.to_atom}"
 

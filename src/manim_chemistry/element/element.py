@@ -1,6 +1,7 @@
 import pandas as pd
 from dataclasses import dataclass
 
+
 class Element:
     def __repr__(self) -> str:
         return f"Element {self.atomic_number}: {self.name} ({self.symbol})"
@@ -52,9 +53,10 @@ class Element:
 class GenericElement:
     symbol: str
     name: str
-    atomic_number: int 
+    atomic_number: int
     mass: float
     cpk_color: str
+
 
 # Generic Elements
 H = GenericElement("H", "Hydrogen", 1, 1.007, "#ffffff")

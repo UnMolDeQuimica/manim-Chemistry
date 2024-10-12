@@ -9,7 +9,9 @@ def mol_parser(file):
 
     mol_name = mol_file[0].strip()  # This info is not always available  # noqa F841
     mol_source = mol_file[1].strip()  # This info is not always available  # noqa F841
-    mol_comments = mol_file[2].rstrip()  # This info is not always available  # noqa F841
+    mol_comments = mol_file[
+        2
+    ].rstrip()  # This info is not always available  # noqa F841
     mol_general_info = mol_file[3]  # This info is not always available
     mol_file.remove(mol_general_info)  # This info is not always available
     mol_general_info = (
@@ -97,11 +99,11 @@ def mol_parser(file):
 
 
 def get_element(element, language="ENG"):
-    if language=="ENG":
+    if language == "ENG":
         element_dict = ELEMENT_DICT
-    elif language=="ESP":
+    elif language == "ESP":
         element_dict = ELEMENT_DICT_ESP
-        
+
     return element_dict[element]
 
 
@@ -136,10 +138,8 @@ def mol_to_graph(file, language="ENG"):
         first_atom_index = int(float(line_data[0]))
         second_atom_index = int(float(line_data[1]))
         bond_type = line_data[2]
-        bonds[(first_atom_index, second_atom_index)] = {
-            "type": bond_type
-        }
-        
+        bonds[(first_atom_index, second_atom_index)] = {"type": bond_type}
+
     return atoms, bonds  # Should return atoms and bonds
 
 
