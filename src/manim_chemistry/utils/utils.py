@@ -7,9 +7,9 @@ def mol_parser(file):
         mol_file = file.readlines()
     # Get general data
 
-    mol_name = mol_file[0].strip()  # This info is not always available
-    mol_source = mol_file[1].strip()  # This info is not always available
-    mol_comments = mol_file[2].rstrip()  # This info is not always available
+    mol_name = mol_file[0].strip()  # This info is not always available  # noqa F841
+    mol_source = mol_file[1].strip()  # This info is not always available  # noqa F841
+    mol_comments = mol_file[2].rstrip()  # This info is not always available  # noqa F841
     mol_general_info = mol_file[3]  # This info is not always available
     mol_file.remove(mol_general_info)  # This info is not always available
     mol_general_info = (
@@ -46,21 +46,21 @@ def mol_parser(file):
 
         try:
             bond_stereo = line_data[3]
-        except:
+        except Exception as _:
             bond_stereo = ""
         else:
             bond_data["stereo"] = int(bond_stereo)
 
         try:
             bond_topology = line_data[5]
-        except:
+        except Exception as _:
             bond_topology = ""
         else:
             bond_data["topology"] = int(bond_topology)
 
         try:
             reacting_center_status = line_data[6]
-        except:
+        except Exception as _:
             reacting_center_status = ""
         else:
             bond_data["reacting_center_status"] = int(reacting_center_status)

@@ -1,5 +1,4 @@
-from manim import VGroup, VDict, MarkupText, MathTex, SVGMobject, RIGHT, DOWN, RED, GREEN, ORIGIN
-from typing import Dict, Any
+from manim import VGroup, VDict, MarkupText, MathTex, SVGMobject, DOWN, RED, GREEN, ORIGIN
 from .atom import MAtomObject
 from .bond import *
 from ..utils import mol_parser

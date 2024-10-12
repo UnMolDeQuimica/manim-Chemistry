@@ -1,6 +1,5 @@
 from manim import VGroup, WHITE, Line, Polygram, PI, VMobject
 import numpy as np
-from typing import Dict, Any
 from .atom import MAtomObject
 
 
