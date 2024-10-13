@@ -9,65 +9,61 @@ class SimpleLine(VGroup):
         self.start = np.array(start)
         self.end = np.array(end)
         super().__init__(**kwargs)
-        
-        #self.base_line = self._make_base_line(**kwargs)
-        
-        #self.add(self.base_line)
+        self.sheen_direction = self._get_unit_vector()
         
     def generate_points(self) -> None:
         self.set_points_as_corners([self.start, self.end])
-        
-    def _make_base_line(self, **kwargs):
-        return Line(start=self.start, end=self.end, sheen_direction=self._get_unit_vector(),**kwargs)
         
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
         
         return vector / np.linalg.norm(vector)
-        
-    def _get_perpendicular_vector(self, vector: np.array) -> np.array:
-        # Crappy method but works for the 2d version of all this
-        return np.array([vector[1], -vector[0], vector[2]])
-    
-    def _make_perpendicular_vector(self) -> np.array:
-        v = self._get_unit_vector()
-        return self._get_perpendicular_vector(v)
-    
-    def _shift_by_unit_vector(self, base_line: Line, second_line: Line, distance: float) -> None:
-        pv = self._make_perpendicular_vector()
-        base_line.shift(0.5*distance*pv)
-        second_line.shift(-0.5*distance*pv)
-        
-        return
-    
-    def add_tip(self, *args, **kwargs):
-        return self
-         
-class DoubleLine(SimpleLine):
-    def __init__(self, start=[-1,0,0], end=[1,0,0], distance: float=0.1, *args, **kwargs):
-        super().__init__(start, end, *args, **kwargs)
-        base_line = self[0]
-        second_line = base_line.copy()
-        
-        self._shift_by_unit_vector(
-            base_line=base_line,
-            second_line=second_line,
-            distance=distance
-        )
-        
-        self.add(second_line)
-        
 
-class TripleLine(DoubleLine):
-    def __init__(self, start=[-1,0,0], end=[1,0,0], distance: float=0.15, *args, **kwargs):
+
+class DoubleLine(VGroup):
+    def __init__(self, start=[-1,0,0], end=[1,0,0], angle: float=PI/4, **kwargs):
+        self.start = np.array(start)
+        self.end = np.array(end)
+        super().__init__(**kwargs)
+        
+        self.add(
+            ArcBetweenPoints(
+                start=self.start,
+                end=self.end,
+                angle=angle,
+                **kwargs
+            ),
+            ArcBetweenPoints(
+                start=self.start,
+                end=self.end,
+                angle=-angle,
+                **kwargs
+            )
+        )
+
+class TripleLine(SimpleLine):
+    def __init__(self, start=[-1,0,0], end=[1,0,0], angle: float=PI/4, *args, **kwargs):
         super().__init__(
             start=start,
             end=end,
-            distance=distance,
             *args,
             **kwargs
         )
         self.add(self._make_base_line(**kwargs))
+        self.add(
+            ArcBetweenPoints(
+                start=self.start,
+                end=self.end,
+                angle=angle,
+                **kwargs
+            ),
+            ArcBetweenPoints(
+                start=self.start,
+                end=self.end,
+                angle=-angle,
+                **kwargs
+            )
+        )
         
 
 class GraphMolecule(Graph):
