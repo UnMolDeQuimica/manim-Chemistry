@@ -34,7 +34,7 @@ class DoubleLine(VGroup):
             ArcBetweenPoints(start=self.start, end=self.end, angle=angle, **kwargs),
             ArcBetweenPoints(start=self.start, end=self.end, angle=-angle, **kwargs),
         )
-    
+
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
 
