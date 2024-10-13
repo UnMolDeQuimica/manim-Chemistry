@@ -9,9 +9,9 @@ def mol_parser(file):
 
     mol_name = mol_file[0].strip()  # This info is not always available  # noqa F841
     mol_source = mol_file[1].strip()  # This info is not always available  # noqa F841
-    mol_comments = mol_file[
+    mol_comments = mol_file[  # noqa F841
         2
-    ].rstrip()  # This info is not always available  # noqa F841
+    ].rstrip()  # This info is not always available
     mol_general_info = mol_file[3]  # This info is not always available
     mol_file.remove(mol_general_info)  # This info is not always available
     mol_general_info = (
