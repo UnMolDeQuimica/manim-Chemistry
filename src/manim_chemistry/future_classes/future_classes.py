@@ -3,6 +3,7 @@
 
 from manim import *
 
+
 class Hole(VMobject):
     def __init__(self, radius=0.25, color=WHITE, **kwargs):
         super().__init__(**kwargs)

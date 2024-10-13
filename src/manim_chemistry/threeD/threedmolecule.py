@@ -15,6 +15,7 @@ class ThreeDMolecule(OpenGLGroup):
     Uses a .mol file, a data source csv, ThreeDAtoms
     and ThreeDBonds to create a ThreeDMolecule.
     """
+
     def __init__(
         self,
         atoms_dict,
@@ -45,7 +46,6 @@ class ThreeDMolecule(OpenGLGroup):
                 self.source_csv, atom.get("element")
             )  # TODO: Make the file an option
             atoms.add(ThreeDAtom(element, atom.get("coords")))
-            
 
         return atoms
 

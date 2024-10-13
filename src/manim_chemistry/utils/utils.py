@@ -7,9 +7,11 @@ def mol_parser(file):
         mol_file = file.readlines()
     # Get general data
 
-    mol_name = mol_file[0].strip()  # This info is not always available
-    mol_source = mol_file[1].strip()  # This info is not always available
-    mol_comments = mol_file[2].rstrip()  # This info is not always available
+    mol_name = mol_file[0].strip()  # This info is not always available  # noqa F841
+    mol_source = mol_file[1].strip()  # This info is not always available  # noqa F841
+    mol_comments = mol_file[
+        2
+    ].rstrip()  # This info is not always available  # noqa F841
     mol_general_info = mol_file[3]  # This info is not always available
     mol_file.remove(mol_general_info)  # This info is not always available
     mol_general_info = (
@@ -46,21 +48,21 @@ def mol_parser(file):
 
         try:
             bond_stereo = line_data[3]
-        except:
+        except Exception as _:
             bond_stereo = ""
         else:
             bond_data["stereo"] = int(bond_stereo)
 
         try:
             bond_topology = line_data[5]
-        except:
+        except Exception as _:
             bond_topology = ""
         else:
             bond_data["topology"] = int(bond_topology)
 
         try:
             reacting_center_status = line_data[6]
-        except:
+        except Exception as _:
             reacting_center_status = ""
         else:
             bond_data["reacting_center_status"] = int(reacting_center_status)
@@ -97,11 +99,11 @@ def mol_parser(file):
 
 
 def get_element(element, language="ENG"):
-    if language=="ENG":
+    if language == "ENG":
         element_dict = ELEMENT_DICT
-    elif language=="ESP":
+    elif language == "ESP":
         element_dict = ELEMENT_DICT_ESP
-        
+
     return element_dict[element]
 
 
@@ -136,10 +138,8 @@ def mol_to_graph(file, language="ENG"):
         first_atom_index = int(float(line_data[0]))
         second_atom_index = int(float(line_data[1]))
         bond_type = line_data[2]
-        bonds[(first_atom_index, second_atom_index)] = {
-            "type": bond_type
-        }
-        
+        bonds[(first_atom_index, second_atom_index)] = {"type": bond_type}
+
     return atoms, bonds  # Should return atoms and bonds
 
 

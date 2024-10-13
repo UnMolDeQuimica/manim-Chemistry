@@ -33,6 +33,7 @@ dynamic = ["version"]
 [project.urls]
 Source = "https://github.com/UnMolDeQuimica/manim-Chemistry"
 "Issue tracker" = "https://github.com/UnMolDeQuimica/manim-Chemistry/issues"
+Homepage = "https://github.com/UnMolDeQuimica/manim-Chemistry"
 
 [tools.setuptools.dynamic]
 version = {attr = "manim_chemistry.__version__"}
@@ -51,3 +52,7 @@ log_file_level = "INFO"
 
 [project.entry-points."manim.plugins"]
 "manim_chemistry" = "manim_chemistry"
+
+# Ruff config
+[tool.ruff.lint]
+ignore = ["E741", "F405", "F403"]

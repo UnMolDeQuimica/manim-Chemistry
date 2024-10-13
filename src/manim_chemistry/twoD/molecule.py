@@ -1,5 +1,14 @@
-from manim import VGroup, VDict, MarkupText, MathTex, SVGMobject, RIGHT, DOWN, RED, GREEN, ORIGIN
-from typing import Dict, Any
+from manim import (
+    VGroup,
+    VDict,
+    MarkupText,
+    MathTex,
+    SVGMobject,
+    DOWN,
+    RED,
+    GREEN,
+    ORIGIN,
+)
 from .atom import MAtomObject
 from .bond import *
 from ..utils import mol_parser
@@ -66,15 +75,15 @@ class MMoleculeObject(VGroup):
                 to_atom = self.atoms_by_index.get(bond.get("to"))
                 if from_atom.element == "H" or to_atom.element == "H":
                     stereo = bond.get("stereo")
-                
+
                     if stereo:
                         if int(stereo) == 1 or int(stereo) == 4:
-                            self.atoms[
-                                from_atom.index
-                            ] = from_atom.copy_with_explicit_hydrogens()
-                            self.atoms[
-                                to_atom.index
-                            ] = to_atom.copy_with_explicit_hydrogens()
+                            self.atoms[from_atom.index] = (
+                                from_atom.copy_with_explicit_hydrogens()
+                            )
+                            self.atoms[to_atom.index] = (
+                                to_atom.copy_with_explicit_hydrogens()
+                            )
                             from_atom = self.atoms[from_atom.index]
                             to_atom = self.atoms[to_atom.index]
                             new_bond = PlainCramBond(
@@ -88,12 +97,12 @@ class MMoleculeObject(VGroup):
                             bonds.add(new_bond)
 
                         elif int(stereo) == 6:
-                            self.atoms[
-                                from_atom.index
-                            ] = from_atom.copy_with_explicit_hydrogens()
-                            self.atoms[
-                                to_atom.index
-                            ] = to_atom.copy_with_explicit_hydrogens()
+                            self.atoms[from_atom.index] = (
+                                from_atom.copy_with_explicit_hydrogens()
+                            )
+                            self.atoms[to_atom.index] = (
+                                to_atom.copy_with_explicit_hydrogens()
+                            )
                             from_atom = self.atoms[from_atom.index]
                             to_atom = self.atoms[to_atom.index]
                             new_bond = DashedCramBond(
@@ -105,23 +114,20 @@ class MMoleculeObject(VGroup):
 
                             bond_index += 1
                             bonds.add(new_bond)
-                    
+
                         else:
-                            
                             continue
                     # you don't need not x and not y
                     # just use De Morgan's law ! (syntactic detail, doesn't change code)
-                    elif (from_atom.explicit_hydrogens) or (
-                        to_atom.explicit_hydrogens
-                    ):
+                    elif (from_atom.explicit_hydrogens) or (to_atom.explicit_hydrogens):
                         # make bonds to explicit hydrogens
                         # TODO: clean repetitive code
-                        self.atoms[
-                                from_atom.index
-                            ] = from_atom.copy_with_explicit_hydrogens()
-                        self.atoms[
-                            to_atom.index
-                        ] = to_atom.copy_with_explicit_hydrogens()
+                        self.atoms[from_atom.index] = (
+                            from_atom.copy_with_explicit_hydrogens()
+                        )
+                        self.atoms[to_atom.index] = (
+                            to_atom.copy_with_explicit_hydrogens()
+                        )
                         from_atom = self.atoms[from_atom.index]
                         to_atom = self.atoms[to_atom.index]
                         new_bond = SimpleBond(
@@ -178,7 +184,6 @@ class MMoleculeObject(VGroup):
                     bond_index += 1
                     bonds.add(new_bond)
 
-        
         return bonds
 
     def add_atom_numbering(self):
@@ -201,7 +206,7 @@ class MMoleculeObject(VGroup):
                 )
 
         self.add(numbering)
-        
+
         return self
 
     def add_bond_numbering(self):
@@ -220,19 +225,19 @@ class MMoleculeObject(VGroup):
                     )
 
         self.add(numbering)
-        
+
         return self
 
     def rotate_bond(self, rotate_bonds):
         if isinstance(rotate_bonds, int):
             rotate_bonds = [rotate_bonds]
-            
+
         for bond in rotate_bonds:
             direction = self.bonds[bond][0][0].end - self.bonds[bond][0][0].start
             self.bonds[bond].rotate(
                 PI, about_point=self.bonds[bond][0][0].get_center(), axis=direction
             )
-            
+
         return self
 
     def complete_missing_hydrogens(self):
@@ -282,48 +287,65 @@ class MMoleculeObject(VGroup):
 
 
 class NamedMolecule(VGroup):
-    def __init__(self, name, molecule_data, direction = DOWN, buff=1, tex = False, font="", *args, **kwargs):
+    def __init__(
+        self,
+        name,
+        molecule_data,
+        direction=DOWN,
+        buff=1,
+        tex=False,
+        font="",
+        *args,
+        **kwargs,
+    ):
         if isinstance(molecule_data, MMoleculeObject):
             self.molecule = molecule_data
-        
+
         else:
             self.molecule = MMoleculeObject(molecule_data, *args, **kwargs)
-            
+
         if isinstance(name, SVGMobject):
             name_text = name
-            
+
         elif tex:
             name_text = MathTex(name, *args, **kwargs)
         else:
             name_text = MarkupText(name, font=font, *args, **kwargs)
-        
+
         name_text.next_to(self.molecule, direction, buff)
-  
+
         super().__init__(*[self.molecule, name_text], **kwargs)
-        
-        
-    def from_mol_file(name, filename, direction = DOWN, buff=1, tex=False, font="", *args, **kwargs):
+
+    def from_mol_file(
+        name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
+    ):
         molecule = MMoleculeObject.from_mol_file(filename, *args, **kwargs)
-        
-        return NamedMolecule(name, molecule, direction=direction, buff=buff, tex=tex, font=font, *args, **kwargs)
-    
-    def rotate_bond(self, bonds: int|list):
+
+        return NamedMolecule(
+            name,
+            molecule,
+            direction=direction,
+            buff=buff,
+            tex=tex,
+            font=font,
+            *args,
+            **kwargs,
+        )
+
+    def rotate_bond(self, bonds: int | list):
         self.molecule = self.molecule.rotate_bond(bonds)
-        
+
         return self
-    
-    
+
     def add_bond_numbering(self):
         self.molecule = self.molecule.add_bond_numbering()
         self.molecule[-1].move_to(self.molecule[1].get_center())
-        
+
         return self
-        
+
     def add_atom_numbering(self):
         # Atom numbering is not working correctly.
         self.molecule = self.molecule.add_atom_numbering()
         self.molecule[-1].move_to(self.molecule[0].get_center())
-        
+
         return self
-        
-        
