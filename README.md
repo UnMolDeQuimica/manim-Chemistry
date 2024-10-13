@@ -178,7 +178,7 @@ class GraphMoleculeExample(Scene):
         )
         self.add(graph_molecule)
 ```
-![plot](/examples/examples_assets/DrawLabeledGraphMorphine_ManimCE_v0.17.3.png)
+![plot](/examples/examples_assets/DrawLabeledWithIndexGraphMorphine_ManimCE_v0.17.3.png)
 
 ### Partial molecule selection and custom animations in GraphMolecules:
 The power of graphs really shows in GraphMolecules. One of the examples of this power is using `networkx` to get parts of the molecules given a starting atom and ending atom. For example, we could color a part of the molecule:
@@ -192,7 +192,7 @@ class GraphMoleculeExample(Scene):
         atoms_and_bonds.set_color(GREEN)
         self.add(molecule)
 ```
-![plot](/examples/examples_assets/PartiallyColoredGraphMolecule.17.3.png)
+![plot](/examples/examples_assets/PartiallyColoredGraphMolecule.png)
 
 
 
