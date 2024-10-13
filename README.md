@@ -142,7 +142,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(filename="morphine.mol")
+        graph_molecule = GraphMolecule.build_from_mol(mol_file="morphine.mol")
         self.add(graph_molecule)
 ```
 ![plot](/examples/examples_assets/DrawGraphMorphine_ManimCE_v0.17.3.png)
@@ -156,10 +156,50 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(filename="morphine.mol")
+        graph_molecule = GraphMolecule.build_from_mol(
+            mol_file="morphine.mol",
+            label=True
+        )
         self.add(graph_molecule)
 ```
 ![plot](/examples/examples_assets/DrawLabeledGraphMorphine_ManimCE_v0.17.3.png)
+
+Using `label=True` and `numeric_label=True` you will get the molecule drawn with is atoms labeled using the molfile:
+```
+from manim import *
+from manim_chemistry import *
+
+class GraphMoleculeExample(Scene):
+    def construct(self):
+        graph_molecule = GraphMolecule.build_from_mol(
+            mol_file="morphine.mol",
+            label=True,
+            numeric_label=True
+        )
+        self.add(graph_molecule)
+```
+![plot](/examples/examples_assets/DrawLabeledGraphMorphine_ManimCE_v0.17.3.png)
+
+### Partial molecule selection and custom animations in GraphMolecules:
+The power of graphs really shows in GraphMolecules. One of the examples of this power is using `networkx` to get parts of the molecules given a starting atom and ending atom. For example, we could color a part of the molecule:
+
+
+```python
+class GraphMoleculeExample(Scene):
+    def construct(self):
+        molecule = GraphMolecule.build_from_mol(asset, label=True, numeric_label=True)
+        atoms_and_bonds = molecule.get_connected_atoms_and_bonds(1, 3)
+        atoms_and_bonds.set_color(GREEN)
+        self.add(molecule)
+```
+![plot](/examples/examples_assets/PartiallyColoredGraphMolecule.17.3.png)
+
+
+
+It is also possible to perform some custom animations using GMAnimationBuilder: rotate_atoms_about_bond and change_color:
+
+![plot](/examples/examples_assets/CustomGraphMoleculeAnimation.gif)
+
 
 
 ## Create 3D molecule:

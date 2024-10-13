@@ -1,7 +1,4 @@
-from manim import Transform, VGroup, OUT, PI, BLACK, WHITE
-from manim.utils.rate_functions import linear
-import numpy as np
-from typing import Sequence
+from manim import VGroup, PI, BLACK
 
 from .graph_molecule import GraphMolecule
 
