@@ -1,14 +1,21 @@
 version: 2
-
 build:
   os: ubuntu-22.04
   tools:
-    python: "3.11"
-
+    python: '3.10'
+  apt_packages:
+  - libpango1.0-dev
+  - ffmpeg
 sphinx:
   builder: html
   configuration: docs/source/conf.py
   fail_on_warning: true
+python:
+  install:
+  - method: pip
+    path: .
+    extra_requirements:
+    - docs
 
 python:  
   install:
