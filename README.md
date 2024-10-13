@@ -1,3 +1,8 @@
+# Docs
+Check out the brand new [docs](https://manim-chemistry.readthedocs.io/en/latest/)!
+
+(They are still in progress)
+
 # Table of contents:
 - [Installation](#installation)
 - [What is manim-Chemistry](#what-is-manim-chemistry)
