@@ -67,11 +67,11 @@ class TripleLine(SimpleLine):
         
 
 class GraphMolecule(Graph):
-    def __init__(self, vertices_dict: dict, edges_dict: dict, label: bool=False, *args, **kwargs):
+    def __init__(self, vertices_dict: dict, edges_dict: dict, label: bool=False, numeric_label: bool=False, *args, **kwargs):
         self.edges_dict = edges_dict
         labels = False
         if label:
-            labels = self.make_labels(vertices_dict)
+            labels = self.make_labels(vertices_dict, numeric_label)
             
         super().__init__(
             vertices=vertices_dict.keys(),
@@ -142,7 +142,9 @@ class GraphMolecule(Graph):
 
         return edge_config
     
-    def make_labels(self, vertices_dict: dict):
+    def make_labels(self, vertices_dict: dict, numeric_label: bool):
+        if numeric_label:
+            return {index: Text(str(index), color=BLACK).scale(0.5) for index in vertices_dict.keys()}
         return {index: Text(vertex.get("element").symbol, color=BLACK).scale(0.5) for index, vertex in vertices_dict.items()}
         
     @classmethod
