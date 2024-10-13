@@ -1,5 +1,6 @@
 from manim import *
 import numpy as np
+import networkx as nx
 
 from manim_chemistry.utils import mol_to_graph
 
@@ -150,3 +151,97 @@ class GraphMolecule(Graph):
     def build_from_mol(self, mol_file, label=False, language="ENG", *args, **kwargs):
         vertices_dict, edges_dict = mol_to_graph(mol_file, language=language)
         return GraphMolecule(vertices_dict, edges_dict, label, *args, **kwargs)
+
+    def depth_first_search(
+        self, graph: nx.Graph, atom: int, visited_atoms: set, connected_atoms: list
+    ) -> list:
+        """
+        Recursive depht-first search to find connected atoms.
+        Warning: Only works properly for non cyclic structures. If you use
+        an atom from a cycle as the starting point, it will take the whole cycle.
+        """
+        for neighbor in graph.neighbors(atom):
+            if neighbor not in visited_atoms:
+                visited_atoms.add(neighbor)
+                connected_atoms.append(neighbor)
+                self.depth_first_search(
+                    graph=graph,
+                    atom=neighbor,
+                    visited_atoms=visited_atoms,
+                    connected_atoms=connected_atoms,
+                )
+
+        return connected_atoms
+
+    def get_connected_atoms(self, from_atom_index: int, to_atom_index: int) -> list:
+        """
+        Given two atoms index, returns the connected atoms to the second atom
+        after the bond between the first atom and the second one.
+
+        Example:
+        Index: 0 1 2 3 4 5
+        Atoms: C-O-C-N-C-H
+        This function applied to atoms 2 (C) and 3 (N), would return
+        [3, 4, 5], the indices of atoms N, C and H.
+        """
+        if not self._graph.has_edge(from_atom_index, to_atom_index):
+            raise Exception(
+                f"There is no bond between atoms {from_atom_index} and {to_atom_index}"
+            )
+
+        visited_atoms = set([from_atom_index])
+        connected_atoms = [to_atom_index]
+
+        return self.depth_first_search(
+            self._graph,
+            atom=to_atom_index,
+            visited_atoms=visited_atoms,
+            connected_atoms=connected_atoms,
+        )
+
+    def get_atoms_vgroup_from_index(self, atoms_indices):
+        return VGroup(*[self.vertices[atom_index] for atom_index in atoms_indices])
+
+    def get_connected_atoms_v_group(
+        self, from_atom_index: int, to_atom_index: int
+    ) -> list:
+        connected_atoms = self.get_connected_atoms(
+            from_atom_index=from_atom_index, to_atom_index=to_atom_index
+        )
+        return self.get_atoms_vgroup_from_index(connected_atoms)
+
+    def get_bonds_from_atoms_indices(
+        self, connected_atoms: list, excluded_atom: int = 0
+    ) -> list:
+        """
+        Given a list of atoms, returns the bonds related to those atoms.
+        """
+        edges = []
+        for atom in connected_atoms:
+            for bond in self.edges.keys():
+                if atom in bond and excluded_atom not in bond:
+                    edges.append(bond)
+
+        return edges
+
+    def get_bonds_vgroup_from_index(self, connected_atoms: list, excluded_atom: int):
+        bonds = self.get_bonds_from_atoms_indices(connected_atoms, excluded_atom)
+        return VGroup(*[self.edges[bond_atoms] for bond_atoms in bonds])
+
+    def get_connected_atoms_and_bonds_group_from_index(
+        self, connected_atoms: list, excluded_atom: int = 0
+    ):
+        return VGroup(
+            self.get_atoms_vgroup_from_index(atoms_indices=connected_atoms),
+            self.get_bonds_vgroup_from_index(
+                connected_atoms=connected_atoms, excluded_atom=excluded_atom
+            ),
+        )
+
+    def get_connected_atoms_and_bonds(self, from_atom: int, to_atom: int) -> VGroup:
+        connected_atoms = self.get_connected_atoms(
+            from_atom_index=from_atom, to_atom_index=to_atom
+        )
+        return self.get_connected_atoms_and_bonds_group_from_index(
+            connected_atoms=connected_atoms, excluded_atom=from_atom
+        )
