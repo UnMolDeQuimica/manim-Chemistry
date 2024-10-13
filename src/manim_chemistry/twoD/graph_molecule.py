@@ -28,11 +28,17 @@ class DoubleLine(VGroup):
         self.start = np.array(start)
         self.end = np.array(end)
         super().__init__(**kwargs)
+        self.sheen_direction = self._get_unit_vector()
 
         self.add(
             ArcBetweenPoints(start=self.start, end=self.end, angle=angle, **kwargs),
             ArcBetweenPoints(start=self.start, end=self.end, angle=-angle, **kwargs),
         )
+    
+    def _get_unit_vector(self) -> np.array:
+        vector = self.end - self.start
+
+        return vector / np.linalg.norm(vector)
 
 
 class TripleLine(SimpleLine):
