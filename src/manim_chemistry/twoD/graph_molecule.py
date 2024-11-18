@@ -21,20 +21,27 @@ class SimpleLine(VGroup):
         return vector / np.linalg.norm(vector)
 
 
-class DoubleLine(VGroup):
+class DoubleLine(ArcBetweenPoints):
     def __init__(
-        self, start=[-1, 0, 0], end=[1, 0, 0], angle: float = PI / 4, **kwargs
+        self,
+        start=[-1, 0, 0],
+        end=[1, 0, 0],
+        angle: float=PI / 4,
+        radius: float|None=None,
+        **kwargs
     ):
-        self.start = np.array(start)
-        self.end = np.array(end)
-        super().__init__(**kwargs)
+        self.start = start
+        self.end = end
+        super().__init__(start=start, end=end, angle=angle, radius=radius, **kwargs)
         self.sheen_direction = self._get_unit_vector()
-
-        self.add(
-            ArcBetweenPoints(start=self.start, end=self.end, angle=angle, **kwargs),
-            ArcBetweenPoints(start=self.start, end=self.end, angle=-angle, **kwargs),
-        )
-
+        self.add(ArcBetweenPoints(
+            start=start,
+            end=end,
+            angle=-angle,
+            radius=radius,
+            **kwargs
+        ))
+        
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
 
