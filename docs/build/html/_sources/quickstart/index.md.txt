@@ -4,6 +4,7 @@
 
 installation
 drawing-a-molecule
+getting-atom-and-bond-positions
 creating-a-periodic-table
 orbitals
 bohrdiagrams
