@@ -285,7 +285,61 @@ class MMoleculeObject(VGroup):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
+        
+    def find_atom_position_by_index(self, atom_index: int) -> np.array:
+        """_summary_
+        Returns the position of a single atom given its index.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_atom_position_by_index(1))
+        >>> array([ 0.9397, -0.7497,  0.    ])
+        ```
+        
 
+        Args:
+            atom_index (int): Index of the atom inside the VDict.
+
+        Returns:
+            np.array: Array with the [x, y, z] coordinates of the atom.
+        """
+        try:
+            atom = self.atoms[atom_index]
+            return atom.get_center()
+            
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Atom index {atom_index} is not valid for molecule {self}")
+            print(f"Valid indices are: {self.atoms.submob_dict.keys()}")
+            raise key_error
+        
+        except Exception as exception:
+            raise exception
+
+    def find_atoms_position_by_index(self, atoms_index_list: list) -> list:
+        """_summary_
+
+        Returns the position of multiple atoms given their indices.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_atoms_position_by_index([1,2,3]))
+        >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
+        ```
+        Args:
+            atoms_index_list (list): List of atoms indices to be gotten.
+
+        Returns:
+            list: List of the atoms positions.
+        """
+        atoms_positions = []
+        for atom_index in atoms_index_list:
+            atoms_positions.append(self.find_atom_position_by_index(atom_index=atom_index))
+            
+        return atoms_positions
+        
 class NamedMolecule(VGroup):
     def __init__(
         self,
