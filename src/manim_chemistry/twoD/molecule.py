@@ -285,7 +285,161 @@ class MMoleculeObject(VGroup):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
+        
+    def find_atom_position_by_index(self, atom_index: int) -> np.array:
+        """_summary_
+        Returns the position of a single atom given its index.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_atom_position_by_index(1))
+        >>> array([ 0.9397, -0.7497,  0.    ])
+        ```
+        
 
+        Args:
+            atom_index (int): Index of the atom inside the VDict.
+
+        Returns:
+            np.array: Array with the [x, y, z] coordinates of the atom.
+        """
+        try:
+            atom = self.atoms[atom_index]
+            return atom.get_center()
+            
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Atom index {atom_index} is not valid for molecule {self}")
+            print(f"Valid indices are: {self.atoms.submob_dict.keys()}")
+            raise key_error
+        
+        except Exception as exception:
+            raise exception
+
+    def find_atoms_position_by_index(self, atoms_index_list: list) -> list:
+        """_summary_
+
+        Returns the position of multiple atoms given their indices.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_atoms_position_by_index([1,2,3]))
+        >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
+        ```
+        Args:
+            atoms_index_list (list): List of atoms indices to be gotten.
+
+        Returns:
+            list: List of the atoms positions.
+        """
+        atoms_positions = []
+        for atom_index in atoms_index_list:
+            atoms_positions.append(self.find_atom_position_by_index(atom_index=atom_index))
+            
+        return atoms_positions
+    
+    def find_bond_center_by_index(self, bond_index: int) -> np.array:
+        """_summary_
+
+        Returns the [x, y, z] coordinates of a bond given a bond index.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_bond_center_by_index(1))
+        >>> array([0.51935, 0.59615, 0.     ])
+        ```
+        
+        Args:
+            bond_index (int): index of the bond
+
+        Returns:
+            np.array: [x, y, z] coordinates of bond center.
+        """
+        try:
+            bond = self.bonds[bond_index]
+            return bond.get_center()
+            
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Bond index {bond_index} is not valid for molecule {self}")
+            raise key_error
+        
+        except Exception as exception:
+            raise exception
+        
+    def find_position_along_bond_axis(self, bond_index: int, position_buff: float) -> np.array:
+        """_summary_
+        Returns a position along the bond axis given a bond index and depending on a position_buff. 
+        A value of 1 will return one end of the bond. A value of -1 will return the other end. 
+        All values in between return positions at some point of the middle of the bond, being 0 the center.
+        Values bigger or lower that 1 and -1 will return positions outside the bond.
+        
+        Args:
+            bond_index (int): Index of the bond
+            position_buff (float): Position buff
+
+        Returns:
+            np.array: [x, y, z] coordinates of the final position selected.
+        """
+        
+        try:
+            bond = self.bonds[bond_index]
+        
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Bond index {bond_index} is not valid for molecule {self}")
+            print(f"Valid indices are: {self.bonds.submob_dict.keys()}")
+            raise key_error
+    
+        bond_vector = bond.get_vector()
+        bond_center = bond.get_center()
+        
+        return bond_center + bond_vector * position_buff * 0.5
+        
+        
+    def find_bonds_center_by_index(self, bonds_index_list: list) -> list:
+        """_summary_
+
+        Returns the position of multiple bonds given their indices.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_bonds_center_by_index([1,2,3]))
+        >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
+        ```
+        Args:
+            bondss_index_list (list): List of bonds indices to be gotten.
+
+        Returns:
+            list: List of the bonds positions.
+        """
+        bonds_positions = []
+        for bond_index in bonds_index_list:
+            bonds_positions.append(self.find_bond_center_by_index(bond_index=bond_index))
+            
+        return bonds_positions
+    
+    def find_all_atoms_positions(self) -> dict:
+        
+        atoms_positions = {}
+        for atom_index in self.atoms.submob_dict.keys():
+            atoms_positions[atom_index] = self.find_atom_position_by_index(atom_index=atom_index)
+        
+        return atoms_positions
+    
+    
+    def find_all_bonds_centers(self) -> dict:
+        
+        bonds_positions = {}
+        for bond_index, _ in enumerate(self.bonds):
+            bonds_positions[bond_index] = self.find_bond_center_by_index(bond_index=bond_index)
+        
+        return bonds_positions
+        
 class NamedMolecule(VGroup):
     def __init__(
         self,
@@ -315,6 +469,8 @@ class NamedMolecule(VGroup):
         name_text.next_to(self.molecule, direction, buff)
 
         super().__init__(*[self.molecule, name_text], **kwargs)
+        self.atoms = self.molecule.atoms
+        self.bonds = self.molecule.bonds
 
     def from_mol_file(
         name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
@@ -349,3 +505,158 @@ class NamedMolecule(VGroup):
         self.molecule[-1].move_to(self.molecule[0].get_center())
 
         return self
+
+    def find_atom_position_by_index(self, atom_index: int) -> np.array:
+        """_summary_
+        Returns the position of a single atom given its index.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_atom_position_by_index(1))
+        >>> array([ 0.9397, -0.7497,  0.    ])
+        ```
+        
+
+        Args:
+            atom_index (int): Index of the atom inside the VDict.
+
+        Returns:
+            np.array: Array with the [x, y, z] coordinates of the atom.
+        """
+        try:
+            atom = self.atoms[atom_index]
+            return atom.get_center()
+            
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Atom index {atom_index} is not valid for molecule {self}")
+            print(f"Valid indices are: {self.atoms.submob_dict.keys()}")
+            raise key_error
+        
+        except Exception as exception:
+            raise exception
+
+    def find_atoms_position_by_index(self, atoms_index_list: list) -> list:
+        """_summary_
+
+        Returns the position of multiple atoms given their indices.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_atoms_position_by_index([1,2,3]))
+        >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
+        ```
+        Args:
+            atoms_index_list (list): List of atoms indices to be gotten.
+
+        Returns:
+            list: List of the atoms positions.
+        """
+        atoms_positions = []
+        for atom_index in atoms_index_list:
+            atoms_positions.append(self.find_atom_position_by_index(atom_index=atom_index))
+            
+        return atoms_positions
+    
+    def find_bond_center_by_index(self, bond_index: int) -> np.array:
+        """_summary_
+
+        Returns the [x, y, z] coordinates of a bond given a bond index.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_bond_center_by_index(1))
+        >>> array([0.51935, 0.59615, 0.     ])
+        ```
+        
+        Args:
+            bond_index (int): index of the bond
+
+        Returns:
+            np.array: [x, y, z] coordinates of bond center.
+        """
+        try:
+            bond = self.bonds[bond_index]
+            return bond.get_center()
+            
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Bond index {bond_index} is not valid for molecule {self}")
+            print(f"Valid indices are: {self.bonds.submob_dict.keys()}")
+            raise key_error
+        
+        except Exception as exception:
+            raise exception
+        
+    def find_position_along_bond_axis(self, bond_index: int, position_buff: float) -> np.array:
+        """_summary_
+        Returns a position along the bond axis given a bond index and depending on a position_buff. 
+        A value of 1 will return one end of the bond. A value of -1 will return the other end. 
+        All values in between return positions at some point of the middle of the bond, being 0 the center.
+        Values bigger or lower that 1 and -1 will return positions outside the bond.
+        
+        Args:
+            bond_index (int): Index of the bond
+            position_buff (float): Position buff
+
+        Returns:
+            np.array: [x, y, z] coordinates of the final position selected.
+        """
+        
+        try:
+            bond = self.bonds[bond_index]
+        
+        except KeyError as key_error:
+            # TODO: Change from print to proper logging system.
+            print(f"Bond index {bond_index} is not valid for molecule {self}")
+            print(f"Valid indices are: {self.bonds.submob_dict.keys()}")
+            raise key_error
+    
+        bond_vector = bond.get_vector()
+        bond_center = bond.get_center()
+        
+        return bond_center + bond_vector * position_buff * 0.5
+        
+        
+    def find_bonds_center_by_index(self, bonds_index_list: list) -> list:
+        """_summary_
+
+        Returns the position of multiple bonds given their indices.
+        
+        Example:
+        ```
+        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        print(molecule.find_bonds_position_by_index([1,2,3]))
+        >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
+        ```
+        Args:
+            bondss_index_list (list): List of bonds indices to be gotten.
+
+        Returns:
+            list: List of the bonds positions.
+        """
+        bonds_positions = []
+        for bond_index in bonds_index_list:
+            bonds_positions.append(self.find_bond_center_by_index(bond_index=bond_index))
+            
+        return bonds_positions
+    
+    def find_all_atoms_positions(self) -> dict:
+        
+        atoms_positions = {}
+        for atom_index in self.atoms.submob_dict.keys():
+            atoms_positions[atom_index] = self.find_atom_position_by_index(atom_index=atom_index)
+        
+        return atoms_positions
+    
+    
+    def find_all_bonds_centers(self) -> dict:
+        
+        bonds_positions = {}
+        for bond_index, _ in enumerate(self.bonds):
+            bonds_positions[bond_index] = self.find_bond_center_by_index(bond_index=bond_index)
+        
+        return bonds_positions

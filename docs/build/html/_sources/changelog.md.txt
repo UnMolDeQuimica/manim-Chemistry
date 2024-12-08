@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2
+### New Features
+* [Issue #33 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/34): Adds functions to get the atoms and bonds positions. Big thanks to [@thinktraveler](https://github.com/thinktraveller) for opening a request!
+
+## 0.4.1 
+### Bugfix
+* Fixed GraphMolecule animations [36fbd7](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/36fbd72bc76931a7f6fa1ab67c1bb48b573855e5)
+
+
 ## 0.4.0
 ### New Features
 * [Issue #18 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/21): Changes the style of double and triple bonds of GraphMolecule by [@UnMolDeQuimica](https://github.com/UnMolDeQuimica).

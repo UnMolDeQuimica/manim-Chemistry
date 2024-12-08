@@ -16,6 +16,7 @@ bohrdiagrams
     - [NamedMolecules](/quickstart/drawing-a-molecule.md#namedmolecules)
     - [GraphMolecules](/quickstart/drawing-a-molecule.md#graphmolecules)
     - [ThreeDMolecules](/quickstart/drawing-a-molecule.md#threedmolecules)
+    - [Atoms and Bond Positions](/quickstart/getting-atom-and-bond-positions)
 - [Creating a Periodic Table](/quickstart/creating-a-periodic-table)
     - [MElementObject](/quickstart/creating-a-periodic-table.md#melementobject)
     - [PeriodicTable](/quickstart/creating-a-periodic-table.md#periodictable)
