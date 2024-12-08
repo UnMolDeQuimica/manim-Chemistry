@@ -1,5 +1,5 @@
 # Getting Atoms and Bond Positions
-Sometimes it is useful to get the atoms and bonds positions. You can do this for `MMoleculeObjects`, ``NamedMolecule` and `GraphMolecule` objects:
+Sometimes it is useful to get the atoms and bonds positions. You can do this for `MMoleculeObjects`, `NamedMolecule` and `GraphMolecule` objects:
 
 ## MMoleculeObjects
 
