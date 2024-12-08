@@ -423,6 +423,23 @@ class MMoleculeObject(VGroup):
             bonds_positions.append(self.find_bond_center_by_index(bond_index=bond_index))
             
         return bonds_positions
+    
+    def find_all_atoms_positions(self) -> dict:
+        
+        atoms_positions = {}
+        for atom_index in self.atoms.submob_dict.keys():
+            atoms_positions[atom_index] = self.find_atom_position_by_index(atom_index=atom_index)
+        
+        return atoms_positions
+    
+    
+    def find_all_bonds_centers(self) -> dict:
+        
+        bonds_positions = {}
+        for bond_index, _ in enumerate(self.bonds):
+            bonds_positions[bond_index] = self.find_bond_center_by_index(bond_index=bond_index)
+        
+        return bonds_positions
         
 class NamedMolecule(VGroup):
     def __init__(
@@ -626,4 +643,21 @@ class NamedMolecule(VGroup):
         for bond_index in bonds_index_list:
             bonds_positions.append(self.find_bond_center_by_index(bond_index=bond_index))
             
+        return bonds_positions
+    
+    def find_all_atoms_positions(self) -> dict:
+        
+        atoms_positions = {}
+        for atom_index in self.atoms.submob_dict.keys():
+            atoms_positions[atom_index] = self.find_atom_position_by_index(atom_index=atom_index)
+        
+        return atoms_positions
+    
+    
+    def find_all_bonds_centers(self) -> dict:
+        
+        bonds_positions = {}
+        for bond_index, _ in enumerate(self.bonds):
+            bonds_positions[bond_index] = self.find_bond_center_by_index(bond_index=bond_index)
+        
         return bonds_positions
