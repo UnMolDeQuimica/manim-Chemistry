@@ -328,7 +328,7 @@ class GraphMolecule(Graph):
         Example:
         ```
         molecule = GraphMolecule.build_from_mol("examples/element_files/dimethylpropane.mol")
-        print(molecule.find_bond_center_by_index((1, 2))
+        print(molecule.find_bond_center_by_tuple((1, 2))
         >>> array([0.51935, 0.59615, 0.     ])
         ```
         
@@ -380,7 +380,7 @@ class GraphMolecule(Graph):
         return bond_center + bond_vector * position_buff * 0.5
         
         
-    def find_bonds_center_by_index(self, bonds_tuples_list: list) -> list:
+    def find_bonds_center_by_tuple(self, bonds_tuples_list: list) -> list:
         """_summary_
 
         Returns the position of multiple bonds given their indices.
@@ -388,7 +388,7 @@ class GraphMolecule(Graph):
         Example:
         ```
         molecule = GraphMolecule.build_from_mol("examples/element_files/dimethylpropane.mol")
-        print(molecule.find_bonds_center_by_index([1,2,3]))
+        print(molecule.find_bonds_center_by_tuple([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
         Args:
@@ -399,7 +399,7 @@ class GraphMolecule(Graph):
         """
         bonds_positions = []
         for bond_index in bonds_tuples_list:
-            bonds_positions.append(self.find_bond_center_by_index(bond_index=bond_index))
+            bonds_positions.append(self.find_bond_center_by_tuple(bond_index=bond_index))
             
         return bonds_positions
     
