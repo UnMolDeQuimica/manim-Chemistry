@@ -7,7 +7,7 @@ Sometimes it is useful to get the atoms and bonds positions. You can do this for
 You can get a single atom position by indicating the index:
 
 ```python
-molecule = GraphMolecule.from_mol_file("examples/element_files/dimethylpropane.mol")
+molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
 print(molecule.find_atom_position_by_index(1))
 >>> array([ 0.9397, -0.7497,  0.    ])
 ```

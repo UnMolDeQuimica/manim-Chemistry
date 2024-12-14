@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3
+### Bugfix
+* [Issue #36 Bugfix](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/36): Fix error when creating triple bonds. It was cause by a call to a deprecated function. Big thanks to [@thinktraveler](https://github.com/thinktraveller) for opening a request!
+
 ## 0.4.2
 ### New Features
 * [Issue #33 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/34): Adds functions to get the atoms and bonds positions. Big thanks to [@thinktraveler](https://github.com/thinktraveller) for opening a request!
