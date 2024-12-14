@@ -57,7 +57,6 @@ class TripleLine(SimpleLine):
         self, start=[-1, 0, 0], end=[1, 0, 0], angle: float = PI / 4, *args, **kwargs
     ):
         super().__init__(start=start, end=end, *args, **kwargs)
-        self.add(self._make_base_line(**kwargs))
         self.add(
             ArcBetweenPoints(start=self.start, end=self.end, angle=angle, **kwargs),
             ArcBetweenPoints(start=self.start, end=self.end, angle=-angle, **kwargs),
