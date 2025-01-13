@@ -1,19 +1,17 @@
 import numpy as np
+
 from manim_chemistry.element import *
 
 
-def mol_parser(file):
-    with open(file) as file:
-        mol_file = file.readlines()
+def mol_parser_string(mol_string):
     # Get general data
-
-    mol_name = mol_file[0].strip()  # This info is not always available  # noqa F841
-    mol_source = mol_file[1].strip()  # This info is not always available  # noqa F841
-    mol_comments = mol_file[  # noqa F841
+    mol_name = mol_string[0].strip()  # This info is not always available  # noqa F841
+    mol_source = mol_string[1].strip()  # This info is not always available  # noqa F841
+    mol_comments = mol_string[  # noqa F841
         2
     ].rstrip()  # This info is not always available
-    mol_general_info = mol_file[3]  # This info is not always available
-    mol_file.remove(mol_general_info)  # This info is not always available
+    mol_general_info = mol_string[3]  # This info is not always available
+    mol_string.remove(mol_general_info)  # This info is not always available
     mol_general_info = (
         mol_general_info.rstrip().split()
     )  # This info is not always available
@@ -22,7 +20,7 @@ def mol_parser(file):
 
     atoms = {}
     bonds = {}
-    for index, line in enumerate(mol_file[3 : 3 + number_of_atoms]):
+    for index, line in enumerate(mol_string[3 : 3 + number_of_atoms]):
         line_data = line.split()
         x_position = float(line_data[0])
         y_position = float(line_data[1])
@@ -33,7 +31,7 @@ def mol_parser(file):
             "element": element,
         }
 
-    for line in mol_file[3 + number_of_atoms : 3 + number_of_atoms + number_of_bonds]:
+    for line in mol_string[3 + number_of_atoms : 3 + number_of_atoms + number_of_bonds]:
         line_data = line.split()
         first_atom_index = int(float(line_data[0]))
         second_atom_index = int(float(line_data[1]))
@@ -96,6 +94,11 @@ def mol_parser(file):
             ).get("element")
 
     return atoms, bonds  # Should return atoms and bonds
+
+def mol_parser(file):
+    with open(file) as file:
+        mol_file = file.readlines()
+    return mol_parser_string(mol_file)
 
 
 def get_element(element, language="ENG"):
