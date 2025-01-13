@@ -1,11 +1,8 @@
-from manim import (
-    ORIGIN,
-)
+from manim import ORIGIN
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
 
 from ..element import Element
-from ..utils import mol_parser
-
+from ..utils import mol_parser, mol_parser_string
 from .threedatom import ThreeDAtom
 from .threedbond import ThreeDBond
 
@@ -66,4 +63,8 @@ class ThreeDMolecule(OpenGLGroup):
 
     def from_mol_file(filename, source_csv):
         atoms, bonds = mol_parser(file=filename)
+        return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds, source_csv=source_csv)
+
+    def from_mol_string(mol_string, source_csv):
+        atoms, bonds = mol_parser_string(mol_string)
         return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds, source_csv=source_csv)

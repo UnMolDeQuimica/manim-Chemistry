@@ -1,17 +1,9 @@
-from manim import (
-    VGroup,
-    VDict,
-    MarkupText,
-    MathTex,
-    SVGMobject,
-    DOWN,
-    RED,
-    GREEN,
-    ORIGIN,
-)
+from manim import (DOWN, GREEN, ORIGIN, RED, MarkupText, MathTex, SVGMobject,
+                   VDict, VGroup)
+
+from ..utils import mol_parser, mol_parser_string
 from .atom import MAtomObject
 from .bond import *
-from ..utils import mol_parser
 
 
 class MMoleculeObject(VGroup):
@@ -283,6 +275,10 @@ class MMoleculeObject(VGroup):
 
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
+        return MMoleculeObject(atoms, bonds, *args, **kwargs)
+
+    def from_mol_string(mol_string, *args, **kwargs):
+        atoms, bonds = mol_parser_string(mol_string)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
         
