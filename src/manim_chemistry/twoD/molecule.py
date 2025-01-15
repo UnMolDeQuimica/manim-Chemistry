@@ -1,7 +1,8 @@
 from manim import (DOWN, GREEN, ORIGIN, RED, MarkupText, MathTex, SVGMobject,
                    VDict, VGroup)
 
-from ..utils import mol_parser, mol_parser_string
+from ..utils import (mol_parser, mol_parser_string, sdf_parser,
+                     sdf_parser_string)
 from .atom import MAtomObject
 from .bond import *
 
@@ -280,7 +281,6 @@ class MMoleculeObject(VGroup):
     def from_mol_string(mol_string, *args, **kwargs):
         atoms, bonds = mol_parser_string(mol_string)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
-
         
     def find_atom_position_by_index(self, atom_index: int) -> np.array:
         """_summary_

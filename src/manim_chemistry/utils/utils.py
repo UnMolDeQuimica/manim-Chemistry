@@ -100,6 +100,21 @@ def mol_parser(file):
         mol_file = file.readlines()
     return mol_parser_string(mol_file)
 
+def sdf_parser_string(sdf_string):
+    molecules = sdf_string.split("$$$$")
+    molecules = [m.strip() for m in molecules if m.strip()]
+
+    mol_list = []
+    for i, mol in enumerate(molecules, 1):
+        mol_list.append(mol_parser_string(mol.split("\n")))
+
+    return mol_list
+
+def sdf_parser(file):
+    with open(file) as file:
+        sdf_file = file.read()
+    return sdf_parser_string(sdf_file)
+
 
 def get_element(element, language="ENG"):
     if language == "ENG":
