@@ -281,6 +281,22 @@ class MMoleculeObject(VGroup):
     def from_mol_string(mol_string, *args, **kwargs):
         atoms, bonds = mol_parser_string(mol_string)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
+    
+    def from_sdf_file(filename, *args, **kwargs):
+        molecules = sdf_parser(filename)
+        moleculeObjects = []
+        for molecule in molecules:
+            atoms, bonds = molecule
+            moleculeObjects.append(MMoleculeObject(atoms, bonds, *args, **kwargs))
+        return moleculeObjects
+    
+    def from_sdf_string(sdf_string, *args, **kwargs):
+        molecules = sdf_parser_string(sdf_string)
+        moleculeObjects = []
+        for molecule in molecules:
+            atoms, bonds = molecule
+            moleculeObjects.append(MMoleculeObject(atoms, bonds, *args, **kwargs))
+        return moleculeObjects
         
     def find_atom_position_by_index(self, atom_index: int) -> np.array:
         """_summary_
@@ -483,6 +499,62 @@ class NamedMolecule(VGroup):
             *args,
             **kwargs,
         )
+    
+    def from_mol_string(
+        name, mol_str, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
+    ):
+        molecule = MMoleculeObject.from_mol_string(mol_str, *args, **kwargs)
+
+        return NamedMolecule(
+            name,
+            molecule,
+            direction=direction,
+            buff=buff,
+            tex=tex,
+            font=font,
+            *args,
+            **kwargs,
+        )
+    
+    def from_sdf_file(
+        name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
+    ):
+        molecules = MMoleculeObject.from_sdf_file(filename, *args, **kwargs)
+        named_molecules = []
+        for index, molecule in enumerate(molecules):
+            named_molecules.append(
+                NamedMolecule(
+                    name + f"_{index}",
+                    molecule,
+                    direction=direction,
+                    buff=buff,
+                    tex=tex,
+                    font=font,
+                    *args,
+                    **kwargs,
+                )
+            )
+        return named_molecules
+    
+    def from_sdf_string(
+        name, sdf_str, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
+    ):
+        molecules = MMoleculeObject.from_sdf_string(sdf_str, *args, **kwargs)
+        named_molecules = []
+        for index, molecule in enumerate(molecules):
+            named_molecules.append(
+                NamedMolecule(
+                    name + f"_{index}",
+                    molecule,
+                    direction=direction,
+                    buff=buff,
+                    tex=tex,
+                    font=font,
+                    *args,
+                    **kwargs,
+                )
+            )
+        return named_molecules
 
     def rotate_bond(self, bonds: int | list):
         self.molecule = self.molecule.rotate_bond(bonds)
