@@ -2,8 +2,7 @@ from manim import ORIGIN
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
 
 from ..element import Element
-from ..utils import (mol_parser, mol_parser_string, sdf_parser,
-                     sdf_parser_string)
+from ..utils import mol_parser, mol_parser_string, sdf_parser, sdf_parser_string
 from .threedatom import ThreeDAtom
 from .threedbond import ThreeDBond
 
