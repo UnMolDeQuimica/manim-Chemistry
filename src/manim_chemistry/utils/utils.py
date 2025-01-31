@@ -95,10 +95,12 @@ def mol_parser_string(mol_string):
 
     return atoms, bonds  # Should return atoms and bonds
 
+
 def mol_parser(file):
     with open(file) as file:
         mol_file = file.readlines()
     return mol_parser_string(mol_file)
+
 
 def sdf_parser_string(sdf_string):
     molecules = sdf_string.split("$$$$")
@@ -109,6 +111,7 @@ def sdf_parser_string(sdf_string):
         mol_list.append(mol_parser_string(mol.split("\n")))
 
     return mol_list
+
 
 def sdf_parser(file):
     with open(file) as file:

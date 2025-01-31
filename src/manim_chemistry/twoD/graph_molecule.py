@@ -23,34 +23,34 @@ class SimpleLine(VGroup):
     def get_vector(self):
         return self._get_unit_vector()
 
+
 class DoubleLine(ArcBetweenPoints):
     def __init__(
         self,
         start=[-1, 0, 0],
         end=[1, 0, 0],
-        angle: float=PI / 4,
-        radius: float|None=None,
-        **kwargs
+        angle: float = PI / 4,
+        radius: float | None = None,
+        **kwargs,
     ):
         self.start = start
         self.end = end
         super().__init__(start=start, end=end, angle=angle, radius=radius, **kwargs)
         self.sheen_direction = self._get_unit_vector()
-        self.add(ArcBetweenPoints(
-            start=start,
-            end=end,
-            angle=-angle,
-            radius=radius,
-            **kwargs
-        ))
-        
+        self.add(
+            ArcBetweenPoints(
+                start=start, end=end, angle=-angle, radius=radius, **kwargs
+            )
+        )
+
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
 
         return vector / np.linalg.norm(vector)
-    
+
     def get_vector(self):
         return self._get_unit_vector()
+
 
 class TripleLine(SimpleLine):
     def __init__(
@@ -61,6 +61,7 @@ class TripleLine(SimpleLine):
             ArcBetweenPoints(start=self.start, end=self.end, angle=angle, **kwargs),
             ArcBetweenPoints(start=self.start, end=self.end, angle=-angle, **kwargs),
         )
+
 
 class GraphMolecule(Graph):
     def __init__(
@@ -267,14 +268,14 @@ class GraphMolecule(Graph):
     def find_atom_position_by_index(self, atom_index: int) -> np.array:
         """_summary_
         Returns the position of a single atom given its index.
-        
+
         Example:
         ```
         molecule = GraphMolecule.build_from_mol("examples/element_files/dimethylpropane.mol")
         print(molecule.find_atom_position_by_index(1))
         >>> array([ 0.9397, -0.7497,  0.    ])
         ```
-        
+
 
         Args:
             atom_index (int): Index of the atom inside the VDict.
@@ -285,13 +286,13 @@ class GraphMolecule(Graph):
         try:
             atom = self.atoms[atom_index]
             return atom.get_center()
-            
+
         except KeyError as key_error:
             # TODO: Change from print to proper logging system.
             print(f"Atom index {atom_index} is not valid for molecule {self}")
             print(f"Valid indices are: {self.atoms.submob_dict.keys()}")
             raise key_error
-        
+
         except Exception as exception:
             raise exception
 
@@ -299,7 +300,7 @@ class GraphMolecule(Graph):
         """_summary_
 
         Returns the position of multiple atoms given their indices.
-        
+
         Example:
         ```
         molecule = GraphMolecule.build_from_mol("examples/element_files/dimethylpropane.mol")
@@ -314,23 +315,25 @@ class GraphMolecule(Graph):
         """
         atoms_positions = []
         for atom_index in atoms_index_list:
-            atoms_positions.append(self.find_atom_position_by_index(atom_index=atom_index))
-            
+            atoms_positions.append(
+                self.find_atom_position_by_index(atom_index=atom_index)
+            )
+
         return atoms_positions
-    
+
     def find_bond_center_by_tuple(self, bond_tuple: tuple) -> np.array:
         """_summary_
 
         Returns the [x, y, z] coordinates of a bond given a bond tuple.
         The bund tuple corresponds to the indices of the atoms in the bond.
-        
+
         Example:
         ```
         molecule = GraphMolecule.build_from_mol("examples/element_files/dimethylpropane.mol")
         print(molecule.find_bond_center_by_tuple((1, 2))
         >>> array([0.51935, 0.59615, 0.     ])
         ```
-        
+
         Args:
             bond_index (tuple): index of the bond
 
@@ -340,22 +343,24 @@ class GraphMolecule(Graph):
         try:
             bond = self.bonds[bond_tuple]
             return bond.get_center()
-            
+
         except KeyError as key_error:
             # TODO: Change from print to proper logging system.
             print(f"Bond tuple {bond_tuple} is not valid for molecule {self}")
             raise key_error
-        
+
         except Exception as exception:
             raise exception
-        
-    def find_position_along_bond_axis(self, bond_tuple: int, position_buff: float) -> np.array:
+
+    def find_position_along_bond_axis(
+        self, bond_tuple: int, position_buff: float
+    ) -> np.array:
         """_summary_
-        Returns a position along the bond axis given a bond index and depending on a position_buff. 
-        A value of 1 will return one end of the bond. A value of -1 will return the other end. 
+        Returns a position along the bond axis given a bond index and depending on a position_buff.
+        A value of 1 will return one end of the bond. A value of -1 will return the other end.
         All values in between return positions at some point of the middle of the bond, being 0 the center.
         Values bigger or lower that 1 and -1 will return positions outside the bond.
-        
+
         Args:
             bond_tuple (int): Tuple of the bond
             position_buff (float): Position buff
@@ -363,27 +368,26 @@ class GraphMolecule(Graph):
         Returns:
             np.array: [x, y, z] coordinates of the final position selected.
         """
-        
+
         try:
             bond = self.bonds[bond_tuple]
-        
+
         except KeyError as key_error:
             # TODO: Change from print to proper logging system.
             print(f"Bond index {bond_tuple} is not valid for molecule {self}")
             print(f"Valid indices are: {self.bonds.submob_dict.keys()}")
             raise key_error
-    
+
         bond_vector = bond.get_vector()
         bond_center = bond.get_center()
-        
+
         return bond_center + bond_vector * position_buff * 0.5
-        
-        
+
     def find_bonds_center_by_tuple(self, bonds_tuples_list: list) -> list:
         """_summary_
 
         Returns the position of multiple bonds given their indices.
-        
+
         Example:
         ```
         molecule = GraphMolecule.build_from_mol("examples/element_files/dimethylpropane.mol")
@@ -398,23 +402,26 @@ class GraphMolecule(Graph):
         """
         bonds_positions = []
         for bond_index in bonds_tuples_list:
-            bonds_positions.append(self.find_bond_center_by_tuple(bond_index=bond_index))
-            
+            bonds_positions.append(
+                self.find_bond_center_by_tuple(bond_index=bond_index)
+            )
+
         return bonds_positions
-    
+
     def find_all_atoms_positions(self) -> dict:
-        
         atoms_positions = {}
         for atom_index in self.atoms.keys():
-            atoms_positions[atom_index] = self.find_atom_position_by_index(atom_index=atom_index)
-        
+            atoms_positions[atom_index] = self.find_atom_position_by_index(
+                atom_index=atom_index
+            )
+
         return atoms_positions
-    
-    
+
     def find_all_bonds_centers(self) -> dict:
-        
         bonds_positions = {}
         for bond_tuple in self.bonds:
-            bonds_positions[bond_tuple] = self.find_bond_center_by_tuple(bond_tuple=bond_tuple)
-        
+            bonds_positions[bond_tuple] = self.find_bond_center_by_tuple(
+                bond_tuple=bond_tuple
+            )
+
         return bonds_positions
