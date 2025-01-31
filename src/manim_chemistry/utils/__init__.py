@@ -10,3 +10,5 @@ from .parsers import (
     MolParser,  # noqa F841
     SDFParser,   # noqa F841
 )
+
+from .file_handler import FileHandler
