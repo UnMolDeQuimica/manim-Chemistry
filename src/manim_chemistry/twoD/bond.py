@@ -134,9 +134,10 @@ class BaseMBondObject(VGroup):
         """
         try:
             return self[0].get_vector()
-        
+
         except Exception as exception:
             raise exception
+
 
 class SimpleBond(BaseMBondObject):
     def no_subtype(self):
@@ -259,14 +260,14 @@ class DoubleBond(BaseMBondObject):
             )  # TODO: Make this scale an option
 
         return VGroup(base_line, double_line)
-    
+
     def get_vector(self):
         """
         This contains a VGroup with two lines, we just get the vector from one of them
         """
         try:
             return self[0][0].get_vector()
-        
+
         except Exception as exception:
             raise exception
 
@@ -423,9 +424,10 @@ class TripleBond(BaseMBondObject):
         """
         try:
             return self[0][0].get_vector()
-        
+
         except Exception as exception:
             raise exception
+
 
 class PlainCramBond(BaseMBondObject):
     def no_subtype(self):
@@ -509,13 +511,13 @@ class PlainCramBond(BaseMBondObject):
                 "longer": self.longer_subtype(),
             }
             return subtypes.get(self.subtype) or VMobject()
-        
+
     def get_vector(self):
         try:
             atom_a, atom_b = self.atoms_in_bond()
-            
+
             return atom_b.get_center() - atom_a.get_center()
-        
+
         except Exception as exception:
             raise exception
 
@@ -584,7 +586,7 @@ class DashedCramBond(BaseMBondObject):
             }
 
             return subtypes.get(self.subtype) or VMobject()
-    
+
     def get_vector(self):
         """
         This contains a VGroup with two lines, we just get the vector from one of them
@@ -593,6 +595,6 @@ class DashedCramBond(BaseMBondObject):
             starting_line = self[0][0]
             ending_line = self[0][len(self[0]) - 1]
             return ending_line.get_center() - starting_line.get_center()
-        
+
         except Exception as exception:
             raise exception
