@@ -4,7 +4,7 @@ import os
 
 import numpy as np
 
-from base_parser import BaseParser
+from .base_parser import BaseParser
 
 
 class MolParser(BaseParser):
