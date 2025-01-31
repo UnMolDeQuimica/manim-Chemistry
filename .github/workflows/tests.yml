@@ -17,7 +17,7 @@ jobs:
           - macOS
           - Ubuntu
           - Windows
-        python-version: ['3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.10', '3.11', '3.12', '3.13']
     runs-on: ${{ matrix.os }}-latest
 
     steps:
@@ -26,10 +26,29 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+
+    - name: Install dependencies on macOS
+      if: runner.os == 'macOS'
       run: |
         python -m pip install --upgrade pip
+        brew install py3cairo ffmpeg
         python -m pip install .
+
+    - name: Install dependencies on Ubuntu
+      if: runner.os == 'Linux'
+      run: |
+        python -m pip install --upgrade pip
+        sudo apt update
+        sudo apt install build-essential python3-dev libcairo2-dev libpango1.0-dev ffmpeg
+        python -m pip install .
+
+    - name: Install dependencies on Windows
+      if: runner.os == 'Windows'
+      run: |
+        python -m pip install --upgrade pip
+        choco install manimce
+        python -m pip install .
+
     - name: Test with pytest
       run: |
         python -m pytest ./tests/
