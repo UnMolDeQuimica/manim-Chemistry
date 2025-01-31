@@ -11,4 +11,4 @@ from .parsers import (
     SDFParser,   # noqa F841
 )
 
-from .file_handler import FileHandler
+from .file_handler import FileHandler   # noqa F841
