@@ -1,8 +1,6 @@
 from typing import Dict, List, Tuple, Union
 import os
 
-import numpy as np
-
 from .mol_parser import MolParser
 
 
