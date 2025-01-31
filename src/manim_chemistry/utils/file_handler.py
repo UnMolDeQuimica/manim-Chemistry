@@ -1,9 +1,9 @@
 import os
 from typing import Dict, Tuple, Union
 
-from parsers import MolParser
+from .parsers import MolParser, SDFParser
 
-SUPPORTED_FORMATS = {"mol": MolParser}
+SUPPORTED_FORMATS = {"mol": MolParser, "sdf": SDFParser}
 
 
 class IncorrectFormat(Exception): ...
