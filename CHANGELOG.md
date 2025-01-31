@@ -1,5 +1,24 @@
 # Changelog
 
+## Unreleased
+
+### Bugfixes
+
+### Fixes
+* [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite.
+
+### New Features
+
+### Improvements
+* [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
+
+### Breaking changes
+* [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
+
+
+## 0.4.4
+
+
 ## 0.4.3
 ### Bugfix
 * [Issue #36 Bugfix](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/36): Fix error when creating triple bonds. It was cause by a call to a deprecated function. Big thanks to [@thinktraveler](https://github.com/thinktraveller) for opening a request!
