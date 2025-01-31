@@ -15,6 +15,7 @@ dependencies = [
     "manim",
     "numpy",
     "pandas",
+    "pytest",
 ]
 license = {file = "LICENSE.md"}
 readme = "README.md"
