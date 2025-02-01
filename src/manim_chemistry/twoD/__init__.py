@@ -9,3 +9,4 @@ from .chemical_formula import (
     NamedComplexFormula,  # noqa F841
 )  # noqa F841
 from .graph_molecule import GraphMolecule  # noqa F841
+from .new_graph_molecule import NewGraphMolecule  # noqa F841
