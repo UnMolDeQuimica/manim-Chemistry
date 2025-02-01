@@ -4,6 +4,7 @@ from .mc_atom import MCAtom
 from .mc_bond import MCBond
 from ..utils import FileHandler
 
+
 class MCMolecule:
     """
     Abstraction of a molecule:
@@ -13,7 +14,12 @@ class MCMolecule:
     - Extra properties (To be defined)
     """
 
-    def __init__(self, atoms: Optional[List[MCAtom]]=None, bonds: Optional[List[MCBond]]=None, name: Optional[str]=None):
+    def __init__(
+        self,
+        atoms: Optional[List[MCAtom]] = None,
+        bonds: Optional[List[MCBond]] = None,
+        name: Optional[str] = None,
+    ):
         self.atoms = atoms or []
         self.bonds = bonds or []
         self.atoms_by_index = {}
@@ -34,11 +40,12 @@ class MCMolecule:
             self.atoms = []
 
         for atom_index, atom_data_dict in atoms_dict.items():
-            mc_atom = MCAtom.construct_from_atom_dict(atom_index=atom_index, atom_data_dict=atom_data_dict)
+            mc_atom = MCAtom.construct_from_atom_dict(
+                atom_index=atom_index, atom_data_dict=atom_data_dict
+            )
             mc_atom.assign_molecule(self)
             self.atoms.append(mc_atom)
             self.atoms_by_index[atom_index] = mc_atom
-
 
     def add_bonds_from_bonds_dict(self, bonds_dict: Dict):
         """
@@ -57,9 +64,7 @@ class MCMolecule:
         for bond_index, bond_data_dict in bonds_dict.items():
             self.bonds.append(
                 MCBond.construct_from_bond_dict(
-                    bond_index=bond_index,
-                    bond_data_dict=bond_data_dict,
-                    molecule=self
+                    bond_index=bond_index, bond_data_dict=bond_data_dict, molecule=self
                 )
             )
 
@@ -104,6 +109,8 @@ class MCMolecule:
         Args:
             filepath: File path
         """
-        atoms_dict, bonds_dict = FileHandler(file_path=filepath).parsed_atoms_bonds_data()
+        atoms_dict, bonds_dict = FileHandler(
+            file_path=filepath
+        ).parsed_atoms_bonds_data()
 
         return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict)

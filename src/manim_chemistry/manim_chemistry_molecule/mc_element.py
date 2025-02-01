@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
+
 @dataclass
 class MCElement:
     symbol: str
@@ -9,9 +10,9 @@ class MCElement:
     atomic_number: int
     mass: float
     color: str
-    cpk_color: Optional[str]=None
-    jmol_color: Optional[str]=None
-    pubchem_color: Optional[str]=None
+    cpk_color: Optional[str] = None
+    jmol_color: Optional[str] = None
+    pubchem_color: Optional[str] = None
 
 
 # Generic Elements
@@ -959,7 +960,6 @@ Og = MCElement(
     mass=294.0,
     color="#eb0026",
 )
-
 
 
 MC_ELEMENT_DICT = {

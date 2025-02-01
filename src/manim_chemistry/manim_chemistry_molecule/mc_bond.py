@@ -11,12 +11,20 @@ STEREO_TYPES = {
     2: "dash_cram",
 }
 
+
 class MCBond:
     """
     MCBond: Abstraction of a bond in a molecule: Type of bond, from and to atoms.
     """
 
-    def __init__(self, bond_type: int, from_atom=None, to_atom=None, stereo: int | None = None, molecule_index: int | None=None):
+    def __init__(
+        self,
+        bond_type: int,
+        from_atom=None,
+        to_atom=None,
+        stereo: int | None = None,
+        molecule_index: int | None = None,
+    ):
         self.bond_type = bond_type
         self.from_atom = from_atom
         self.to_atom = to_atom
@@ -52,7 +60,9 @@ class MCBond:
         bond_type = bond_data_dict.get("bond_type", None)
 
         if not bond_type:
-            raise Exception(f"Bond with index {bond_index} does not contain bond type data. Bond data: {bond_data_dict}")
+            raise Exception(
+                f"Bond with index {bond_index} does not contain bond type data. Bond data: {bond_data_dict}"
+            )
 
         try:
             from_atom_index = bond_data_dict.get("from_atom_index", None)
@@ -62,11 +72,13 @@ class MCBond:
             to_mc_atom = molecule.atoms_by_index[to_atom_index]
 
         except Exception as error:
-            raise Exception(f"Bond dict {bond_data_dict} does not contain the expected data for molecule {molecule}. Error: {error}")
+            raise Exception(
+                f"Bond dict {bond_data_dict} does not contain the expected data for molecule {molecule}. Error: {error}"
+            )
 
         return MCBond(
             bond_type=bond_type,
             from_atom=from_mc_atom,
             to_atom=to_mc_atom,
-            molecule_index=bond_index
+            molecule_index=bond_index,
         )

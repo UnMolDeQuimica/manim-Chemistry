@@ -4,6 +4,7 @@ import numpy as np
 
 from .mc_element import *
 
+
 class MCAtom:
     """
     Abstraction of an atom in a molecule:
@@ -14,7 +15,16 @@ class MCAtom:
     - It's molecule.
     - It's index in the molecule.
     """
-    def __init__(self, element: MCElement, coords: np.array=np.array([0, 0, 0]), atoms: Optional[list]=None, bonds: Optional[list]=None, molecule: None=None, molecule_index: Optional[int]=None):
+
+    def __init__(
+        self,
+        element: MCElement,
+        coords: np.array = np.array([0, 0, 0]),
+        atoms: Optional[list] = None,
+        bonds: Optional[list] = None,
+        molecule: None = None,
+        molecule_index: Optional[int] = None,
+    ):
         self.element = element
         self.coords = coords
         self.atoms = atoms or []
@@ -36,14 +46,18 @@ class MCAtom:
             pass
 
         if not isinstance(atoms, MCAtom) and not isinstance(atoms, list):
-            raise Exception(f"Expected {MCAtom} or list of {MCAtom} when assigning atoms but received {atoms}")
+            raise Exception(
+                f"Expected {MCAtom} or list of {MCAtom} when assigning atoms but received {atoms}"
+            )
 
         if isinstance(self.atoms, list) and isinstance(atoms, MCAtom):
             self.atoms.append(atoms)
 
         if isinstance(self.atoms, list) and isinstance(atoms, list):
             if not all([isinstance(atom, MCAtom) for atom in atoms]):
-                raise Exception(f"Expected {MCAtom} or list of {MCAtom} when assigning atoms but received {atoms}")
+                raise Exception(
+                    f"Expected {MCAtom} or list of {MCAtom} when assigning atoms but received {atoms}"
+                )
 
             self.atoms.extend(atoms)
 
@@ -51,18 +65,23 @@ class MCAtom:
 
     def add_bonds(self, bonds):
         from .mc_bond import MCBond
+
         if not bonds:
             pass
 
         if not isinstance(bonds, MCBond) and not isinstance(bonds, list):
-            raise Exception(f"Expected {MCBond} or list of {MCBond} when assigning atoms but received {bonds}")
+            raise Exception(
+                f"Expected {MCBond} or list of {MCBond} when assigning atoms but received {bonds}"
+            )
 
         if isinstance(self.bonds, list) and isinstance(bonds, MCBond):
             self.bonds.append(bonds)
 
         if isinstance(self.bonds, list) and isinstance(bonds, list):
             if not all([isinstance(bond, MCBond) for bond in bonds]):
-                raise Exception(f"Expected {MCBond} or list of {MCBond} when assigning atoms but received {bonds}")
+                raise Exception(
+                    f"Expected {MCBond} or list of {MCBond} when assigning atoms but received {bonds}"
+                )
 
             self.bonds.extend(bonds)
 
@@ -75,7 +94,9 @@ class MCAtom:
             pass
 
         if not isinstance(molecule, MCMolecule):
-            raise Exception(f"Expected {MCMolecule} when assigning molecule but received {molecule}")
+            raise Exception(
+                f"Expected {MCMolecule} when assigning molecule but received {molecule}"
+            )
 
         self.molecule = molecule
 
@@ -86,7 +107,9 @@ class MCAtom:
             pass
 
         if not isinstance(molecule_index, int):
-            raise Exception(f"Expected {int} when assigning molecule_index but received {molecule_index}")
+            raise Exception(
+                f"Expected {int} when assigning molecule_index but received {molecule_index}"
+            )
 
         self.molecule_index = molecule_index
 
@@ -107,21 +130,25 @@ class MCAtom:
         if not isinstance(atom_data_dict, dict):
             raise Exception(f"Expected {dict} but received {atom_data_dict}")
 
-
         element = atom_data_dict.get("element", None)
 
         if not element:
-            raise Exception(f"Atom dict {atom_data_dict} does not contain element data.")
+            raise Exception(
+                f"Atom dict {atom_data_dict} does not contain element data."
+            )
 
         if element not in MC_ELEMENT_DICT:
-            raise Exception(f"Element {element} does not match any known element by human kind. Is that an alien element?")
+            raise Exception(
+                f"Element {element} does not match any known element by human kind. Is that an alien element?"
+            )
 
         mc_element = MC_ELEMENT_DICT.get(element)
 
         coords = atom_data_dict.get("coords")
 
-        if not isinstance(coords, (np.ndarray, np.generic)) and not isinstance(coords, list):
+        if not isinstance(coords, (np.ndarray, np.generic)) and not isinstance(
+            coords, list
+        ):
             raise Exception(f"Coordinates {coords} are not correct coordinates.")
 
         return MCAtom(element=mc_element, coords=coords, molecule_index=atom_index)
-

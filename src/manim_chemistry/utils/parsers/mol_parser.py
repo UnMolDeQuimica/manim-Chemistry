@@ -43,7 +43,6 @@ class MolParser(BaseParser):
             }
         bond_index = 1
         for line in data[3 + number_of_atoms : 3 + number_of_atoms + number_of_bonds]:
-            
             line_data = line.split()
             first_atom_index = int(float(line_data[0]))
             second_atom_index = int(float(line_data[1]))
@@ -52,7 +51,7 @@ class MolParser(BaseParser):
                 "to_atom_index": first_atom_index,
                 "from_atom_index": second_atom_index,
                 "bond_type": bond_type,
-                "bond_index": bond_index
+                "bond_index": bond_index,
                 # "stereo": bond_stereo,
                 # "topology": bond_topology,
                 # "reacting_center_status": reacting_center_status
