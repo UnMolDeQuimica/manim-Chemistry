@@ -12,6 +12,7 @@
 ### Improvements
 * [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
 * [Issue #41 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/50): Adds FileHandler, BaseParser, MolParser and SDFParser classes. Adds tests for the MolParser.
+* [Issue #51 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/55): Adds MC Classes: MCElement, MCAtom, MCBond and MCMolecule
 
 ### Breaking changes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
