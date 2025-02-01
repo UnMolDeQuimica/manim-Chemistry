@@ -41,19 +41,23 @@ class MolParser(BaseParser):
                 "coords": np.array([x_position, y_position, z_position]),
                 "element": element,
             }
-
+        bond_index = 1
         for line in data[3 + number_of_atoms : 3 + number_of_atoms + number_of_bonds]:
+            
             line_data = line.split()
             first_atom_index = int(float(line_data[0]))
             second_atom_index = int(float(line_data[1]))
             bond_type = line_data[2]
             bond_data = {
-                "to": second_atom_index,
-                "type": bond_type,
+                "to_atom_index": first_atom_index,
+                "from_atom_index": second_atom_index,
+                "bond_type": bond_type,
+                "bond_index": bond_index
                 # "stereo": bond_stereo,
                 # "topology": bond_topology,
                 # "reacting_center_status": reacting_center_status
             }
+            bond_index += 1
 
             try:
                 bond_stereo = line_data[3]
@@ -103,5 +107,14 @@ class MolParser(BaseParser):
                 atoms[second_atom_index]["bond_to"][first_atom_index] = atoms.get(
                     first_atom_index
                 ).get("element")
+
+        new_bonds = {}
+
+        for bonds_data in bonds.values():
+            for bond in bonds_data:
+                bond_index = bond.pop("bond_index")
+                new_bonds[bond_index] = bond
+
+        bonds = new_bonds
 
         return atoms, bonds
