@@ -1,0 +1,3 @@
+from graph_molecule_animation_tests import run_graph_molecule_animation_tests
+
+run_graph_molecule_animation_tests()
