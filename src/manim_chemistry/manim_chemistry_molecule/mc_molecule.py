@@ -56,7 +56,7 @@ class MCMolecule:
         """
 
         if self.bonds and not isinstance(self.bonds, list):
-            raise Exception(f"Bonds list is not a bonds list.")
+            raise Exception("Bonds list is not a bonds list.")
 
         else:
             self.bonds = []
@@ -74,7 +74,7 @@ class MCMolecule:
         """
 
         if self.bonds and not isinstance(self.bonds, list):
-            raise Exception(f"Bonds list is not a bonds list.")
+            raise Exception("Bonds list is not a bonds list.")
 
         for mc_bond in self.bonds:
             mc_bond.from_atom.add_atoms(mc_bond.to_atom)
