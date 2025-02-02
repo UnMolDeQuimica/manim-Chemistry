@@ -63,7 +63,7 @@ class TestGraphMoleculeRotate(Scene):
 
         self.add(graph_molecule)
         self.wait()
-        self.play(Rotate(graph_molecule, angle=2*PI))
+        self.play(Rotate(graph_molecule, angle=2 * PI))
         self.wait()
 
 
@@ -83,8 +83,7 @@ class TestGraphMoleculeScale(Scene):
 class TestGraphMoleculeLabelsAreAdded(Scene):
     def construct(self):
         graph_molecule = GraphMolecule.build_from_mol(
-            "examples/element_files/double_triple_bonds_molecule.mol",
-            label=True
+            "examples/element_files/double_triple_bonds_molecule.mol", label=True
         )
 
         self.add(graph_molecule)
@@ -95,7 +94,7 @@ class TestGraphMoleculeNumericLabelsAreAdded(Scene):
         graph_molecule = GraphMolecule.build_from_mol(
             "examples/element_files/double_triple_bonds_molecule.mol",
             label=True,
-            numeric_label=True
+            numeric_label=True,
         )
 
         self.add(graph_molecule)
@@ -150,7 +149,7 @@ def run_graph_molecule_animation_tests():
         TestGraphMoleculeLabelsAreAdded,
         TestGraphMoleculeNumericLabelsAreAdded,
         TestGraphMoleculeAnimationBuilder,
-        TestGraphMoleculeMoveAllAtoms
+        TestGraphMoleculeMoveAllAtoms,
     ]
 
     errors = {}

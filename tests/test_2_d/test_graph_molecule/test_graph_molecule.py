@@ -2,15 +2,17 @@ import numpy as np
 import pytest
 
 from manim_chemistry.twoD import GraphMolecule
-from manim_chemistry.manim_chemistry_molecule import MCAtom, MCBond, MCElement, MCMolecule
-
-
-
+from manim_chemistry.manim_chemistry_molecule import (
+    MCAtom,
+    MCBond,
+    MCElement,
+    MCMolecule,
+)
 
 
 class TestGraphMolecule:
-
     morphine_file_path = "examples/element_files/morphine.mol"
+
     @pytest.fixture
     def mol_mc_molecule(self):
         return MCMolecule.construct_from_file(self.morphine_file_path)
@@ -36,9 +38,7 @@ class TestGraphMolecule:
             assert isinstance(bond.to_atom, MCAtom)
             assert isinstance(bond.from_atom, MCAtom)
 
-
     def test_build_from_mol(self):
         graph_molecule = GraphMolecule.build_from_mol(mol_file=self.morphine_file_path)
 
         assert isinstance(graph_molecule, GraphMolecule)
-

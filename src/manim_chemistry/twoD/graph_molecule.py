@@ -6,6 +6,7 @@ import networkx as nx
 
 from ..manim_chemistry_molecule import MCMolecule
 
+
 class SimpleLine(Line):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -36,7 +37,6 @@ class DoubleLine(ArcBetweenPoints):
             )
         )
 
-
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
 
@@ -45,13 +45,7 @@ class DoubleLine(ArcBetweenPoints):
     def get_vector(self):
         return self._get_unit_vector()
 
-    def set_points_by_ends(
-        self,
-        start,
-        end,
-        *args,
-        **kwargs
-    ) -> None:
+    def set_points_by_ends(self, start, end, *args, **kwargs) -> None:
         self.put_start_and_end_on(start=start, end=end)
 
 
@@ -60,11 +54,7 @@ class TripleLine(DoubleLine):
         self, start=[-1, 0, 0], end=[1, 0, 0], angle: float = PI / 4, *args, **kwargs
     ):
         super().__init__(start=start, end=end, *args, **kwargs)
-        self.add(
-            Line(start=start, end=end, *args, **kwargs)
-        )
-
-
+        self.add(Line(start=start, end=end, *args, **kwargs))
 
 
 class GraphMolecule(Graph):
@@ -107,13 +97,13 @@ class GraphMolecule(Graph):
     def _populate_edge_dict(self, edges, _):
         self.edges = {}
 
-        for (u, v) in edges:
+        for u, v in edges:
             bond_type = self.select_bond_from_edge((u, v))
             bond = bond_type(
                 start=self[u].get_center(),
                 end=self[v].get_center(),
                 z_index=-1,
-                **self._edge_config[(u, v)]
+                **self._edge_config[(u, v)],
             )
             self.edges[(u, v)] = bond
 
@@ -125,14 +115,14 @@ class GraphMolecule(Graph):
         bond = self.SUPPORTED_BOND_TYPES.get(int(bond_type))
 
         if not bond:
-            raise Exception(f"{bond_type} is an unknown type of bond. Options are 1, 2 or 3")
+            raise Exception(
+                f"{bond_type} is an unknown type of bond. Options are 1, 2 or 3"
+            )
 
         return bond
 
     def make_layout(self, vertices_dict: dict):
-        return {
-            index: vertex.coords for index, vertex in vertices_dict.items()
-        }
+        return {index: vertex.coords for index, vertex in vertices_dict.items()}
 
     def make_vertex_config(self, vertices_dict: dict):
         v_dict = {}
@@ -153,7 +143,7 @@ class GraphMolecule(Graph):
                         edge.from_atom.element.color,
                         edge.to_atom.element.color,
                     ],
-                    length_of_output=2
+                    length_of_output=2,
                 )
             }
 
@@ -449,6 +439,9 @@ class GraphMolecule(Graph):
 
         vertices = mc_molecule.atoms_by_index
 
-        edges = {(bond.from_atom.molecule_index, bond.to_atom.molecule_index): bond for bond in mc_molecule.bonds}
+        edges = {
+            (bond.from_atom.molecule_index, bond.to_atom.molecule_index): bond
+            for bond in mc_molecule.bonds
+        }
 
         return vertices, edges
