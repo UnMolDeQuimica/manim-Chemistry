@@ -32,8 +32,3 @@ When opening a pull request there are some things that are mandatory to keep the
 # Thank you!
 
 Thank you very much. Some people have contributed to the project and I am really grateful for this.
-
-# Contact
-
-Do you need help? Are you lost? [Contact me!](/contributing/contact)
-
