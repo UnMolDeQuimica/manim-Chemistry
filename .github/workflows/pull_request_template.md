@@ -28,3 +28,6 @@ Check the corresponding boxes:
 - [ ] Ruff check passes.
 - [ ] Ruff format used.
 
+## Changelog
+- [ ] Changelog has been updated
+
