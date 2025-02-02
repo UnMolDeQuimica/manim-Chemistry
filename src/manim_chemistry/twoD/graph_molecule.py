@@ -1,27 +1,20 @@
+from typing import Dict, Tuple
+
 from manim import *
 import numpy as np
 import networkx as nx
 
-from manim_chemistry.utils import mol_to_graph
+from ..manim_chemistry_molecule import MCMolecule
 
-
-class SimpleLine(VGroup):
-    def __init__(self, start=[-1, 0, 0], end=[1, 0, 0], *args, **kwargs):
-        self.start = np.array(start)
-        self.end = np.array(end)
-        super().__init__(**kwargs)
+class SimpleLine(Line):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.sheen_direction = self._get_unit_vector()
-
-    def generate_points(self) -> None:
-        self.set_points_as_corners([self.start, self.end])
 
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
 
         return vector / np.linalg.norm(vector)
-
-    def get_vector(self):
-        return self._get_unit_vector()
 
 
 class DoubleLine(ArcBetweenPoints):
@@ -43,6 +36,7 @@ class DoubleLine(ArcBetweenPoints):
             )
         )
 
+
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
 
@@ -51,19 +45,35 @@ class DoubleLine(ArcBetweenPoints):
     def get_vector(self):
         return self._get_unit_vector()
 
+    def set_points_by_ends(
+        self,
+        start,
+        end,
+        *args,
+        **kwargs
+    ) -> None:
+        self.put_start_and_end_on(start=start, end=end)
 
-class TripleLine(SimpleLine):
+
+class TripleLine(DoubleLine):
     def __init__(
         self, start=[-1, 0, 0], end=[1, 0, 0], angle: float = PI / 4, *args, **kwargs
     ):
         super().__init__(start=start, end=end, *args, **kwargs)
         self.add(
-            ArcBetweenPoints(start=self.start, end=self.end, angle=angle, **kwargs),
-            ArcBetweenPoints(start=self.start, end=self.end, angle=-angle, **kwargs),
+            Line(start=start, end=end, *args, **kwargs)
         )
 
 
+
+
 class GraphMolecule(Graph):
+    SUPPORTED_BOND_TYPES = {
+        1: SimpleLine,
+        2: DoubleLine,
+        3: TripleLine,
+    }
+
     def __init__(
         self,
         vertices_dict: dict,
@@ -83,7 +93,7 @@ class GraphMolecule(Graph):
             vertices=vertices_dict.keys(),
             edges=edges_dict.keys(),
             vertex_config=self.make_vertex_config(vertices_dict),
-            edge_config=self.make_edge_config(edges_dict.keys(), vertices_dict),
+            edge_config=self.make_edge_config(edges_dict),
             layout=self.make_layout(vertices_dict),
             labels=labels,
             *args,
@@ -95,61 +105,55 @@ class GraphMolecule(Graph):
         self.bonds = self.edges
 
     def _populate_edge_dict(self, edges, _):
-        self.edges = {
-            (u, v): self.select_bond_from_edge((u, v))(
-                self[u].get_center(),
-                self[v].get_center(),
+        self.edges = {}
+
+        for (u, v) in edges:
+            bond_type = self.select_bond_from_edge((u, v))
+            bond = bond_type(
+                start=self[u].get_center(),
+                end=self[v].get_center(),
                 z_index=-1,
-                **self._edge_config[(u, v)],
+                **self._edge_config[(u, v)]
             )
-            for (u, v) in edges
-        }
+            self.edges[(u, v)] = bond
 
     def select_bond_from_edge(self, edge):
-        bond_type = self.edges_dict[edge].get("type", 1)
+        bond_type = self.edges_dict[edge].bond_type
         return self.select_bond_type(bond_type)
 
     def select_bond_type(self, bond_type: int):
-        # I know match would be great but must have support for python 3.8
-        if not isinstance(bond_type, int):
-            bond_type = int(bond_type)
+        bond = self.SUPPORTED_BOND_TYPES.get(int(bond_type))
 
-        if bond_type == 1:
-            return SimpleLine
+        if not bond:
+            raise Exception(f"{bond_type} is an unknown type of bond. Options are 1, 2 or 3")
 
-        if bond_type == 2:
-            return DoubleLine
-
-        if bond_type == 3:
-            return TripleLine
-
-        raise Exception("Unknown type of bond. Options are 1, 2 or 3")
+        return bond
 
     def make_layout(self, vertices_dict: dict):
         return {
-            index: vertex.get("position") for index, vertex in vertices_dict.items()
+            index: vertex.coords for index, vertex in vertices_dict.items()
         }
 
     def make_vertex_config(self, vertices_dict: dict):
         v_dict = {}
-        for vertex, element_data in vertices_dict.items():
-            v_dict[vertex] = {
-                "color": element_data.get("element").cpk_color,
+        for vertex_index, mc_atom in vertices_dict.items():
+            v_dict[vertex_index] = {
+                "color": mc_atom.element.color,
                 "radius": 0.2,
             }
 
         return v_dict
 
-    def make_edge_config(self, edges: list, vertices_dict: dict):
+    def make_edge_config(self, edges: dict):
         edge_config = {}
-        for edge in edges:
-            edge_config[edge] = {
+        for edge_key, edge in edges.items():
+            edge_config[edge_key] = {
                 "stroke_color": color_gradient(
                     [
-                        vertices_dict[edge[0]].get("element").cpk_color,
-                        vertices_dict[edge[1]].get("element").cpk_color,
+                        edge.from_atom.element.color,
+                        edge.to_atom.element.color,
                     ],
-                    2,
+                    length_of_output=2
                 )
             }
 
@@ -162,14 +166,16 @@ class GraphMolecule(Graph):
                 for index in vertices_dict.keys()
             }
         return {
-            index: Text(vertex.get("element").symbol, color=BLACK).scale(0.5)
+            index: Text(vertex.element.symbol, color=BLACK).scale(0.5)
             for index, vertex in vertices_dict.items()
         }
 
     @classmethod
     def build_from_mol(self, mol_file, label=False, language="ENG", *args, **kwargs):
-        vertices_dict, edges_dict = mol_to_graph(mol_file, language=language)
-        return GraphMolecule(vertices_dict, edges_dict, label, *args, **kwargs)
+        mc_molecule = MCMolecule.construct_from_file(filepath=mol_file)
+        vertices, edges = self.mc_molecule_to_graph(mc_molecule=mc_molecule)
+        # vertices_dict, edges_dict = mol_to_graph(mol_file, language=language)
+        return GraphMolecule(vertices, edges, label, *args, **kwargs)
 
     def depth_first_search(
         self, graph: nx.Graph, atom: int, visited_atoms: set, connected_atoms: list
@@ -425,3 +431,24 @@ class GraphMolecule(Graph):
             )
 
         return bonds_positions
+
+    @staticmethod
+    def mc_molecule_to_graph(mc_molecule: MCMolecule) -> Tuple[Dict, Dict]:
+        """
+        Transforms the structure of a mc_molecule to a (vertices, edges) tuple
+        with the following structure:
+        - Vertices: {<atom_index>: MCAtom}
+        - Edges: {(<from_atom_index>, <to_atom_index>): MCBond}
+
+        Args:
+            mc_molecule (MCMolecule): The origin MCMolecule
+
+        Returns:
+            Tuple[Dict, Dict]: See above.
+        """
+
+        vertices = mc_molecule.atoms_by_index
+
+        edges = {(bond.from_atom.molecule_index, bond.to_atom.molecule_index): bond for bond in mc_molecule.bonds}
+
+        return vertices, edges
