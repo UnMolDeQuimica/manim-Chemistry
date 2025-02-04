@@ -182,28 +182,29 @@ class GraphMolecule(Graph):
         return GraphMolecule(vertices, edges, label, *args, **kwargs)
 
     @classmethod
-    def construct_multiples_from_file(self, mol_file, label=False, *args, **kwargs) -> VGroup:
+    def multiple_molecules_from_file(filepath, label=False, *args, **kwargs) -> VGroup:
         """
         Reads a file and returns a collection of molecules from that file as a VGroup.
 
         Args:
-            mol_file (_type_): _description_
-            label (bool, optional): _description_. Defaults to False.
+            filepath (str | Pathlike): Path to the molecule
+            label (bool, optional): Wether or not add a label.. Defaults to False.
 
         Raises:
-            Exception: _description_
+            Exception: In case the mc_molecules parsed is not a list.
 
         Returns:
-            VGroup: _description_
+            VGroup: VGroup with the molecules inside.
         """
-        mc_molecules = MCMolecule.construct_from_file(filepath=mol_file)
+
+        mc_molecules = MCMolecule.construct_from_file(filepath=filepath)
 
         if not isinstance(mc_molecules, list):
             raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
 
         graph_molecules = VGroup()
         for mc_molecule in mc_molecules:
-            vertices, edges = self.mc_molecule_to_graph(mc_molecule=mc_molecules)
+            vertices, edges = GraphMolecule.mc_molecule_to_graph(mc_molecule=mc_molecule)
             graph_molecules.add(GraphMolecule(vertices, edges, label, *args, **kwargs))
 
         return graph_molecules
