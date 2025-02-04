@@ -609,10 +609,10 @@ class NamedMolecule(VGroup):
         self.atoms = self.molecule.atoms
         self.bonds = self.molecule.bonds
 
-    def molecule_from_file(
+    def from_mol_file(
         name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
     ):
-        molecule = MMoleculeObject.molecule_from_file(filename, *args, **kwargs)
+        molecule = MMoleculeObject.from_mol_file(filename, *args, **kwargs)
 
         return NamedMolecule(
             name,
@@ -641,10 +641,10 @@ class NamedMolecule(VGroup):
             **kwargs,
         )
 
-    def molecule_from_file(
+    def from_sdf_file(
         name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
     ):
-        molecules = MMoleculeObject.molecule_from_file(filename, *args, **kwargs)
+        molecules = MMoleculeObject.from_sdf_file(filename, *args, **kwargs)
         named_molecules = []
         for index, molecule in enumerate(molecules):
             named_molecules.append(
