@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import os
-from typing import Any, Dict, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union
 
 
 class BaseParser(ABC):
@@ -19,7 +19,14 @@ class BaseParser(ABC):
             filename (Union[str, bytes, os.PathLike]): Path of the file to be parsed
         """
         self.file_data: str = self.read_file(filename)
-        self.atoms_data, self.bonds_data = self.parse_file_data()
+        parsed_data = self.parse_file_data()
+        if isinstance(parsed_data, list):
+            self.molecular_data = parsed_data
+            self.atoms_data, self.bonds_data = (None, None)
+
+        elif isinstance(parsed_data, tuple):
+            self.molecular_data = None
+            self.atoms_data, self.bonds_data = parsed_data
 
     @staticmethod
     @abstractmethod
@@ -34,7 +41,7 @@ class BaseParser(ABC):
 
     @staticmethod
     @abstractmethod
-    def data_parser(data: Any) -> Tuple[Dict, Dict]:
+    def data_parser(data: Any) -> Tuple[Dict, Dict]  | List[Tuple[Dict, Dict]]:
         """
         Parses the atoms and bonds data and returns a tuple of dictionaries with each data.
         The atom data follows the structure:
@@ -45,12 +52,12 @@ class BaseParser(ABC):
         """
         ...
 
-    def parse_file_data(self) -> Tuple[Dict, Dict]:
+    def parse_file_data(self) -> Tuple[Dict, Dict] | List[Tuple[Dict, Dict]]:
         """
         Receives the file data as a string and uses the string_parser.
 
         Returns:
-            Tuple[Dict, Dict]: (atom_data, bond_data)
+            Tuple[Dict, Dict] | List[Tuple[Dict, Dict]]: (atom_data, bond_data)
         """
         return self.data_parser(self.file_data)
 
@@ -60,7 +67,13 @@ class BaseParser(ABC):
         Returns molecule data: atoms_data and bonds_data.
         """
 
-        return self.atoms_data, self.bonds_data
+        if all([self.atoms_data, self.bonds_data]):
+            return self.atoms_data, self.bonds_data
+
+        elif self.molecular_data:
+            return self.molecular_data
+
+        raise Exception(f"Atoms data, bonds data and molecular data are not correct: {self.atoms_data} {self.bonds_data} {self.molecular_data}")
 
     @property
     def atoms(self):
