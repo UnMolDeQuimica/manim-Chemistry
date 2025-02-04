@@ -128,7 +128,7 @@ class MCMolecule:
         list_of_data_dicts = FileHandler(file_path=filepath).parsed_atoms_bonds_data()
         mc_molecules = []
         for atoms_dict, bonds_dict in list_of_data_dicts:
-            mc_molecules.add(
+            mc_molecules.append(
                 MCMolecule.construct_from_data_dict(
                     atoms_data_dict=atoms_dict,
                     bonds_data_dict=bonds_dict
