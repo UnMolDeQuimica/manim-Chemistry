@@ -8,6 +8,7 @@
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite.
 
 ### New Features
+* [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Adds `molecule_from_file` and `multiple_molecules_from_file` to GraphMolecule and MMolecule classes. Now you just need to pass the file and Manim Chemistry will handle the parsing.
 
 ### Improvements
 * [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
@@ -15,10 +16,13 @@
 * [Issue #51 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/55): Adds MC Classes: MCElement, MCAtom, MCBond and MCMolecule
 * [Issue #52 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/560): Modifies GraphMolecule to use the new MC Classes and adds tests to be ran when modifications on GraphMolecule class are done.
 * [Issue #58 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/58): Adds contribute guide and PR template.
+* [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use parsers.
 
 ### Breaking changes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
 
+### Documentation
+* [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies the documentation to use the new functions (`molecule_from_file`) instead of the old ones (`from_mol`, `from_sdf` and `build_from_mol`)
 
 ## 0.4.4
 
@@ -31,7 +35,7 @@
 ### New Features
 * [Issue #33 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/34): Adds functions to get the atoms and bonds positions. Big thanks to [@thinktraveler](https://github.com/thinktraveller) for opening a request!
 
-## 0.4.1 
+## 0.4.1
 ### Bugfix
 * Fixed GraphMolecule animations [36fbd7](https://github.com/UnMolDeQuimica/manim-Chemistry/commit/36fbd72bc76931a7f6fa1ab67c1bb48b573855e5)
 
