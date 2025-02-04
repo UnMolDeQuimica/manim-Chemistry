@@ -337,7 +337,7 @@ class MMoleculeObject(VGroup):
 
         return mmolecules
 
-    def molecule_from_file(filename, *args, **kwargs):
+    def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
@@ -345,7 +345,7 @@ class MMoleculeObject(VGroup):
         atoms, bonds = mol_parser_string(mol_string)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
-    def molecule_from_file(filename, *args, **kwargs):
+    def from_sdf_file(filename, *args, **kwargs):
         molecules = sdf_parser(filename)
         moleculeObjects = []
         for molecule in molecules:
