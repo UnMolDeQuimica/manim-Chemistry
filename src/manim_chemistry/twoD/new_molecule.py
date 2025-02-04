@@ -307,6 +307,32 @@ class NewMMoleculeObject(VGroup):
 
         return NewMMoleculeObject(atoms, bonds, *args, **kwargs)
 
+    @staticmethod
+    def multiple_molecules_from_file(filepath, *args, **kwargs) -> VGroup:
+        """
+        Reads a file and returns a collection of molecules from that file as a VGroup.
+
+        Args:
+            filepath (str | Pathlike): Path to the molecule
+
+        Raises:
+            Exception: In case the mc_molecules parsed is not a list.
+
+        Returns:
+            VGroup: VGroup with the molecules inside.
+        """
+        mc_molecules = MCMolecule.construct_from_file(filepath=filepath)
+
+        if not isinstance(mc_molecules, list):
+            raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
+
+        mmolecules = VGroup()
+        for mc_molecule in mc_molecules:
+            atoms, bonds = NewMMoleculeObject.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
+            mmolecules.add(NewMMoleculeObject(atoms, bonds, *args, **kwargs))
+
+        return mmolecules
+
 
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
