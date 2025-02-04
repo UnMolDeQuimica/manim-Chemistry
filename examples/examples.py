@@ -23,7 +23,7 @@ class Draw2DMorphine(Scene):
     config.renderer = "cairo"
 
     def construct(self):
-        morphine = MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol")
+        morphine = MMoleculeObject.molecule_from_file(filename=files_path / "morphine.mol")
         self.add(morphine)
 
 
@@ -67,7 +67,7 @@ class Draw3DMorphine(ThreeDScene):
 
     def construct(self):
         self.add(
-            ThreeDMolecule.from_mol_file(
+            ThreeDMolecule.molecule_from_file(
                 filename=files_path / "morphine3d.mol",
                 source_csv=files_path / "Elementos.csv",
             )

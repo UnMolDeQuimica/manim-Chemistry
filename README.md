@@ -72,7 +72,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol")
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol")
         self.add(morphine)
 ```
 
@@ -94,7 +94,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol", add_bonds_numbering=True)
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol", add_bonds_numbering=True)
         self.add(morphine)
 ```
 
@@ -110,7 +110,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol", rotate_bonds=[7, 20])
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol", rotate_bonds=[7, 20])
         self.add(morphine)
 ```
 
@@ -129,7 +129,7 @@ from manim_chemistry import *
 
 class NamedMoleculeExample(Scene):
     def construct(self):
-        named_molecule = NamedMolecule.from_mol_file(name="Morphine", filename="morphine.mol")
+        named_molecule = NamedMolecule.molecule_from_file(name="Morphine", filename="morphine.mol")
         self.add(diagram)
 ```
 ![plot](/examples/examples_assets/NamedMoleculeExample_ManimCE_v0.17.3.png)
@@ -222,7 +222,7 @@ from manim_chemistry import *
 
 class Draw3DMorphine(ThreeDScene):
     def construct(self):
-        three_d_morphine = ThreeDMolecule.from_mol_file("morphine.mol", "Elementos.csv")
+        three_d_morphine = ThreeDMolecule.molecule_from_file("morphine.mol", "Elementos.csv")
         self.add(three_d_morphine)
         self.wait()
 ```

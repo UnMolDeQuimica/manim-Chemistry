@@ -337,7 +337,7 @@ class MMoleculeObject(VGroup):
 
         return mmolecules
 
-    def from_mol_file(filename, *args, **kwargs):
+    def molecule_from_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
@@ -345,7 +345,7 @@ class MMoleculeObject(VGroup):
         atoms, bonds = mol_parser_string(mol_string)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
-    def from_sdf_file(filename, *args, **kwargs):
+    def molecule_from_file(filename, *args, **kwargs):
         molecules = sdf_parser(filename)
         moleculeObjects = []
         for molecule in molecules:
@@ -367,7 +367,7 @@ class MMoleculeObject(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_atom_position_by_index(1))
         >>> array([ 0.9397, -0.7497,  0.    ])
         ```
@@ -399,7 +399,7 @@ class MMoleculeObject(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_atoms_position_by_index([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
@@ -424,7 +424,7 @@ class MMoleculeObject(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_bond_center_by_index(1))
         >>> array([0.51935, 0.59615, 0.     ])
         ```
@@ -485,7 +485,7 @@ class MMoleculeObject(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_bonds_center_by_index([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
@@ -609,10 +609,10 @@ class NamedMolecule(VGroup):
         self.atoms = self.molecule.atoms
         self.bonds = self.molecule.bonds
 
-    def from_mol_file(
+    def molecule_from_file(
         name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
     ):
-        molecule = MMoleculeObject.from_mol_file(filename, *args, **kwargs)
+        molecule = MMoleculeObject.molecule_from_file(filename, *args, **kwargs)
 
         return NamedMolecule(
             name,
@@ -641,10 +641,10 @@ class NamedMolecule(VGroup):
             **kwargs,
         )
 
-    def from_sdf_file(
+    def molecule_from_file(
         name, filename, direction=DOWN, buff=1, tex=False, font="", *args, **kwargs
     ):
-        molecules = MMoleculeObject.from_sdf_file(filename, *args, **kwargs)
+        molecules = MMoleculeObject.molecule_from_file(filename, *args, **kwargs)
         named_molecules = []
         for index, molecule in enumerate(molecules):
             named_molecules.append(
@@ -705,7 +705,7 @@ class NamedMolecule(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_atom_position_by_index(1))
         >>> array([ 0.9397, -0.7497,  0.    ])
         ```
@@ -737,7 +737,7 @@ class NamedMolecule(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_atoms_position_by_index([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
@@ -762,7 +762,7 @@ class NamedMolecule(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_bond_center_by_index(1))
         >>> array([0.51935, 0.59615, 0.     ])
         ```
@@ -824,7 +824,7 @@ class NamedMolecule(VGroup):
 
         Example:
         ```
-        molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+        molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_bonds_position_by_index([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
