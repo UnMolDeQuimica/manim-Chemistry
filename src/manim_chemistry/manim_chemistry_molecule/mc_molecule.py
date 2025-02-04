@@ -109,8 +109,27 @@ class MCMolecule:
         Args:
             filepath: File path
         """
-        atoms_dict, bonds_dict = FileHandler(
-            file_path=filepath
-        ).parsed_atoms_bonds_data()
+        parsed_data = FileHandler(file_path=filepath).parsed_atoms_bonds_data()
 
+        if isinstance(parsed_data, list):
+            parsed_data = parsed_data[0]
+
+        atoms_dict, bonds_dict = parsed_data
         return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict)
+
+    @staticmethod
+    def construct_multiples_from_file(filepath):
+        """
+        Similar to `construct_from_file` but returning a list of MCMolecules.
+        """
+
+        list_of_data_dicts = FileHandler(file_path=filepath).parsed_atoms_bonds_data()
+        mc_molecules = []
+        for atoms_dict, bonds_dict in list_of_data_dicts:
+            mc_molecules.append(
+                MCMolecule.construct_from_data_dict(
+                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict
+                )
+            )
+
+        return mc_molecules

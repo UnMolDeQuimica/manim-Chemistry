@@ -52,9 +52,9 @@ class MolParser(BaseParser):
                 "from_atom_index": second_atom_index,
                 "bond_type": bond_type,
                 "bond_index": bond_index,
-                # "stereo": bond_stereo,
-                # "topology": bond_topology,
-                # "reacting_center_status": reacting_center_status
+                "stereo": None,
+                "topology": None,
+                "reacting_center_status": None,
             }
             bond_index += 1
 

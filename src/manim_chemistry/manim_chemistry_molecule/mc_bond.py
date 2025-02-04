@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Optional
 
 BOND_TYPES = {
     1: "simple",
@@ -22,14 +22,18 @@ class MCBond:
         bond_type: int,
         from_atom=None,
         to_atom=None,
-        stereo: int | None = None,
-        molecule_index: int | None = None,
+        stereo: Optional[int] = None,
+        molecule_index: Optional[int] = None,
+        topology: Optional[int] = None,
+        reacting_center_status: Optional[int] = None,
     ):
         self.bond_type = bond_type
         self.from_atom = from_atom
         self.to_atom = to_atom
         self.stereo = stereo
         self.molecule_index = molecule_index
+        self.topology = topology
+        self.reacting_center_status = reacting_center_status
 
     def assign_from_atom(self, from_atom):
         self.from_atom = from_atom
@@ -81,4 +85,7 @@ class MCBond:
             from_atom=from_mc_atom,
             to_atom=to_mc_atom,
             molecule_index=bond_index,
+            stereo=bond_data_dict.get("stereo"),
+            topology=bond_data_dict.get("topology"),
+            reacting_center_status=bond_data_dict.get("reacting_center_status"),
         )

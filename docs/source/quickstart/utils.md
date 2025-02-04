@@ -44,7 +44,7 @@ from manim_chemistry import *
 
 class LoadMolDataFromFile(Scene):
     def construct(self):
-        molecule = MMolecule.from_mol_file("path/to/your/file.mol")
+        molecule = MMolecule.molecule_from_file("path/to/your/file.mol")
         self.add(molecule)
 ```
 
@@ -97,7 +97,7 @@ from manim_chemistry import *
 
 class LoadSdfDataFromFile(Scene):
     def construct(self):
-        molecules = MMolecule.from_sdf_file("path/to/your/file.sdf")
+        molecules = MMolecule.molecule_from_file("path/to/your/file.sdf")
         for molecule in molecules:
             self.add(molecule)
 ```

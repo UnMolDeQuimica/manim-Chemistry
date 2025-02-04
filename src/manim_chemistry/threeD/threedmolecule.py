@@ -61,7 +61,7 @@ class ThreeDMolecule(OpenGLGroup):
 
         return bonds
 
-    def from_mol_file(filename, source_csv):
+    def molecule_from_file(filename, source_csv):
         atoms, bonds = mol_parser(file=filename)
         return ThreeDMolecule(atoms_dict=atoms, bonds_dict=bonds, source_csv=source_csv)
 

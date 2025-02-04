@@ -31,8 +31,8 @@ class SDFParser(MolParser):
             sdf_file_data = file.read()
 
         sdf_molecules = sdf_file_data.split("$$$$")
-        return [molecule.strip() for molecule in sdf_molecules if molecule.strip()]
+        return [molecule.split("\n") for molecule in sdf_molecules if molecule.strip()]
 
     @staticmethod
     def data_parser(molecules_data: List[List[str]]) -> List[Tuple[Dict, Dict]]:
-        return [super.data_parser(data) for data in molecules_data[1:]]
+        return [MolParser.data_parser(data) for data in molecules_data]

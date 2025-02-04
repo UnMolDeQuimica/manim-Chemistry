@@ -272,13 +272,13 @@
 </section>
 <section id="mmoleculeobjects">
 <h2>MMoleculeObjects<a class="headerlink" href="#mmoleculeobjects" title="Link to this heading">¶</a></h2>
-<p>You can create a MMoleculeObject Using a mol file and the static method <code class="docutils literal notranslate"><span class="pre">from_mol_file</span></code> and then perform all your animations as you would with any MObject:</p>
+<p>You can create a MMoleculeObject Using a mol file and the static method <code class="docutils literal notranslate"><span class="pre">molecule_from_file</span></code> and then perform all your animations as you would with any MObject:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">manim</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">manim_chemistry</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span> <span class="nc">TwoDMoleculeScene</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
    <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">morphine</span> <span class="o">=</span> <span class="n">MMoleculeObject</span><span class="o">.</span><span class="n">from_mol_file</span><span class="p">(</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
+        <span class="n">morphine</span> <span class="o">=</span> <span class="n">MMoleculeObject</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">morphine</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -293,7 +293,7 @@
 
 <span class="k">class</span> <span class="nc">NamedMoleculeExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">named_molecule</span> <span class="o">=</span> <span class="n">NamedMolecule</span><span class="o">.</span><span class="n">from_mol_file</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Morphine&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
+        <span class="n">named_molecule</span> <span class="o">=</span> <span class="n">NamedMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Morphine&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">diagram</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -309,7 +309,7 @@
 
 <span class="k">class</span> <span class="nc">GraphMoleculeExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">graph_molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">build_from_mol</span><span class="p">(</span><span class="n">mol_file</span><span class="o">=</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
+        <span class="n">graph_molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="n">mol_file</span><span class="o">=</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">graph_molecule</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -322,7 +322,7 @@
 
 <span class="k">class</span> <span class="nc">GraphMoleculeExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">build_from_mol</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">numeric_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">numeric_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">atoms_and_bonds</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">get_connected_atoms_and_bonds</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
         <span class="n">animation_builder</span> <span class="o">=</span> <span class="n">GMAnimationBuilder</span><span class="p">(</span>
             <span class="n">molecule</span><span class="o">=</span><span class="n">molecule</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="n">atoms_and_bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bonds</span><span class="o">=</span><span class="n">atoms_and_bonds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -366,7 +366,7 @@
 <span class="n">config</span><span class="o">.</span><span class="n">renderer</span> <span class="o">=</span> <span class="n">opengl</span> <span class="c1"># You can set this here or as a flag when running manim.</span>
 <span class="k">class</span> <span class="nc">Draw3DMorphine</span><span class="p">(</span><span class="n">ThreeDScene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">three_d_morphine</span> <span class="o">=</span> <span class="n">ThreeDMolecule</span><span class="o">.</span><span class="n">from_mol_file</span><span class="p">(</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">,</span> <span class="s2">&quot;Elementos.csv&quot;</span><span class="p">)</span>
+        <span class="n">three_d_morphine</span> <span class="o">=</span> <span class="n">ThreeDMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">,</span> <span class="s2">&quot;Elementos.csv&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">three_d_morphine</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 </pre></div>

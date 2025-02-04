@@ -269,7 +269,7 @@
 <section id="get-atoms-positions">
 <h3>Get atoms positions<a class="headerlink" href="#get-atoms-positions" title="Link to this heading">¶</a></h3>
 <p>You can get a single atom position by indicating the index:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">from_mol_file</span><span class="p">(</span><span class="s2">&quot;examples/element_files/dimethylpropane.mol&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="s2">&quot;examples/element_files/dimethylpropane.mol&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">molecule</span><span class="o">.</span><span class="n">find_atom_position_by_index</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.9397</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7497</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">])</span>
 </pre></div>
@@ -288,7 +288,7 @@
 <section id="get-bonds-positions">
 <h3>Get bonds positions<a class="headerlink" href="#get-bonds-positions" title="Link to this heading">¶</a></h3>
 <p>You can get the bonds positions using similar functions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span> <span class="o">=</span> <span class="n">MMoleculeObject</span><span class="o">.</span><span class="n">from_mol_file</span><span class="p">(</span><span class="s2">&quot;examples/element_files/dimethylpropane.mol&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span> <span class="o">=</span> <span class="n">MMoleculeObject</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="s2">&quot;examples/element_files/dimethylpropane.mol&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">molecule</span><span class="o">.</span><span class="n">find_bond_center_by_index</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">molecule</span><span class="o">.</span><span class="n">find_bonds_center_by_index</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]))</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">molecule</span><span class="o">.</span><span class="n">find_all_bonds_centers</span><span class="p">())</span>

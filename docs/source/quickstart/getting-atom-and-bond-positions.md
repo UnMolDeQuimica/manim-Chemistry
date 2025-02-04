@@ -7,7 +7,7 @@ Sometimes it is useful to get the atoms and bonds positions. You can do this for
 You can get a single atom position by indicating the index:
 
 ```python
-molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
 print(molecule.find_atom_position_by_index(1))
 >>> array([ 0.9397, -0.7497,  0.    ])
 ```
@@ -31,7 +31,7 @@ print(molecule.find_atoms_position_by_index([1,2,3]))
 You can get the bonds positions using similar functions:
 
 ```python
-molecule = MMoleculeObject.from_mol_file("examples/element_files/dimethylpropane.mol")
+molecule = MMoleculeObject.molecule_from_file("examples/element_files/dimethylpropane.mol")
         print(molecule.find_bond_center_by_index(0))
         print(molecule.find_bonds_center_by_index([0,1,2]))
         print(molecule.find_all_bonds_centers())

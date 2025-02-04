@@ -1,6 +1,6 @@
 from manim import VGroup, WHITE, MarkupText, RIGHT, LEFT, Dot
 import numpy as np
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 
 class MAtomObject(VGroup):
@@ -17,7 +17,7 @@ class MAtomObject(VGroup):
         explicit_carbons: bool = False,
         explicit_hydrogens: bool = False,
         bond_to: Dict[int, Any] = {},
-        representation_type: str or None = None,
+        representation_type: Optional[str] = None,
         color: str = WHITE,
         charge: int = 0,
         index: int = 0,

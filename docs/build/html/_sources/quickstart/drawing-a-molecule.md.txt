@@ -10,7 +10,7 @@ As per this quickstart guide, you can simply download the example [morphine 2d](
 
 ## MMoleculeObjects
 
-You can create a MMoleculeObject Using a mol file and the static method `from_mol_file` and then perform all your animations as you would with any MObject:
+You can create a MMoleculeObject Using a mol file and the static method `molecule_from_file` and then perform all your animations as you would with any MObject:
 
 ```python
 from manim import *
@@ -18,7 +18,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol")
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol")
         self.add(morphine)
 ```
 ![plot](../../../examples/examples_assets/2D_morphine_bad.png)
@@ -34,7 +34,7 @@ from manim_chemistry import *
 
 class NamedMoleculeExample(Scene):
     def construct(self):
-        named_molecule = NamedMolecule.from_mol_file(name="Morphine", filename="morphine.mol")
+        named_molecule = NamedMolecule.molecule_from_file(name="Morphine", filename="morphine.mol")
         self.add(diagram)
 ```
 ![plot](../../../examples/examples_assets/NamedMoleculeExample_ManimCE_v0.17.3.png)
@@ -53,7 +53,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(mol_file="morphine.mol")
+        graph_molecule = GraphMolecule.molecule_from_file(filepath="morphine.mol")
         self.add(graph_molecule)
 ```
 ![plot](../../../examples/examples_assets/DrawGraphMorphine_ManimCE_v0.17.3.png)
@@ -68,7 +68,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        molecule = GraphMolecule.build_from_mol(asset, label=True, numeric_label=True)
+        molecule = GraphMolecule.molecule_from_file(asset, label=True, numeric_label=True)
         atoms_and_bonds = molecule.get_connected_atoms_and_bonds(1, 3)
         animation_builder = GMAnimationBuilder(
             molecule=molecule, atoms=atoms_and_bonds[0], bonds=atoms_and_bonds[1]
@@ -109,7 +109,7 @@ from manim_chemistry import *
 config.renderer = opengl # You can set this here or as a flag when running manim.
 class Draw3DMorphine(ThreeDScene):
     def construct(self):
-        three_d_morphine = ThreeDMolecule.from_mol_file("morphine.mol", "Elementos.csv")
+        three_d_morphine = ThreeDMolecule.molecule_from_file("morphine.mol", "Elementos.csv")
         self.add(three_d_morphine)
         self.wait()
 ```
