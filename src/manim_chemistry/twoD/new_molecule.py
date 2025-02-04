@@ -347,8 +347,6 @@ class NewMMoleculeObject(VGroup):
         moleculeObjects = []
         for molecule in molecules:
             atoms, bonds = molecule
-            print(atoms)
-            print(bonds)
             moleculeObjects.append(NewMMoleculeObject(atoms, bonds, *args, **kwargs))
         return moleculeObjects
 
@@ -536,27 +534,39 @@ class NewMMoleculeObject(VGroup):
         """
         atoms = {}
         for index, atom in mc_molecule.atoms_by_index.items():
+            bond_to = {}
+            for bond in atom.bonds:
+                #TODO: This patches an issue with from_atom and to_atom but does not solve it completely. 
+                # Fix later the root cause
+                if bond.from_atom.molecule_index == index:
+                    bond_to[bond.to_atom.molecule_index] = bond.to_atom.element.symbol
+
+                else:
+                    bond_to[bond.from_atom.molecule_index] = bond.from_atom.element.symbol
+
             atom_data = {
                 "coords": atom.coords,
                 "element": atom.element.symbol,
-                "bond_to": {bond.to_atom.molecule_index: bond.to_atom.element.symbol for bond in atom.bonds}
+                "bond_to": bond_to
             }
+
             atoms[index] = atom_data
 
         bonds = {}
         for atom_index in atoms.keys():
             atom_bonds = []
             for bond in mc_molecule.bonds:
-                if atom_index == bond.from_atom.molecule_index:
+                if atom_index == bond.to_atom.molecule_index:
                     atom_bonds.append({
-                        "to": bond.to_atom.molecule_index,
+                        "to": bond.from_atom.molecule_index,
                         "type": bond.bond_type,
-                        "stereo": bond.stereo,
+                        "stereo": 0, # bond.stereo,
                         "topology": 0, #TODO Implement this
                         "reacting_center_status": 0 #TODO Implement this
                     })
+            if atom_bonds:
+                bonds[atom_index] = atom_bonds
 
-            bonds[atom_index] = atom_bonds
 
         return atoms, bonds
 
