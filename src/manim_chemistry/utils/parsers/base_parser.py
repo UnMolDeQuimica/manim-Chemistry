@@ -41,7 +41,7 @@ class BaseParser(ABC):
 
     @staticmethod
     @abstractmethod
-    def data_parser(data: Any) -> Tuple[Dict, Dict]  | List[Tuple[Dict, Dict]]:
+    def data_parser(data: Any) -> Tuple[Dict, Dict] | List[Tuple[Dict, Dict]]:
         """
         Parses the atoms and bonds data and returns a tuple of dictionaries with each data.
         The atom data follows the structure:
@@ -73,7 +73,9 @@ class BaseParser(ABC):
         elif self.molecular_data:
             return self.molecular_data
 
-        raise Exception(f"Atoms data, bonds data and molecular data are not correct: {self.atoms_data} {self.bonds_data} {self.molecular_data}")
+        raise Exception(
+            f"Atoms data, bonds data and molecular data are not correct: {self.atoms_data} {self.bonds_data} {self.molecular_data}"
+        )
 
     @property
     def atoms(self):

@@ -54,7 +54,7 @@ class MolParser(BaseParser):
                 "bond_index": bond_index,
                 "stereo": None,
                 "topology": None,
-                "reacting_center_status": None
+                "reacting_center_status": None,
             }
             bond_index += 1
 

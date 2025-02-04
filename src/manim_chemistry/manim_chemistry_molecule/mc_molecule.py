@@ -109,9 +109,7 @@ class MCMolecule:
         Args:
             filepath: File path
         """
-        parsed_data = FileHandler(
-            file_path=filepath
-        ).parsed_atoms_bonds_data()
+        parsed_data = FileHandler(file_path=filepath).parsed_atoms_bonds_data()
 
         if isinstance(parsed_data, list):
             parsed_data = parsed_data[0]
@@ -130,8 +128,7 @@ class MCMolecule:
         for atoms_dict, bonds_dict in list_of_data_dicts:
             mc_molecules.append(
                 MCMolecule.construct_from_data_dict(
-                    atoms_data_dict=atoms_dict,
-                    bonds_data_dict=bonds_dict
+                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict
                 )
             )
 

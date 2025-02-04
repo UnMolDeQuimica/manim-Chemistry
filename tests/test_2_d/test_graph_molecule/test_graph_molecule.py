@@ -39,6 +39,8 @@ class TestGraphMolecule:
             assert isinstance(bond.from_atom, MCAtom)
 
     def test_molecule_from_file(self):
-        graph_molecule = GraphMolecule.molecule_from_file(filepath=self.morphine_file_path)
+        graph_molecule = GraphMolecule.molecule_from_file(
+            filepath=self.morphine_file_path
+        )
 
         assert isinstance(graph_molecule, GraphMolecule)

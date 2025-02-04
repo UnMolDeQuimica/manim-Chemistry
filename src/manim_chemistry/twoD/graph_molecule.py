@@ -204,11 +204,12 @@ class GraphMolecule(Graph):
 
         graph_molecules = VGroup()
         for mc_molecule in mc_molecules:
-            vertices, edges = GraphMolecule.mc_molecule_to_graph(mc_molecule=mc_molecule)
+            vertices, edges = GraphMolecule.mc_molecule_to_graph(
+                mc_molecule=mc_molecule
+            )
             graph_molecules.add(GraphMolecule(vertices, edges, label, *args, **kwargs))
 
         return graph_molecules
-
 
     def depth_first_search(
         self, graph: nx.Graph, atom: int, visited_atoms: set, connected_atoms: list

@@ -23,9 +23,9 @@ class MCBond:
         from_atom=None,
         to_atom=None,
         stereo: Optional[int] = None,
-        molecule_index: Optional[int]=None,
-        topology: Optional[int]=None,
-        reacting_center_status: Optional[int]=None
+        molecule_index: Optional[int] = None,
+        topology: Optional[int] = None,
+        reacting_center_status: Optional[int] = None,
     ):
         self.bond_type = bond_type
         self.from_atom = from_atom

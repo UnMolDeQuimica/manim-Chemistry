@@ -303,7 +303,9 @@ class MMoleculeObject(VGroup):
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
-        atoms, bonds = MMoleculeObject.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
+        atoms, bonds = MMoleculeObject.mc_molecule_to_atoms_and_bonds(
+            mc_molecule=mc_molecule
+        )
 
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
@@ -328,11 +330,12 @@ class MMoleculeObject(VGroup):
 
         mmolecules = VGroup()
         for mc_molecule in mc_molecules:
-            atoms, bonds = MMoleculeObject.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
+            atoms, bonds = MMoleculeObject.mc_molecule_to_atoms_and_bonds(
+                mc_molecule=mc_molecule
+            )
             mmolecules.add(MMoleculeObject(atoms, bonds, *args, **kwargs))
 
         return mmolecules
-
 
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
@@ -536,18 +539,20 @@ class MMoleculeObject(VGroup):
         for index, atom in mc_molecule.atoms_by_index.items():
             bond_to = {}
             for bond in atom.bonds:
-                #TODO: This patches an issue with from_atom and to_atom but does not solve it completely. 
+                # TODO: This patches an issue with from_atom and to_atom but does not solve it completely.
                 # Fix later the root cause
                 if bond.from_atom.molecule_index == index:
                     bond_to[bond.to_atom.molecule_index] = bond.to_atom.element.symbol
 
                 else:
-                    bond_to[bond.from_atom.molecule_index] = bond.from_atom.element.symbol
+                    bond_to[bond.from_atom.molecule_index] = (
+                        bond.from_atom.element.symbol
+                    )
 
             atom_data = {
                 "coords": atom.coords,
                 "element": atom.element.symbol,
-                "bond_to": bond_to
+                "bond_to": bond_to,
             }
 
             atoms[index] = atom_data
@@ -557,18 +562,20 @@ class MMoleculeObject(VGroup):
             atom_bonds = []
             for bond in mc_molecule.bonds:
                 if atom_index == bond.to_atom.molecule_index:
-                    atom_bonds.append({
-                        "to": bond.from_atom.molecule_index,
-                        "type": bond.bond_type,
-                        "stereo": bond.stereo,
-                        "topology": bond.topology,
-                        "reacting_center_status": bond.reacting_center_status
-                    })
+                    atom_bonds.append(
+                        {
+                            "to": bond.from_atom.molecule_index,
+                            "type": bond.bond_type,
+                            "stereo": bond.stereo,
+                            "topology": bond.topology,
+                            "reacting_center_status": bond.reacting_center_status,
+                        }
+                    )
             if atom_bonds:
                 bonds[atom_index] = atom_bonds
 
-
         return atoms, bonds
+
 
 class NamedMolecule(VGroup):
     def __init__(
