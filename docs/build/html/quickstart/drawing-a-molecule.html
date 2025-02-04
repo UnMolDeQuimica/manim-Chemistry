@@ -309,7 +309,7 @@
 
 <span class="k">class</span> <span class="nc">GraphMoleculeExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">graph_molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">build_from_mol</span><span class="p">(</span><span class="n">mol_file</span><span class="o">=</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
+        <span class="n">graph_molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="n">mol_file</span><span class="o">=</span><span class="s2">&quot;morphine.mol&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">graph_molecule</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -322,7 +322,7 @@
 
 <span class="k">class</span> <span class="nc">GraphMoleculeExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">build_from_mol</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">numeric_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">molecule</span> <span class="o">=</span> <span class="n">GraphMolecule</span><span class="o">.</span><span class="n">molecule_from_file</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">numeric_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">atoms_and_bonds</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">get_connected_atoms_and_bonds</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
         <span class="n">animation_builder</span> <span class="o">=</span> <span class="n">GMAnimationBuilder</span><span class="p">(</span>
             <span class="n">molecule</span><span class="o">=</span><span class="n">molecule</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="n">atoms_and_bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bonds</span><span class="o">=</span><span class="n">atoms_and_bonds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>

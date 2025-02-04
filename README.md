@@ -147,7 +147,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(mol_file="morphine.mol")
+        graph_molecule = GraphMolecule.molecule_from_file(filepath="morphine.mol")
         self.add(graph_molecule)
 ```
 ![plot](/examples/examples_assets/DrawGraphMorphine_ManimCE_v0.17.3.png)
@@ -161,7 +161,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             mol_file="morphine.mol",
             label=True
         )
@@ -176,7 +176,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             mol_file="morphine.mol",
             label=True,
             numeric_label=True
@@ -192,7 +192,7 @@ The power of graphs really shows in GraphMolecules. One of the examples of this 
 ```python
 class GraphMoleculeExample(Scene):
     def construct(self):
-        molecule = GraphMolecule.build_from_mol(asset, label=True, numeric_label=True)
+        molecule = GraphMolecule.molecule_from_file(asset, label=True, numeric_label=True)
         atoms_and_bonds = molecule.get_connected_atoms_and_bonds(1, 3)
         atoms_and_bonds.set_color(GREEN)
         self.add(molecule)

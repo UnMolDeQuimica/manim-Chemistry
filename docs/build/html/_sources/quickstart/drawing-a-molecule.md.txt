@@ -53,7 +53,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(mol_file="morphine.mol")
+        graph_molecule = GraphMolecule.molecule_from_file(filepath="morphine.mol")
         self.add(graph_molecule)
 ```
 ![plot](../../../examples/examples_assets/DrawGraphMorphine_ManimCE_v0.17.3.png)
@@ -68,7 +68,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        molecule = GraphMolecule.build_from_mol(asset, label=True, numeric_label=True)
+        molecule = GraphMolecule.molecule_from_file(asset, label=True, numeric_label=True)
         atoms_and_bonds = molecule.get_connected_atoms_and_bonds(1, 3)
         animation_builder = GMAnimationBuilder(
             molecule=molecule, atoms=atoms_and_bonds[0], bonds=atoms_and_bonds[1]

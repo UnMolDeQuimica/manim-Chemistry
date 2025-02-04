@@ -44,7 +44,7 @@ class DrawGraphMorphine(Scene):
     config.renderer = "cairo"
 
     def construct(self):
-        self.add(GraphMolecule.build_from_mol(mol_file=files_path / "morphine.mol"))
+        self.add(GraphMolecule.molecule_from_file(filepath=files_path / "morphine.mol"))
 
 
 # 2D Graph Molecule example
@@ -54,7 +54,7 @@ class DrawLabeledGraphMorphine(Scene):
 
     def construct(self):
         self.add(
-            GraphMolecule.build_from_mol(
+            GraphMolecule.molecule_from_file(
                 mol_file=files_path / "morphine.mol", label=True
             )
         )

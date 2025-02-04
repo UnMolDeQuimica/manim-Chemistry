@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 class TestGraphMoleculeCreationUncreation(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol"
         )
 
@@ -20,7 +20,7 @@ class TestGraphMoleculeCreationUncreation(Scene):
 
 class TestGraphMoleculeFadeInOut(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol"
         )
 
@@ -32,7 +32,7 @@ class TestGraphMoleculeFadeInOut(Scene):
 
 class TestGraphMoleculeWriteUnwrite(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol"
         )
 
@@ -44,7 +44,7 @@ class TestGraphMoleculeWriteUnwrite(Scene):
 
 class TestGraphMoleculeShift(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol"
         )
 
@@ -57,7 +57,7 @@ class TestGraphMoleculeShift(Scene):
 
 class TestGraphMoleculeRotate(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol"
         )
 
@@ -69,7 +69,7 @@ class TestGraphMoleculeRotate(Scene):
 
 class TestGraphMoleculeScale(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol"
         )
 
@@ -82,7 +82,7 @@ class TestGraphMoleculeScale(Scene):
 
 class TestGraphMoleculeLabelsAreAdded(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol", label=True
         )
 
@@ -91,7 +91,7 @@ class TestGraphMoleculeLabelsAreAdded(Scene):
 
 class TestGraphMoleculeNumericLabelsAreAdded(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol",
             label=True,
             numeric_label=True,
@@ -102,7 +102,7 @@ class TestGraphMoleculeNumericLabelsAreAdded(Scene):
 
 class TestGraphMoleculeAnimationBuilder(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol",
             label=True,
         )
@@ -125,7 +125,7 @@ class TestGraphMoleculeAnimationBuilder(Scene):
 
 class TestGraphMoleculeMoveAllAtoms(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             "examples/element_files/double_triple_bonds_molecule.mol",
             label=True,
         )
