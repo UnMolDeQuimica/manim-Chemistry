@@ -8,13 +8,17 @@
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite.
 
 ### New Features
-* [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Adds `molecule_from_file` and `multiple_molecules_from_file` to GraphMolecule and MMolecule classes. Now you just need to pass the file and Manim Chemistry will handle the parsing.
+* [Issue #56](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/56): Adds `molecule_from_file` and `multiple_molecules_from_file` to MMolecule class. Now you just need to pass the file and Manim Chemistry will handle the parsing.
+* [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Adds `molecule_from_file` and `multiple_molecules_from_file` to GraphMolecule class. Now you just need to pass the file and Manim Chemistry will handle the parsing.
+* [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/60): Adds `molecule_from_file` and `multiple_molecules_from_file` to ThreeDMolecule class. Now you just need to pass the file and Manim Chemistry will handle the parsing.
 
 ### Improvements
 * [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
 * [Issue #41 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/50): Adds FileHandler, BaseParser, MolParser and SDFParser classes. Adds tests for the MolParser.
 * [Issue #51 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/55): Adds MC Classes: MCElement, MCAtom, MCBond and MCMolecule
-* [Issue #52 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/560): Modifies GraphMolecule to use the new MC Classes and adds tests to be ran when modifications on GraphMolecule class are done.
+* [Issue #52 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/56): Modifies GraphMolecule to use the new MC Classes and adds tests to be ran when modifications on GraphMolecule class are done.
+* [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use the new MCClasses but keeps available old logic.
+* [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/60): Modifies ThreeDMolecule to use the new MCClasses but keeps available old logic.
 * [Issue #58 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/58): Adds contribute guide and PR template.
 * [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use parsers.
 
