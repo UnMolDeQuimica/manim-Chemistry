@@ -12,7 +12,7 @@ from manim import (
     VGroup,
 )
 
-from ..utils import mol_parser, mol_parser_string, sdf_parser, sdf_parser_string
+from ..utils import mol_parser, mol_parser_string, sdf_parser, sdf_parser_string, PubchemAPIManager
 from ..manim_chemistry_molecule import MCMolecule
 
 from .atom import MAtomObject
@@ -405,6 +405,39 @@ class MMoleculeObject(VGroup):
             mmolecules.add(MMoleculeObject(atoms, bonds, *args, **kwargs))
 
         return mmolecules
+
+    @staticmethod
+    def molecule_from_pubchem(
+        cid: Optional[str]=None,
+        name: Optional[str]=None,
+        smiles: Optional[str]=None,
+        inchi: Optional[str]=None,
+    ):
+        """
+        Generates a GraphMolecule from an identifier using PubChem API.
+
+        Args:
+            cid (Optional[str], optional): Molecule cid. Defaults to None.
+            name (Optional[str], optional): Molecule name. Defaults to None.
+            smiles (Optional[str], optional): Molecule SMILES. Defaults to None.
+            inchi (Optional[str], optional): Molecule InChi. Defaults to None.
+
+        Returns:
+            GraphMolecule: GraphMolecule
+        """
+        pubchem_api_manager = PubchemAPIManager(
+            cid=cid,
+            name=name,
+            smiles=smiles,
+            inchi=inchi
+        )
+
+        return MMoleculeObject.molecule_from_string(
+            string=pubchem_api_manager.get_molecule(), format="json"
+        )
+
+
+
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
