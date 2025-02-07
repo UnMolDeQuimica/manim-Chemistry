@@ -13,6 +13,7 @@
 * [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/60): Adds `molecule_from_file` and `multiple_molecules_from_file` to ThreeDMolecule class. Now you just need to pass the file and Manim Chemistry will handle the parsing.
 * [Issue #42](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/61): Adds support for ASNT format.
 * [Issue #43](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/62): Adds support for JSON format.
+* [Issue #44](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Adds support for XML format.
 
 ### Improvements
 * [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
