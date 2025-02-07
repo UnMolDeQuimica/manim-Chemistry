@@ -1,10 +1,12 @@
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 
 from manim import *
 import numpy as np
 import networkx as nx
 
 from ..manim_chemistry_molecule import MCMolecule
+from ..utils import PubchemAPIManager
+
 
 
 class SimpleLine(Line):
@@ -162,8 +164,8 @@ class GraphMolecule(Graph):
             for index, vertex in vertices_dict.items()
         }
 
-    @classmethod
-    def molecule_from_file(self, filepath, label=False, *args, **kwargs):
+    @staticmethod
+    def molecule_from_file(filepath, label=False, *args, **kwargs):
         """
         Reads a file and returns a single molecule from that file.
 
@@ -180,10 +182,10 @@ class GraphMolecule(Graph):
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
-        vertices, edges = self.mc_molecule_to_graph(mc_molecule=mc_molecule)
+        vertices, edges = GraphMolecule.mc_molecule_to_graph(mc_molecule=mc_molecule)
         return GraphMolecule(vertices, edges, label, *args, **kwargs)
 
-    @classmethod
+    @staticmethod
     def multiple_molecules_from_file(filepath, label=False, *args, **kwargs) -> VGroup:
         """
         Reads a file and returns a collection of molecules from that file as a VGroup.
@@ -200,6 +202,72 @@ class GraphMolecule(Graph):
         """
 
         mc_molecules = MCMolecule.construct_from_file(filepath=filepath)
+
+        if not isinstance(mc_molecules, list):
+            raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
+
+        graph_molecules = VGroup()
+        for mc_molecule in mc_molecules:
+            vertices, edges = GraphMolecule.mc_molecule_to_graph(
+                mc_molecule=mc_molecule
+            )
+            graph_molecules.add(GraphMolecule(vertices, edges, label, *args, **kwargs))
+
+        return graph_molecules
+
+    @staticmethod
+    def molecule_from_string(string: str, format: str="json", label=False, *args, **kwargs):
+        """
+        Reads a string and returns a molecule. Supported formats are:
+        - mol
+        - sdf
+        - asnt
+        - json
+        - xml
+
+        Uses json format by default.
+        Args:
+            string (str): String with molecule data.
+            format: Format of the data.
+            label (bool, optional): Wether or not add a label.. Defaults to False.
+
+        Raises:
+            Exception: In case the mc_molecules parsed is not a list.
+
+        Returns:
+            GraphMolecule: GraphMolecule from the file
+        """
+        mc_molecule = MCMolecule.construct_from_string(string=string, format=format)
+        if isinstance(mc_molecule, list):
+            mc_molecule = mc_molecule[0]
+
+        vertices, edges = GraphMolecule.mc_molecule_to_graph(mc_molecule=mc_molecule)
+        return GraphMolecule(vertices, edges, label, *args, **kwargs)
+
+    @staticmethod
+    def multiple_molecule_from_string(string: str, format: str="json", label=False, *args, **kwargs) -> VGroup:
+        """
+        Reads a string and returns a collection of molecules. Supported formats are:
+        - mol
+        - sdf
+        - asnt
+        - json
+        - xml
+
+        Uses json format by default.
+        Args:
+            string (str): String with molecule data.
+            format: Format of the data.
+            label (bool, optional): Wether or not add a label.. Defaults to False.
+
+        Raises:
+            Exception: In case the mc_molecules parsed is not a list.
+
+        Returns:
+            VGroup: VGroup with the molecules inside.
+        """
+
+        mc_molecules = MCMolecule.construct_multiples_from_string(string=string, format=format)
 
         if not isinstance(mc_molecules, list):
             raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
@@ -491,3 +559,33 @@ class GraphMolecule(Graph):
         }
 
         return vertices, edges
+
+    @staticmethod
+    def molecule_from_pubchem(
+        cid: Optional[str]=None,
+        name: Optional[str]=None,
+        smiles: Optional[str]=None,
+        inchi: Optional[str]=None,
+    ):
+        """
+        Generates a GraphMolecule from an identifier using PubChem API.
+
+        Args:
+            cid (Optional[str], optional): Molecule cid. Defaults to None.
+            name (Optional[str], optional): Molecule name. Defaults to None.
+            smiles (Optional[str], optional): Molecule SMILES. Defaults to None.
+            inchi (Optional[str], optional): Molecule InChi. Defaults to None.
+
+        Returns:
+            GraphMolecule: GraphMolecule
+        """
+        pubchem_api_manager = PubchemAPIManager(
+            cid=cid,
+            name=name,
+            smiles=smiles,
+            inchi=inchi
+        )
+
+        return GraphMolecule.molecule_from_string(
+            string=pubchem_api_manager.get_molecule(), format="json"
+        )
