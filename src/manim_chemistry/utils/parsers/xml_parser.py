@@ -6,6 +6,7 @@ import xmltodict
 
 from .base_parser import BaseParser
 
+
 class XMLParser(BaseParser):
     @staticmethod
     def read_file(filename: Union[str, bytes, os.PathLike]) -> list:
@@ -46,40 +47,47 @@ class XMLParser(BaseParser):
         if not isinstance(atoms_data_dict, dict):
             raise Exception(f"Atoms data has no dictionary structure {atoms_data_dict}")
 
-
         atoms_indices_raw = atoms_data_dict.get("PC-Atoms_aid").get("PC-Atoms_aid_E")
         atoms_indices = [int(atom_index) for atom_index in atoms_indices_raw]
 
         atoms_elements_raw = atoms_data_dict.get("PC-Atoms_element").get("PC-Element")
         atoms_elements = []
         for atom_element_dict in atoms_elements_raw:
-            atoms_elements.append(
-                atom_element_dict.get("@value")
-            )
+            atoms_elements.append(atom_element_dict.get("@value"))
 
         coords_data_dict = molecule_data.get("PC-Compound_coords").get("PC-Coordinates")
-        atoms_coords_raw = coords_data_dict.get("PC-Coordinates_conformers").get("PC-Conformer")
+        atoms_coords_raw = coords_data_dict.get("PC-Coordinates_conformers").get(
+            "PC-Conformer"
+        )
 
-        coords_x = [float(coord) for coord in atoms_coords_raw.get("PC-Conformer_x").get("PC-Conformer_x_E")]
-        coords_y = [float(coord) for coord in atoms_coords_raw.get("PC-Conformer_y").get("PC-Conformer_y_E")]
+        coords_x = [
+            float(coord)
+            for coord in atoms_coords_raw.get("PC-Conformer_x").get("PC-Conformer_x_E")
+        ]
+        coords_y = [
+            float(coord)
+            for coord in atoms_coords_raw.get("PC-Conformer_y").get("PC-Conformer_y_E")
+        ]
         if atoms_coords_raw.get("PC-Conformer_z"):
-            coords_z = [float(coord) for coord in atoms_coords_raw.get("PC-Conformer_z").get("PC-Conformer_z_E")]
+            coords_z = [
+                float(coord)
+                for coord in atoms_coords_raw.get("PC-Conformer_z").get(
+                    "PC-Conformer_z_E"
+                )
+            ]
 
         else:
             coords_z = [0 for _ in coords_x]
 
         atoms_coords = [
-            np.array([coord_x, coord_y, coord_z]) for coord_x, coord_y, coord_z in zip(coords_x, coords_y, coords_z)
+            np.array([coord_x, coord_y, coord_z])
+            for coord_x, coord_y, coord_z in zip(coords_x, coords_y, coords_z)
         ]
 
         atoms_data = {
-            atom_index: {
-                "element": element.capitalize(),
-                "coords": coord
-            } for atom_index, element, coord in zip(
-                atoms_indices,
-                atoms_elements,
-                atoms_coords
+            atom_index: {"element": element.capitalize(), "coords": coord}
+            for atom_index, element, coord in zip(
+                atoms_indices, atoms_elements, atoms_coords
             )
         }
 
@@ -89,22 +97,30 @@ class XMLParser(BaseParser):
     def extract_bonds_data(molecule_data: Dict) -> Dict:
         bonds_data_dict = molecule_data.get("PC-Compound_bonds").get("PC-Bonds")
 
-        from_atoms_raw_data = bonds_data_dict.get("PC-Bonds_aid1").get("PC-Bonds_aid1_E")
-        from_atoms_data = [int(from_atom_index) for from_atom_index in from_atoms_raw_data]
+        from_atoms_raw_data = bonds_data_dict.get("PC-Bonds_aid1").get(
+            "PC-Bonds_aid1_E"
+        )
+        from_atoms_data = [
+            int(from_atom_index) for from_atom_index in from_atoms_raw_data
+        ]
 
         to_atoms_raw_data = bonds_data_dict.get("PC-Bonds_aid2").get("PC-Bonds_aid2_E")
         to_atoms_data = [int(to_atom_index) for to_atom_index in to_atoms_raw_data]
 
         bonds_type_raw_data = bonds_data_dict.get("PC-Bonds_order").get("PC-BondType")
-        bonds_type_data = [int(bond_type_data.get("#text")) for bond_type_data in bonds_type_raw_data]
+        bonds_type_data = [
+            int(bond_type_data.get("#text")) for bond_type_data in bonds_type_raw_data
+        ]
 
         bonds_data = {}
-        for index, bond_data in enumerate(zip(from_atoms_data, to_atoms_data, bonds_type_data)):
+        for index, bond_data in enumerate(
+            zip(from_atoms_data, to_atoms_data, bonds_type_data)
+        ):
             from_atom_index, to_atom_index, bond_type = bond_data
             bonds_data[index] = {
                 "from_atom_index": from_atom_index,
                 "to_atom_index": to_atom_index,
-                "bond_type": bond_type
+                "bond_type": bond_type,
             }
 
         return bonds_data
