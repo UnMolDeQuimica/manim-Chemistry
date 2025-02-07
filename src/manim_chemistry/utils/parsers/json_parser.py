@@ -127,6 +127,7 @@ ELEMENTS_BY_ATOMIC_NUMBER = {
     118: "Og",
 }
 
+
 class JSONParser(BaseParser):
     @staticmethod
     def read_file(filename: Union[str, bytes, os.PathLike]) -> Any:
@@ -169,7 +170,6 @@ class JSONParser(BaseParser):
 
         return molecules_parsed_data
 
-
     @staticmethod
     def parse_single_molecule_data(molecule_data: Dict) -> Tuple[Dict, Dict]:
         atoms_data = JSONParser.extract_atoms_data(molecule_data=molecule_data)
@@ -196,11 +196,15 @@ class JSONParser(BaseParser):
 
         atoms_coords_dict = molecule_data.get("coords")[0]
         if not isinstance(atoms_coords_dict, dict):
-            raise Exception(f"Atomic coords are not defined as a dictionary: {atoms_coords_dict}")
+            raise Exception(
+                f"Atomic coords are not defined as a dictionary: {atoms_coords_dict}"
+            )
 
         conformers_coords = atoms_coords_dict.get("conformers")[0]
         if not isinstance(conformers_coords, dict):
-            raise Exception(f"Conformers coords are not defined as a dictionary: {conformers_coords}")
+            raise Exception(
+                f"Conformers coords are not defined as a dictionary: {conformers_coords}"
+            )
 
         x_coords = conformers_coords.get("x")
         y_coords = conformers_coords.get("y")
@@ -210,10 +214,12 @@ class JSONParser(BaseParser):
             z_coords = [0 for _ in x_coords]
 
         atoms_data = {}
-        for atom_index, element, x_coord, y_coord, z_coord in zip(atoms_indices, atoms_elements, x_coords, y_coords, z_coords):
+        for atom_index, element, x_coord, y_coord, z_coord in zip(
+            atoms_indices, atoms_elements, x_coords, y_coords, z_coords
+        ):
             atoms_data[atom_index] = {
                 "element": element,
-                "coords": np.array([x_coord, y_coord, z_coord])
+                "coords": np.array([x_coord, y_coord, z_coord]),
             }
 
         return atoms_data
@@ -229,19 +235,21 @@ class JSONParser(BaseParser):
         bond_type_list = bonds_data_dict.get("order")
 
         bonds_data = {}
-        for index, bond_data in enumerate(zip(from_atoms_data, to_atoms_data, bond_type_list)):
+        for index, bond_data in enumerate(
+            zip(from_atoms_data, to_atoms_data, bond_type_list)
+        ):
             from_atom, to_atom, bond_type = bond_data
             bonds_data[index] = {
                 "from_atom_index": from_atom,
                 "to_atom_index": to_atom,
-                "bond_type": bond_type
+                "bond_type": bond_type,
             }
 
         return bonds_data
 
-
     @staticmethod
     def clean_elements_data(atoms_elements_raw: List[int]):
-        return [ELEMENTS_BY_ATOMIC_NUMBER[elemenent_atomic_number] for elemenent_atomic_number in atoms_elements_raw]
-
-    
+        return [
+            ELEMENTS_BY_ATOMIC_NUMBER[elemenent_atomic_number]
+            for elemenent_atomic_number in atoms_elements_raw
+        ]
