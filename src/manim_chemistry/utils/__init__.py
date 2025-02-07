@@ -12,3 +12,5 @@ from .parsers import (
 )
 
 from .file_handler import FileHandler  # noqa F841
+
+from .pubchem_api import PubchemAPIManager  # noqa F841
