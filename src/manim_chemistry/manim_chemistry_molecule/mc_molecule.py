@@ -133,3 +133,40 @@ class MCMolecule:
             )
 
         return mc_molecules
+
+    @staticmethod
+    def construct_from_string(string: str, format: str="json"):
+        """
+        Reads a string and returns a molecule. Supported formats are:
+        - mol
+        - sdf
+        - asnt
+        - json
+        - xml
+
+        Uses json format by default.
+        """
+        parsed_data = FileHandler.parse_from_string(string=string, format=format)
+
+        if isinstance(parsed_data, list):
+            parsed_data = parsed_data[0]
+
+        atoms_dict, bonds_dict = parsed_data
+
+        return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict)
+
+    @staticmethod
+    def construct_multiples_from_string(string: str, format: str="json"):
+        """
+        Similar to `construct_from_string` but returning a list of MCMolecules.
+        """
+        parsed_data = FileHandler.parse_from_string(string=string, format=format)
+        mc_molecules = []
+        for atoms_dict, bonds_dict in parsed_data:
+            mc_molecules.append(
+                MCMolecule.construct_from_data_dict(
+                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict
+                )
+            )
+
+        return mc_molecules

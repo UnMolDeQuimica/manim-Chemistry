@@ -35,3 +35,13 @@ class FileHandler:
 
     def parsed_atoms_bonds_data(self) -> Tuple[Dict, Dict]:
         return self.parser.molecule_data
+
+    def parse_from_string(string: str, format: str):
+        if format not in SUPPORTED_FORMATS:
+            raise IncorrectFormat(
+                f"Format {format} is not supported. Supported extensions are {SUPPORTED_FORMATS.keys()}"
+            )
+
+        parser = SUPPORTED_FORMATS.get(format)
+
+        return parser.data_parser(string)
