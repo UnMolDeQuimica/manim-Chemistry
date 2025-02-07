@@ -337,6 +337,74 @@ class MMoleculeObject(VGroup):
 
         return mmolecules
 
+    @staticmethod
+    def molecule_from_string(string: str, format: str="json", *args, **kwargs):
+        """
+        Reads a string and returns a molecule. Supported formats are:
+        - mol
+        - sdf
+        - asnt
+        - json
+        - xml
+
+        Uses json format by default.
+        Args:
+            string (str): String with molecule data.
+            format: Format of the data.
+            label (bool, optional): Wether or not add a label.. Defaults to False.
+
+        Raises:
+            Exception: In case the mc_molecules parsed is not a list.
+
+        Returns:
+            GraphMolecule: GraphMolecule from the file
+        """
+        mc_molecule = MCMolecule.construct_from_string(string=string, format=format)
+
+        if isinstance(mc_molecule, list):
+            mc_molecule = mc_molecule[0]
+
+        atoms, bonds = MMoleculeObject.mc_molecule_to_atoms_and_bonds(
+            mc_molecule=mc_molecule
+        )
+
+        return MMoleculeObject(atoms, bonds, *args, **kwargs)
+
+    @staticmethod
+    def multiple_molecules_from_string(string: str, format: str="json", *args, **kwargs):
+        """
+        Reads a string and returns a collection of molecules. Supported formats are:
+        - mol
+        - sdf
+        - asnt
+        - json
+        - xml
+
+        Uses json format by default.
+        Args:
+            string (str): String with molecule data.
+            format: Format of the data.
+            label (bool, optional): Wether or not add a label.. Defaults to False.
+
+        Raises:
+            Exception: In case the mc_molecules parsed is not a list.
+
+        Returns:
+            VGroup: VGroup with the molecules inside.
+        """
+        mc_molecules = MCMolecule.construct_from_string(string=string, format=format)
+
+        if not isinstance(mc_molecules, list):
+            raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
+
+        mmolecules = VGroup()
+        for mc_molecule in mc_molecules:
+            atoms, bonds = MMoleculeObject.mc_molecule_to_atoms_and_bonds(
+                mc_molecule=mc_molecule
+            )
+            mmolecules.add(MMoleculeObject(atoms, bonds, *args, **kwargs))
+
+        return mmolecules
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
