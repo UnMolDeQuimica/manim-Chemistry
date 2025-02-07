@@ -1,13 +1,14 @@
 import os
 from typing import Dict, Tuple, Union
 
-from .parsers import MolParser, SDFParser, ASNTParser, JSONParser
+from .parsers import MolParser, SDFParser, ASNTParser, JSONParser, XMLParser
 
 SUPPORTED_FORMATS = {
     "mol": MolParser,
     "sdf": SDFParser,
     "asnt": ASNTParser,
     "json": JSONParser,
+    "xml": XMLParser,
 }
 
 
