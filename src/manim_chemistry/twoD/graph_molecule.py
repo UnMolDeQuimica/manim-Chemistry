@@ -31,11 +31,11 @@ class DoubleLine(ArcBetweenPoints):
         self.end = end
         super().__init__(start=start, end=end, angle=angle, radius=radius, **kwargs)
         self.sheen_direction = self._get_unit_vector()
-        self.add(
-            ArcBetweenPoints(
-                start=start, end=end, angle=-angle, radius=radius, **kwargs
-            )
-        )
+        other_arc = ArcBetweenPoints(
+                    start=start, end=end, angle=-angle, radius=radius, **kwargs
+                )
+        other_arc.sheen_direction = self.sheen_direction
+        self.add(other_arc)
 
     def _get_unit_vector(self) -> np.array:
         vector = self.end - self.start
@@ -54,7 +54,9 @@ class TripleLine(DoubleLine):
         self, start=[-1, 0, 0], end=[1, 0, 0], angle: float = PI / 4, *args, **kwargs
     ):
         super().__init__(start=start, end=end, *args, **kwargs)
-        self.add(Line(start=start, end=end, *args, **kwargs))
+        middle_line = Line(start=start, end=end, *args, **kwargs)
+        middle_line.sheen_direction = self.sheen_direction
+        self.add(middle_line)
 
 
 class GraphMolecule(Graph):
