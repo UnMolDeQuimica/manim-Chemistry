@@ -16,6 +16,7 @@ dependencies = [
     "numpy",
     "pandas",
     "pytest",
+    "xmltodict",
 ]
 license = {file = "LICENSE.md"}
 readme = "README.md"
