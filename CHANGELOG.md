@@ -6,6 +6,7 @@
 
 ### Fixes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite.
+* [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Fixes issue with coloring on double and triple bonds in GraphMolecule
 
 ### New Features
 * [Issue #56](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/56): Adds `molecule_from_file` and `multiple_molecules_from_file` to MMolecule class. Now you just need to pass the file and Manim Chemistry will handle the parsing.
@@ -14,6 +15,9 @@
 * [Issue #42](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/61): Adds support for ASNT format.
 * [Issue #43](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/62): Adds support for JSON format.
 * [Issue #44](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Adds support for XML format.
+* [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Adds `molecule_from_string` and `multiple_molecules_from_string` to GraphMolecule, ThreeDMolecule and MMolecule.
+* [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Adds support for Pub Chem API.
+* [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Use of source csv is now optional on ThreeDMolecules.
 
 ### Improvements
 * [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.

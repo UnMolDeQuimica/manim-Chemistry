@@ -17,6 +17,7 @@ dependencies = [
     "pandas",
     "pytest",
     "xmltodict",
+    "requests",
 ]
 license = {file = "LICENSE.md"}
 readme = "README.md"
