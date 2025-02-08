@@ -1,3 +1,4 @@
+from typing import Optional
 from manim import ORIGIN
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
 
@@ -18,7 +19,7 @@ class ThreeDMolecule(OpenGLGroup):
         self,
         atoms_dict,
         bonds_dict,
-        source_csv,
+        source_csv: Optional[str]=None,
         add_bonds=True,
         add_atoms=True,
         *mobjects,
@@ -40,9 +41,12 @@ class ThreeDMolecule(OpenGLGroup):
     def get_atoms_from_csv(self):
         atoms = OpenGLGroup()
         for _, atom in self.atoms_dict.items():
-            element = Element.from_csv_file(
-                self.source_csv, atom.get("element")
-            )  # TODO: Make the file an option
+            if self.source_csv:
+                element = Element.from_csv_file(
+                    self.source_csv, atom.get("element")
+                )
+            else:
+                element = MC_ELEMENT_DICT.get(atom.get("element"))
             atoms.add(ThreeDAtom(element, atom.get("coords")))
 
         return atoms
