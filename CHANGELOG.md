@@ -28,7 +28,7 @@
 * [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/60): Modifies ThreeDMolecule to use the new MCClasses but keeps available old logic.
 * [Issue #58](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/58): Adds contribute guide and PR template.
 * [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use parsers.
-* [Issue #70](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Implements AbstractMolecule across all molecule types.
+* [Issue #70](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/71): Implements AbstractMolecule across all molecule types.
 
 ### Breaking changes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
@@ -104,5 +104,5 @@
 * Fixed typo in add_bonds_numbering example.
 * Added NamedMolecule example.
 
-## 0.1.0 
+## 0.1.0
 * Creation of the project
