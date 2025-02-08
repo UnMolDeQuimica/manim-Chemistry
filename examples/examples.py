@@ -2,9 +2,16 @@ from pathlib import Path
 
 from manim import Scene, ThreeDScene, config
 
-from manim_chemistry import (BohrAtom, GraphMolecule, MElementObject,
-                             MMoleculeObject, Orbital, PeriodicTable,
-                             ThreeDMolecule, sdf_parser)
+from manim_chemistry import (
+    BohrAtom,
+    GraphMolecule,
+    MElementObject,
+    MMoleculeObject,
+    Orbital,
+    PeriodicTable,
+    ThreeDMolecule,
+    sdf_parser,
+)
 
 script_path = Path(__file__).absolute().parent
 files_path = script_path / "element_files"
@@ -16,8 +23,11 @@ class Draw2DMorphine(Scene):
     config.renderer = "cairo"
 
     def construct(self):
-        morphine = MMoleculeObject.from_mol_file(filename=files_path / "morphine.mol")
+        morphine = MMoleculeObject.molecule_from_file(
+            filename=files_path / "morphine.mol"
+        )
         self.add(morphine)
+
 
 # 2D Molecule from SDF file
 class Draw2DMorphineSDF(Scene):
@@ -36,7 +46,8 @@ class DrawGraphMorphine(Scene):
     config.renderer = "cairo"
 
     def construct(self):
-        self.add(GraphMolecule.build_from_mol(mol_file=files_path / "morphine.mol"))
+        self.add(GraphMolecule.molecule_from_file(filepath=files_path / "morphine.mol"))
+
 
 # 2D Graph Molecule example
 class DrawLabeledGraphMorphine(Scene):
@@ -45,7 +56,7 @@ class DrawLabeledGraphMorphine(Scene):
 
     def construct(self):
         self.add(
-            GraphMolecule.build_from_mol(
+            GraphMolecule.molecule_from_file(
                 mol_file=files_path / "morphine.mol", label=True
             )
         )
@@ -58,7 +69,7 @@ class Draw3DMorphine(ThreeDScene):
 
     def construct(self):
         self.add(
-            ThreeDMolecule.from_mol_file(
+            ThreeDMolecule.molecule_from_file(
                 filename=files_path / "morphine3d.mol",
                 source_csv=files_path / "Elementos.csv",
             )

@@ -72,7 +72,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol")
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol")
         self.add(morphine)
 ```
 
@@ -94,7 +94,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol", add_bonds_numbering=True)
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol", add_bonds_numbering=True)
         self.add(morphine)
 ```
 
@@ -110,7 +110,7 @@ from manim_chemistry import *
 
 class TwoDMoleculeScene(Scene):
    def construct(self):
-        morphine = MMoleculeObject.from_mol_file("morphine.mol", rotate_bonds=[7, 20])
+        morphine = MMoleculeObject.molecule_from_file("morphine.mol", rotate_bonds=[7, 20])
         self.add(morphine)
 ```
 
@@ -129,7 +129,7 @@ from manim_chemistry import *
 
 class NamedMoleculeExample(Scene):
     def construct(self):
-        named_molecule = NamedMolecule.from_mol_file(name="Morphine", filename="morphine.mol")
+        named_molecule = NamedMolecule.molecule_from_file(name="Morphine", filename="morphine.mol")
         self.add(diagram)
 ```
 ![plot](/examples/examples_assets/NamedMoleculeExample_ManimCE_v0.17.3.png)
@@ -147,7 +147,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(mol_file="morphine.mol")
+        graph_molecule = GraphMolecule.molecule_from_file(filepath="morphine.mol")
         self.add(graph_molecule)
 ```
 ![plot](/examples/examples_assets/DrawGraphMorphine_ManimCE_v0.17.3.png)
@@ -161,7 +161,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             mol_file="morphine.mol",
             label=True
         )
@@ -176,7 +176,7 @@ from manim_chemistry import *
 
 class GraphMoleculeExample(Scene):
     def construct(self):
-        graph_molecule = GraphMolecule.build_from_mol(
+        graph_molecule = GraphMolecule.molecule_from_file(
             mol_file="morphine.mol",
             label=True,
             numeric_label=True
@@ -192,7 +192,7 @@ The power of graphs really shows in GraphMolecules. One of the examples of this 
 ```python
 class GraphMoleculeExample(Scene):
     def construct(self):
-        molecule = GraphMolecule.build_from_mol(asset, label=True, numeric_label=True)
+        molecule = GraphMolecule.molecule_from_file(asset, label=True, numeric_label=True)
         atoms_and_bonds = molecule.get_connected_atoms_and_bonds(1, 3)
         atoms_and_bonds.set_color(GREEN)
         self.add(molecule)
@@ -222,7 +222,7 @@ from manim_chemistry import *
 
 class Draw3DMorphine(ThreeDScene):
     def construct(self):
-        three_d_morphine = ThreeDMolecule.from_mol_file("morphine.mol", "Elementos.csv")
+        three_d_morphine = ThreeDMolecule.molecule_from_file("morphine.mol", "Elementos.csv")
         self.add(three_d_morphine)
         self.wait()
 ```
