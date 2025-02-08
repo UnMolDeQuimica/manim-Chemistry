@@ -4,9 +4,7 @@ _Write here the description of your PR_
 
 # Related issue
 
-_Leave here the link to the related issue in the following format_
-
-`[#<Issue number> <Issue title>](Issue link)`
+[#<Issue number> <Issue title>](Issue link)
 
 # Pre merge checks
 

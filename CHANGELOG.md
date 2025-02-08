@@ -18,6 +18,7 @@
 * [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Adds `molecule_from_string` and `multiple_molecules_from_string` to GraphMolecule, ThreeDMolecule and MMolecule.
 * [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Adds support for Pub Chem API.
 * [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Use of source csv is now optional on ThreeDMolecules.
+* [Issue #68](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/72): Added `ignore_hydrogens` and `ignore_all_hydrogens` parameter to MCMolecule molecule generation functions.
 
 ### Improvements
 * [Issue #46](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
