@@ -83,7 +83,7 @@ class MCMolecule:
             mc_bond.to_atom.add_bonds(mc_bond)
 
     @staticmethod
-    def construct_from_data_dict(atoms_data_dict: dict, bonds_data_dict: dict):
+    def construct_from_data_dict(atoms_data_dict: dict, bonds_data_dict: dict, ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False):
         """
         Given data with the format provided by a parser, constructs a MCMolecule,
         the corresponding MCAtoms and MCBonds and stablishes the connections between
@@ -99,10 +99,16 @@ class MCMolecule:
         mc_molecule.add_bonds_from_bonds_dict(bonds_dict=bonds_data_dict)
         mc_molecule.add_connections_between_atoms()
 
+        if ignore_all_hydrogens:
+            mc_molecule.remove_all_hydrogens()
+
+        elif ignore_hydrogens:
+            mc_molecule.remove_carbon_hydrogens()
+
         return mc_molecule
 
     @staticmethod
-    def construct_from_file(filepath):
+    def construct_from_file(filepath, ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False):
         """
         Returns an MCMolecule given a file path.
 
@@ -115,10 +121,10 @@ class MCMolecule:
             parsed_data = parsed_data[0]
 
         atoms_dict, bonds_dict = parsed_data
-        return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict)
+        return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens)
 
     @staticmethod
-    def construct_multiples_from_file(filepath):
+    def construct_multiples_from_file(filepath, ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False):
         """
         Similar to `construct_from_file` but returning a list of MCMolecules.
         """
@@ -128,14 +134,14 @@ class MCMolecule:
         for atoms_dict, bonds_dict in list_of_data_dicts:
             mc_molecules.append(
                 MCMolecule.construct_from_data_dict(
-                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict
+                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens
                 )
             )
 
         return mc_molecules
 
     @staticmethod
-    def construct_from_string(string: str, format: str = "json"):
+    def construct_from_string(string: str, format: str = "json", ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False):
         """
         Reads a string and returns a molecule. Supported formats are:
         - mol
@@ -153,10 +159,10 @@ class MCMolecule:
 
         atoms_dict, bonds_dict = parsed_data
 
-        return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict)
+        return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens)
 
     @staticmethod
-    def construct_multiples_from_string(string: str, format: str = "json"):
+    def construct_multiples_from_string(string: str, format: str = "json", ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False):
         """
         Similar to `construct_from_string` but returning a list of MCMolecules.
         """
@@ -165,8 +171,70 @@ class MCMolecule:
         for atoms_dict, bonds_dict in parsed_data:
             mc_molecules.append(
                 MCMolecule.construct_from_data_dict(
-                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict
+                    atoms_data_dict=atoms_dict, bonds_data_dict=bonds_dict, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens
                 )
             )
 
         return mc_molecules
+
+    def remove_carbon_hydrogens(self):
+        atoms_to_be_removed = []
+        for index, atom in self.atoms_by_index.items():
+            if atom.element.atomic_number != 1:
+                continue
+
+            if atom.bonds[0].to_atom.element.atomic_number == 6 or atom.bonds[0].from_atom.element.atomic_number == 6:
+                atoms_to_be_removed.append(index)
+
+        return self.remove_hydrogens(atoms_to_be_removed)
+
+    def remove_all_hydrogens(self):
+        atoms_to_be_removed = []
+        for index, atom in self.atoms_by_index.items():
+            if atom.element.atomic_number != 1:
+                continue
+
+            atoms_to_be_removed.append(index)
+
+        return self.remove_hydrogens(atoms_to_be_removed)
+
+    def remove_hydrogens(self, atoms_to_be_removed: list):
+        if not atoms_to_be_removed:
+            return
+        for atom in atoms_to_be_removed:
+            self.atoms_by_index.pop(atom)
+
+        self.atoms = list(self.atoms_by_index.values())
+
+        bonds_to_be_removed = []
+        for index, bond in enumerate(self.bonds):
+            if bond.from_atom.molecule_index in atoms_to_be_removed:
+                bonds_to_be_removed.append(index)
+
+            if bond.to_atom.molecule_index in atoms_to_be_removed:
+                bonds_to_be_removed.append(index)
+
+        if not bonds_to_be_removed:
+            return
+
+        bonds_to_be_removed.reverse()
+
+        for bond in bonds_to_be_removed:
+            self.bonds.pop(bond)
+
+        self.reindex_molecule_atoms()
+
+    def reindex_molecule_atoms(self):
+        self.atoms_by_index = {}
+        atoms_old_index_mapping = {}
+        for index, atom in enumerate(self.atoms, start=1):
+            atoms_old_index_mapping[atom.molecule_index] = index
+            atom.molecule_index = index
+            self.atoms_by_index[index] = atom
+
+        for bond in self.bonds:
+            if bond.from_atom.molecule_index in atoms_old_index_mapping.keys():
+                bond.from_atom.molecule_index = atoms_old_index_mapping[bond.from_atom.molecule_index]
+
+            if bond.to_atom.molecule_index in atoms_old_index_mapping.keys():
+                bond.to_atom.molecule_index = atoms_old_index_mapping[bond.to_atom.molecule_index]

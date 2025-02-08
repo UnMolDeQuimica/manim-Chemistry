@@ -22,7 +22,7 @@ class AbstractMolecule:
         ...
 
     @classmethod
-    def molecule_from_file(cls, filepath, *args, **kwargs):
+    def molecule_from_file(cls, filepath, ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False, *args, **kwargs):
         """
         Reads a file and returns a single molecule from that file.
 
@@ -34,7 +34,7 @@ class AbstractMolecule:
         Returns:
             GraphMolecule: GraphMolecule from the file
         """
-        mc_molecule = MCMolecule.construct_from_file(filepath=filepath)
+        mc_molecule = MCMolecule.construct_from_file(filepath=filepath, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens)
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
@@ -45,7 +45,7 @@ class AbstractMolecule:
 
     @classmethod
     def multiple_molecules_from_file(
-        cls, filepath, *args, **kwargs
+        cls, filepath, ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False, *args, **kwargs
     ) -> Union[OpenGLGroup, VGroup]:
         """
         Reads a file and returns a collection of molecules from that file as a OpenGLGroup or VGroup.
@@ -59,7 +59,7 @@ class AbstractMolecule:
         Returns:
             OpenGLGroup: OpenGLGroup with the molecules inside.
         """
-        mc_molecules = MCMolecule.construct_multiples_from_file(filepath=filepath)
+        mc_molecules = MCMolecule.construct_multiples_from_file(filepath=filepath, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens)
 
         if not isinstance(mc_molecules, list):
             raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
@@ -74,7 +74,7 @@ class AbstractMolecule:
         return mmolecules
 
     @classmethod
-    def molecule_from_string(cls, string: str, format: str = "json", *args, **kwargs):
+    def molecule_from_string(cls, string: str, format: str = "json", ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False, *args, **kwargs):
         """
         Reads a file and returns a single molecule from that file.
 
@@ -88,7 +88,7 @@ class AbstractMolecule:
             ThreeDMolecule: ThreeDMolecule from the string
         """
 
-        mc_molecule = MCMolecule.construct_from_string(string=string, format=format)
+        mc_molecule = MCMolecule.construct_from_string(string=string, format=format, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens)
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
@@ -97,7 +97,7 @@ class AbstractMolecule:
 
     @classmethod
     def multiple_molecules_from_string(
-        cls, string: str, format: str = "json", *args, **kwargs
+        cls, string: str, format: str = "json", ignore_hydrogens: bool=True, ignore_all_hydrogens: bool=False, *args, **kwargs
     ) -> OpenGLGroup:
         """
         Reads a file and returns a collection of molecules from that file as a OpenGLGroup.
@@ -114,7 +114,7 @@ class AbstractMolecule:
         """
 
         mc_molecules = MCMolecule.construct_multiples_from_string(
-            string=string, format=format
+            string=string, format=format, ignore_hydrogens=ignore_hydrogens, ignore_all_hydrogens=ignore_all_hydrogens
         )
 
         if not isinstance(mc_molecules, list):
