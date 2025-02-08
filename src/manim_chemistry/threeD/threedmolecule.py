@@ -20,7 +20,7 @@ class ThreeDMolecule(OpenGLGroup):
         self,
         atoms_dict,
         bonds_dict,
-        source_csv: Optional[str]=None,
+        source_csv: Optional[str] = None,
         add_bonds=True,
         add_atoms=True,
         *mobjects,
@@ -43,9 +43,7 @@ class ThreeDMolecule(OpenGLGroup):
         atoms = OpenGLGroup()
         for _, atom in self.atoms_dict.items():
             if self.source_csv:
-                element = Element.from_csv_file(
-                    self.source_csv, atom.get("element")
-                )
+                element = Element.from_csv_file(self.source_csv, atom.get("element"))
             else:
                 element = MC_ELEMENT_DICT.get(atom.get("element"))
             atoms.add(ThreeDAtom(element, atom.get("coords")))
@@ -84,7 +82,9 @@ class ThreeDMolecule(OpenGLGroup):
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
-        vertices, edges = ThreeDMolecule.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
+        vertices, edges = ThreeDMolecule.mc_molecule_to_atoms_and_bonds(
+            mc_molecule=mc_molecule
+        )
         return ThreeDMolecule(vertices, edges, *args, **kwargs)
 
     @staticmethod
@@ -116,7 +116,7 @@ class ThreeDMolecule(OpenGLGroup):
         return mmolecules
 
     @staticmethod
-    def molecule_from_string(string: str, format: str="json", *args, **kwargs):
+    def molecule_from_string(string: str, format: str = "json", *args, **kwargs):
         """
         Reads a file and returns a single molecule from that file.
 
@@ -134,11 +134,15 @@ class ThreeDMolecule(OpenGLGroup):
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
-        vertices, edges = ThreeDMolecule.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
+        vertices, edges = ThreeDMolecule.mc_molecule_to_atoms_and_bonds(
+            mc_molecule=mc_molecule
+        )
         return ThreeDMolecule(vertices, edges, *args, **kwargs)
 
     @staticmethod
-    def multiple_molecules_from_string(string: str, format: str="json", *args, **kwargs) -> OpenGLGroup:
+    def multiple_molecules_from_string(
+        string: str, format: str = "json", *args, **kwargs
+    ) -> OpenGLGroup:
         """
         Reads a file and returns a collection of molecules from that file as a OpenGLGroup.
 
@@ -153,7 +157,9 @@ class ThreeDMolecule(OpenGLGroup):
             OpenGLGroup: OpenGLGroup with the molecules inside.
         """
 
-        mc_molecules = MCMolecule.construct_multiples_from_string(string=string, format=format)
+        mc_molecules = MCMolecule.construct_multiples_from_string(
+            string=string, format=format
+        )
 
         if not isinstance(mc_molecules, list):
             raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
@@ -169,12 +175,12 @@ class ThreeDMolecule(OpenGLGroup):
 
     @staticmethod
     def molecule_from_pubchem(
-        cid: Optional[str]=None,
-        name: Optional[str]=None,
-        smiles: Optional[str]=None,
-        inchi: Optional[str]=None,
+        cid: Optional[str] = None,
+        name: Optional[str] = None,
+        smiles: Optional[str] = None,
+        inchi: Optional[str] = None,
         *args,
-        **kwargs
+        **kwargs,
     ):
         """
         Generates a GraphMolecule from an identifier using PubChem API.
@@ -189,19 +195,12 @@ class ThreeDMolecule(OpenGLGroup):
             GraphMolecule: GraphMolecule
         """
         pubchem_api_manager = PubchemAPIManager(
-            cid=cid,
-            name=name,
-            smiles=smiles,
-            inchi=inchi
+            cid=cid, name=name, smiles=smiles, inchi=inchi
         )
 
         return ThreeDMolecule.molecule_from_string(
-            string=pubchem_api_manager.get_molecule(),
-            format="json",
-            *args,
-            **kwargs
+            string=pubchem_api_manager.get_molecule(), format="json", *args, **kwargs
         )
-
 
     @staticmethod
     def mc_molecule_to_atoms_and_bonds(mc_molecule: MCMolecule):

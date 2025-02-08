@@ -3,18 +3,21 @@ import json
 
 import requests
 
+
 class PubchemAPIManager:
     BASE_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/"
 
     def __init__(
         self,
-        cid: Optional[int]=None,
-        name: Optional[str]=None,
-        smiles: Optional[str]=None,
-        inchi: Optional[str]=None,
+        cid: Optional[int] = None,
+        name: Optional[str] = None,
+        smiles: Optional[str] = None,
+        inchi: Optional[str] = None,
     ):
         if not any([cid, name, smiles, inchi]):
-            raise Exception("You should provide an identifier. Available identifiers are cid, name, smiles and inchi")
+            raise Exception(
+                "You should provide an identifier. Available identifiers are cid, name, smiles and inchi"
+            )
 
         self.cid = cid
         self.name = name
@@ -28,7 +31,9 @@ class PubchemAPIManager:
         if request.status_code == 404:
             raise Exception(f"Compound {identifier} not found")
 
-        raise Exception(f"An error occurred when calling the Pub Chem API. Status code: {request.status_code}. Request response: {request.response}")
+        raise Exception(
+            f"An error occurred when calling the Pub Chem API. Status code: {request.status_code}. Request response: {request.response}"
+        )
 
     def from_cid(self):
         request = requests.get(f"{PubchemAPIManager.BASE_URL}/cid/{self.cid}/json")
@@ -61,6 +66,3 @@ class PubchemAPIManager:
 
         else:
             raise Exception("No identifier provided")
-
-
-

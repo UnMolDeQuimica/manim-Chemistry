@@ -135,7 +135,7 @@ class MCMolecule:
         return mc_molecules
 
     @staticmethod
-    def construct_from_string(string: str, format: str="json"):
+    def construct_from_string(string: str, format: str = "json"):
         """
         Reads a string and returns a molecule. Supported formats are:
         - mol
@@ -156,7 +156,7 @@ class MCMolecule:
         return MCMolecule.construct_from_data_dict(atoms_dict, bonds_dict)
 
     @staticmethod
-    def construct_multiples_from_string(string: str, format: str="json"):
+    def construct_multiples_from_string(string: str, format: str = "json"):
         """
         Similar to `construct_from_string` but returning a list of MCMolecules.
         """

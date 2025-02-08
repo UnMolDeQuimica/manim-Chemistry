@@ -12,7 +12,13 @@ from manim import (
     VGroup,
 )
 
-from ..utils import mol_parser, mol_parser_string, sdf_parser, sdf_parser_string, PubchemAPIManager
+from ..utils import (
+    mol_parser,
+    mol_parser_string,
+    sdf_parser,
+    sdf_parser_string,
+    PubchemAPIManager,
+)
 from ..manim_chemistry_molecule import MCMolecule
 
 from .atom import MAtomObject
@@ -338,7 +344,7 @@ class MMoleculeObject(VGroup):
         return mmolecules
 
     @staticmethod
-    def molecule_from_string(string: str, format: str="json", *args, **kwargs):
+    def molecule_from_string(string: str, format: str = "json", *args, **kwargs):
         """
         Reads a string and returns a molecule. Supported formats are:
         - mol
@@ -371,7 +377,9 @@ class MMoleculeObject(VGroup):
         return MMoleculeObject(atoms, bonds, *args, **kwargs)
 
     @staticmethod
-    def multiple_molecules_from_string(string: str, format: str="json", *args, **kwargs):
+    def multiple_molecules_from_string(
+        string: str, format: str = "json", *args, **kwargs
+    ):
         """
         Reads a string and returns a collection of molecules. Supported formats are:
         - mol
@@ -408,10 +416,12 @@ class MMoleculeObject(VGroup):
 
     @staticmethod
     def molecule_from_pubchem(
-        cid: Optional[str]=None,
-        name: Optional[str]=None,
-        smiles: Optional[str]=None,
-        inchi: Optional[str]=None,
+        cid: Optional[str] = None,
+        name: Optional[str] = None,
+        smiles: Optional[str] = None,
+        inchi: Optional[str] = None,
+        *args,
+        **kwargs,
     ):
         """
         Generates a GraphMolecule from an identifier using PubChem API.
@@ -426,17 +436,12 @@ class MMoleculeObject(VGroup):
             GraphMolecule: GraphMolecule
         """
         pubchem_api_manager = PubchemAPIManager(
-            cid=cid,
-            name=name,
-            smiles=smiles,
-            inchi=inchi
+            cid=cid, name=name, smiles=smiles, inchi=inchi
         )
 
         return MMoleculeObject.molecule_from_string(
-            string=pubchem_api_manager.get_molecule(), format="json"
+            string=pubchem_api_manager.get_molecule(), format="json", *args, **kwargs
         )
-
-
 
     def from_mol_file(filename, *args, **kwargs):
         atoms, bonds = mol_parser(filename)

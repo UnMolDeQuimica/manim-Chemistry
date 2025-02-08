@@ -8,7 +8,6 @@ from ..manim_chemistry_molecule import MCMolecule
 from ..utils import PubchemAPIManager
 
 
-
 class SimpleLine(Line):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -34,8 +33,8 @@ class DoubleLine(ArcBetweenPoints):
         super().__init__(start=start, end=end, angle=angle, radius=radius, **kwargs)
         self.sheen_direction = self._get_unit_vector()
         other_arc = ArcBetweenPoints(
-                    start=start, end=end, angle=-angle, radius=radius, **kwargs
-                )
+            start=start, end=end, angle=-angle, radius=radius, **kwargs
+        )
         other_arc.sheen_direction = self.sheen_direction
         self.add(other_arc)
 
@@ -216,7 +215,9 @@ class GraphMolecule(Graph):
         return graph_molecules
 
     @staticmethod
-    def molecule_from_string(string: str, format: str="json", label=False, *args, **kwargs):
+    def molecule_from_string(
+        string: str, format: str = "json", label=False, *args, **kwargs
+    ):
         """
         Reads a string and returns a molecule. Supported formats are:
         - mol
@@ -235,7 +236,7 @@ class GraphMolecule(Graph):
             Exception: In case the mc_molecules parsed is not a list.
 
         Returns:
-            GraphMolecule: GraphMolecule from the file
+            GraphMolecule: GraphMolecule from the string
         """
         mc_molecule = MCMolecule.construct_from_string(string=string, format=format)
         if isinstance(mc_molecule, list):
@@ -245,7 +246,9 @@ class GraphMolecule(Graph):
         return GraphMolecule(vertices, edges, label, *args, **kwargs)
 
     @staticmethod
-    def multiple_molecule_from_string(string: str, format: str="json", label=False, *args, **kwargs) -> VGroup:
+    def multiple_molecule_from_string(
+        string: str, format: str = "json", label=False, *args, **kwargs
+    ) -> VGroup:
         """
         Reads a string and returns a collection of molecules. Supported formats are:
         - mol
@@ -267,7 +270,9 @@ class GraphMolecule(Graph):
             VGroup: VGroup with the molecules inside.
         """
 
-        mc_molecules = MCMolecule.construct_multiples_from_string(string=string, format=format)
+        mc_molecules = MCMolecule.construct_multiples_from_string(
+            string=string, format=format
+        )
 
         if not isinstance(mc_molecules, list):
             raise Exception(f"Expected a list of molecules. Received {mc_molecules}")
@@ -562,10 +567,13 @@ class GraphMolecule(Graph):
 
     @staticmethod
     def molecule_from_pubchem(
-        cid: Optional[str]=None,
-        name: Optional[str]=None,
-        smiles: Optional[str]=None,
-        inchi: Optional[str]=None,
+        cid: Optional[str] = None,
+        name: Optional[str] = None,
+        smiles: Optional[str] = None,
+        inchi: Optional[str] = None,
+        label=False,
+        *args,
+        **kwargs,
     ):
         """
         Generates a GraphMolecule from an identifier using PubChem API.
@@ -580,12 +588,13 @@ class GraphMolecule(Graph):
             GraphMolecule: GraphMolecule
         """
         pubchem_api_manager = PubchemAPIManager(
-            cid=cid,
-            name=name,
-            smiles=smiles,
-            inchi=inchi
+            cid=cid, name=name, smiles=smiles, inchi=inchi
         )
 
         return GraphMolecule.molecule_from_string(
-            string=pubchem_api_manager.get_molecule(), format="json"
+            string=pubchem_api_manager.get_molecule(),
+            format="json",
+            label=label,
+            *args,
+            **kwargs,
         )
