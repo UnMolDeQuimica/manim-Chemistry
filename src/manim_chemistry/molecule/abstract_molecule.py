@@ -1,4 +1,5 @@
-from typing import Union, Optional
+from typing import Union, Optional, Tuple, Dict
+from abc import abstractmethod
 
 from manim import VGroup
 from ..utils import mol_parser, mol_parser_string, PubchemAPIManager
@@ -156,3 +157,20 @@ class AbstractMolecule:
         return cls.molecule_from_string(
             string=pubchem_api_manager.get_molecule(), format="json", *args, **kwargs
         )
+
+    @classmethod
+    @abstractmethod
+    def mc_molecule_to_atoms_and_bonds(cls, mc_molecule: MCMolecule) -> Tuple[Dict, Dict]:
+        """
+        Transforms the structure of a mc_molecule to a (vertices, edges) tuple
+        with the following structure:
+        - Vertices: {<atom_index>: MCAtom}
+        - Edges: {(<from_atom_index>, <to_atom_index>): MCBond}
+
+        Args:
+            mc_molecule (MCMolecule): _description_
+
+        Returns:
+            Tuple[Dict, Dict]: _description_
+        """
+        ...
