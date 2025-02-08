@@ -5,7 +5,7 @@
 ### Bugfixes
 
 ### Fixes
-* [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite.
+* [Issue #48](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite.
 * [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Fixes issue with coloring on double and triple bonds in GraphMolecule
 
 ### New Features
@@ -20,14 +20,15 @@
 * [Issue #45](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/63): Use of source csv is now optional on ThreeDMolecules.
 
 ### Improvements
-* [Issue #46 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
-* [Issue #41 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/50): Adds FileHandler, BaseParser, MolParser and SDFParser classes. Adds tests for the MolParser.
-* [Issue #51 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/55): Adds MC Classes: MCElement, MCAtom, MCBond and MCMolecule
-* [Issue #52 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/56): Modifies GraphMolecule to use the new MC Classes and adds tests to be ran when modifications on GraphMolecule class are done.
+* [Issue #46](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/47): Modify automated tests to work only on pull requests.
+* [Issue #41](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/50): Adds FileHandler, BaseParser, MolParser and SDFParser classes. Adds tests for the MolParser.
+* [Issue #51](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/55): Adds MC Classes: MCElement, MCAtom, MCBond and MCMolecule
+* [Issue #52](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/56): Modifies GraphMolecule to use the new MC Classes and adds tests to be ran when modifications on GraphMolecule class are done.
 * [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use the new MCClasses but keeps available old logic.
 * [Issue #60](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/60): Modifies ThreeDMolecule to use the new MCClasses but keeps available old logic.
-* [Issue #58 Improvement](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/58): Adds contribute guide and PR template.
+* [Issue #58](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/58): Adds contribute guide and PR template.
 * [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use parsers.
+* [Issue #70](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/71): Implements AbstractMolecule across all molecule types.
 
 ### Breaking changes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
@@ -103,5 +104,5 @@
 * Fixed typo in add_bonds_numbering example.
 * Added NamedMolecule example.
 
-## 0.1.0 
+## 0.1.0
 * Creation of the project

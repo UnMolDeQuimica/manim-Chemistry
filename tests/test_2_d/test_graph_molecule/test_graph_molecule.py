@@ -17,8 +17,8 @@ class TestGraphMolecule:
     def mol_mc_molecule(self):
         return MCMolecule.construct_from_file(self.morphine_file_path)
 
-    def test_mc_molecule_to_graph(self, mol_mc_molecule):
-        vertices, edges = GraphMolecule.mc_molecule_to_graph(mol_mc_molecule)
+    def test_mc_molecule_to_atoms_and_bonds(self, mol_mc_molecule):
+        vertices, edges = GraphMolecule.mc_molecule_to_atoms_and_bonds(mol_mc_molecule)
 
         assert isinstance(vertices, dict)
         assert isinstance(edges, dict)
