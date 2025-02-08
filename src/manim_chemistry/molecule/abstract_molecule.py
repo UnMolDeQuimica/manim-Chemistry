@@ -2,9 +2,9 @@ from typing import Union, Optional, Tuple, Dict
 from abc import abstractmethod
 
 from manim import VGroup
-from ..utils import mol_parser, mol_parser_string, PubchemAPIManager
+from ..utils import PubchemAPIManager
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
-from ..manim_chemistry_molecule import MCMolecule, MC_ELEMENT_DICT
+from ..manim_chemistry_molecule import MCMolecule
 
 
 class AbstractMolecule:
@@ -14,6 +14,7 @@ class AbstractMolecule:
     """
 
     group_class = VGroup
+
     def __init__(self, *args, **kwargs):
         """
         To be implemented on subclasses.
@@ -43,7 +44,9 @@ class AbstractMolecule:
         return cls(vertices, edges, *args, **kwargs)
 
     @classmethod
-    def multiple_molecules_from_file(cls, filepath, *args, **kwargs) -> Union[OpenGLGroup, VGroup]:
+    def multiple_molecules_from_file(
+        cls, filepath, *args, **kwargs
+    ) -> Union[OpenGLGroup, VGroup]:
         """
         Reads a file and returns a collection of molecules from that file as a OpenGLGroup or VGroup.
 
@@ -89,9 +92,7 @@ class AbstractMolecule:
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
-        vertices, edges = cls.mc_molecule_to_atoms_and_bonds(
-            mc_molecule=mc_molecule
-        )
+        vertices, edges = cls.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
         return cls(vertices, edges, *args, **kwargs)
 
     @classmethod
@@ -121,9 +122,7 @@ class AbstractMolecule:
 
         mmolecules = OpenGLGroup()
         for mc_molecule in mc_molecules:
-            atoms, bonds = cls.mc_molecule_to_atoms_and_bonds(
-                mc_molecule=mc_molecule
-            )
+            atoms, bonds = cls.mc_molecule_to_atoms_and_bonds(mc_molecule=mc_molecule)
             mmolecules.add(cls(atoms, bonds, *args, **kwargs))
 
         return mmolecules
@@ -160,7 +159,9 @@ class AbstractMolecule:
 
     @classmethod
     @abstractmethod
-    def mc_molecule_to_atoms_and_bonds(cls, mc_molecule: MCMolecule) -> Tuple[Dict, Dict]:
+    def mc_molecule_to_atoms_and_bonds(
+        cls, mc_molecule: MCMolecule
+    ) -> Tuple[Dict, Dict]:
         """
         Transforms the structure of a mc_molecule to a (vertices, edges) tuple
         with the following structure:

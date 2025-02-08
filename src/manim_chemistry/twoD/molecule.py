@@ -17,7 +17,6 @@ from ..utils import (
     mol_parser_string,
     sdf_parser,
     sdf_parser_string,
-    PubchemAPIManager,
 )
 from ..manim_chemistry_molecule import MCMolecule
 from ..molecule import AbstractMolecule
@@ -477,7 +476,9 @@ class MMoleculeObject(VGroup, AbstractMolecule):
         return bonds_positions
 
     @classmethod
-    def mc_molecule_to_atoms_and_bonds(cls, mc_molecule: MCMolecule) -> Tuple[Dict, Dict]:
+    def mc_molecule_to_atoms_and_bonds(
+        cls, mc_molecule: MCMolecule
+    ) -> Tuple[Dict, Dict]:
         """
         Transforms the structure of a mc_molecule to a (vertices, edges) tuple
         with the following structure:

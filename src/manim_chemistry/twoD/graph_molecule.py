@@ -1,12 +1,12 @@
-from typing import Dict, Optional, Tuple
+from typing import Dict, Tuple
 
 from manim import *
 import numpy as np
 import networkx as nx
 
 from ..manim_chemistry_molecule import MCMolecule
-from ..utils import PubchemAPIManager
 from ..molecule import AbstractMolecule
+
 
 class SimpleLine(Line):
     def __init__(self, *args, **kwargs):
@@ -419,7 +419,9 @@ class GraphMolecule(Graph, AbstractMolecule):
         return bonds_positions
 
     @classmethod
-    def mc_molecule_to_atoms_and_bonds(cls, mc_molecule: MCMolecule) -> Tuple[Dict, Dict]:
+    def mc_molecule_to_atoms_and_bonds(
+        cls, mc_molecule: MCMolecule
+    ) -> Tuple[Dict, Dict]:
         """
         Transforms the structure of a mc_molecule to a (vertices, edges) tuple
         with the following structure:

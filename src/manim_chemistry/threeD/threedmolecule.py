@@ -4,7 +4,7 @@ from manim import ORIGIN
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
 
 from ..element import Element
-from ..utils import mol_parser, mol_parser_string, PubchemAPIManager
+from ..utils import mol_parser, mol_parser_string
 from .threedatom import ThreeDAtom
 from .threedbond import ThreeDBond
 from ..manim_chemistry_molecule import MCMolecule, MC_ELEMENT_DICT
@@ -67,7 +67,6 @@ class ThreeDMolecule(OpenGLGroup, AbstractMolecule):
                 )
 
         return bonds
-
 
     @staticmethod
     def mc_molecule_to_atoms_and_bonds(mc_molecule: MCMolecule):
