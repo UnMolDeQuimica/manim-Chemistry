@@ -38,7 +38,7 @@ class AbstractMolecule:
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
 
-        vertices, edges = MCMolecule.mc_molecule_to_atoms_and_bonds(
+        vertices, edges = cls.mc_molecule_to_atoms_and_bonds(
             mc_molecule=mc_molecule
         )
         return cls(vertices, edges, *args, **kwargs)
@@ -66,7 +66,7 @@ class AbstractMolecule:
 
         mmolecules = cls.group_class()
         for mc_molecule in mc_molecules:
-            atoms, bonds = MCMolecule.mc_molecule_to_atoms_and_bonds(
+            atoms, bonds = cls.mc_molecule_to_atoms_and_bonds(
                 mc_molecule=mc_molecule
             )
             mmolecules.add(cls(atoms, bonds, *args, **kwargs))
