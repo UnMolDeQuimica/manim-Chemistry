@@ -39,7 +39,7 @@ class AbstractMolecule:
         vertices, edges = MCMolecule.mc_molecule_to_atoms_and_bonds(
             mc_molecule=mc_molecule
         )
-        return __class__(vertices, edges, *args, **kwargs)
+        return cls(vertices, edges, *args, **kwargs)
 
     @classmethod
     def multiple_molecules_from_file(cls, filepath, *args, **kwargs) -> Union[OpenGLGroup, VGroup]:
