@@ -1,11 +1,13 @@
 import pytest
 
+from manim import config
 from manim_chemistry.twoD import MMoleculeObject
 
 from ..base_test_molecule import BaseTestMolecule
 
+config.renderer = "cairo"
 
-class TestThreeDMolecule(BaseTestMolecule):
+class TestMMolecule(BaseTestMolecule):
     molecule_class = MMoleculeObject
 
     @pytest.mark.parametrize("file", BaseTestMolecule.files)
