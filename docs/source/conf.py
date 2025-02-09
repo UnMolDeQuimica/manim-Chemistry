@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath(".."))
 project = "manim-Chemistry"
 copyright = "2024, Miguel Ángel Rodríguez Vidal"
 author = "Miguel Ángel Rodríguez Vidal"
-release = "0.4.2"
+release = "0.5.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
