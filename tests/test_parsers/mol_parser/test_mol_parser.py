@@ -9,10 +9,7 @@ base_files_path = os.path.join("examples", "element_files")
 
 
 class TestMolParser(BaseTestMolParser):
-
-    def compare_read_molecule_and_known_values(
-        self, read_data, molecule_data
-    ):
+    def compare_read_molecule_and_known_values(self, read_data, molecule_data):
         known_atoms_data, known_bonds_data = molecule_data
         # Test atoms data
         atoms_data = read_data.atoms_data
@@ -78,7 +75,8 @@ class TestMolParser(BaseTestMolParser):
 
         # Test parse 2D morphine file
         self.compare_read_molecule_and_known_values(
-            MolParser(self.morphine_2d), morphine_2d_molecule_data,
+            MolParser(self.morphine_2d),
+            morphine_2d_molecule_data,
         )
 
         # Test parse 3D morphine file
@@ -89,7 +87,8 @@ class TestMolParser(BaseTestMolParser):
 
         # Test parse 2D Heme group
         self.compare_read_molecule_and_known_values(
-            MolParser(self.heme_2d), heme_2d_molecule_data,
+            MolParser(self.heme_2d),
+            heme_2d_molecule_data,
         )
 
         # Test parse 3D heme group

@@ -1,4 +1,3 @@
-import numpy as np
 import pytest
 
 from manim_chemistry.threeD import ThreeDMolecule
@@ -18,17 +17,18 @@ class TestThreeDMolecule(BaseTestMolecule):
         molecule = self.molecule_class.molecule_from_pubchem(cid="2244")
         assert isinstance(molecule, self.molecule_class)
 
-
     def test_from_pubchem_api_name(self):
         molecule = self.molecule_class.molecule_from_pubchem(name="aspirin")
         assert isinstance(molecule, self.molecule_class)
 
-
     def test_from_pubchem_api_smiles(self):
-        molecule = self.molecule_class.molecule_from_pubchem(smiles="CC(=O)OC1=CC=CC=C1C(=O)O")
+        molecule = self.molecule_class.molecule_from_pubchem(
+            smiles="CC(=O)OC1=CC=CC=C1C(=O)O"
+        )
         assert isinstance(molecule, self.molecule_class)
 
-
     def test_from_pubchem_api_inchi(self):
-        molecule = self.molecule_class.molecule_from_pubchem(inchi="BSYNRYMUTXBXSQ-UHFFFAOYSA-N")
+        molecule = self.molecule_class.molecule_from_pubchem(
+            inchi="BSYNRYMUTXBXSQ-UHFFFAOYSA-N"
+        )
         assert isinstance(molecule, self.molecule_class)

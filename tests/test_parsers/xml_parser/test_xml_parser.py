@@ -9,10 +9,7 @@ base_files_path = os.path.join("examples", "element_files")
 
 
 class TestXMLParser(BaseTestXMLParser):
-
-    def compare_read_molecule_and_known_values(
-        self, read_data, molecule_data
-    ):
+    def compare_read_molecule_and_known_values(self, read_data, molecule_data):
         # Test atoms data
         atoms_data, bonds_data = read_data
         known_atoms_data, known_bonds_data = molecule_data
@@ -29,7 +26,6 @@ class TestXMLParser(BaseTestXMLParser):
                 assert atom_data["bond_to"] == known_atoms_data[atom_index]["bond_to"]
 
         assert bonds_data == known_bonds_data
-
 
     def test_parse_files(
         self,
@@ -53,7 +49,8 @@ class TestXMLParser(BaseTestXMLParser):
 
         # Test parse 2D morphine file
         self.compare_read_molecule_and_known_values(
-            XMLParser(self.morphine_2d).molecule_data, morphine_2d_molecule_data,
+            XMLParser(self.morphine_2d).molecule_data,
+            morphine_2d_molecule_data,
         )
 
         # Test parse 3D morphine file
@@ -64,7 +61,8 @@ class TestXMLParser(BaseTestXMLParser):
 
         # Test parse 2D Heme group
         self.compare_read_molecule_and_known_values(
-            XMLParser(self.heme_2d).molecule_data, heme_2d_molecule_data,
+            XMLParser(self.heme_2d).molecule_data,
+            heme_2d_molecule_data,
         )
 
         # Test parse 3D heme group

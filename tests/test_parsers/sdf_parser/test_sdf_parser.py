@@ -9,10 +9,7 @@ base_files_path = os.path.join("examples", "element_files")
 
 
 class TestSDFParser(BaseTestSDFParser):
-
-    def compare_read_molecule_and_known_values(
-        self, read_data, molecule_data
-    ):
+    def compare_read_molecule_and_known_values(self, read_data, molecule_data):
         known_atoms_data, known_bonds_data = molecule_data[0]
         # Test atoms data
         atoms_data, bonds_data = read_data.molecule_data[0]
@@ -78,7 +75,8 @@ class TestSDFParser(BaseTestSDFParser):
 
         # Test parse 2D morphine file
         self.compare_read_molecule_and_known_values(
-            SDFParser(self.morphine_2d), morphine_2d_molecule_data,
+            SDFParser(self.morphine_2d),
+            morphine_2d_molecule_data,
         )
 
         # Test parse 3D morphine file
@@ -89,7 +87,8 @@ class TestSDFParser(BaseTestSDFParser):
 
         # Test parse 2D Heme group
         self.compare_read_molecule_and_known_values(
-            SDFParser(self.heme_2d), heme_2d_molecule_data,
+            SDFParser(self.heme_2d),
+            heme_2d_molecule_data,
         )
 
         # Test parse 3D heme group
