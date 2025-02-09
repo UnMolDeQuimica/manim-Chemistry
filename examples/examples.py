@@ -14,7 +14,7 @@ from manim_chemistry import (
 )
 
 script_path = Path(__file__).absolute().parent
-files_path = script_path / "element_files"
+files_path = script_path / "molecule_files/mol_files"
 
 
 # 2D Molecule example
