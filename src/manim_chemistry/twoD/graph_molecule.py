@@ -313,7 +313,7 @@ class GraphMolecule(Graph, AbstractMolecule):
 
         return atoms_positions
 
-    def find_bond_center_by_tuple(self, bond_tuple: tuple) -> np.array:
+    def find_bond_center_by_index(self, bond_index: tuple) -> np.array:
         """_summary_
 
         Returns the [x, y, z] coordinates of a bond given a bond tuple.
@@ -322,7 +322,7 @@ class GraphMolecule(Graph, AbstractMolecule):
         Example:
         ```
         molecule = GraphMolecule.molecule_from_file("examples/element_files/dimethylpropane.mol")
-        print(molecule.find_bond_center_by_tuple((1, 2))
+        print(molecule.find_bond_center_by_index((1, 2))
         >>> array([0.51935, 0.59615, 0.     ])
         ```
 
@@ -333,12 +333,12 @@ class GraphMolecule(Graph, AbstractMolecule):
             np.array: [x, y, z] coordinates of bond center.
         """
         try:
-            bond = self.bonds[bond_tuple]
+            bond = self.bonds[bond_index]
             return bond.get_center()
 
         except KeyError as key_error:
             # TODO: Change from print to proper logging system.
-            print(f"Bond tuple {bond_tuple} is not valid for molecule {self}")
+            print(f"Bond tuple {bond_index} is not valid for molecule {self}")
             raise key_error
 
         except Exception as exception:
@@ -375,7 +375,7 @@ class GraphMolecule(Graph, AbstractMolecule):
 
         return bond_center + bond_vector * position_buff * 0.5
 
-    def find_bonds_center_by_tuple(self, bonds_tuples_list: list) -> list:
+    def find_bonds_center_by_index(self, bonds_tuples_list: list) -> list:
         """_summary_
 
         Returns the position of multiple bonds given their indices.
@@ -395,7 +395,7 @@ class GraphMolecule(Graph, AbstractMolecule):
         bonds_positions = []
         for bond_index in bonds_tuples_list:
             bonds_positions.append(
-                self.find_bond_center_by_tuple(bond_index=bond_index)
+                self.find_bond_center_by_index(bond_index=bond_index)
             )
 
         return bonds_positions
@@ -412,8 +412,8 @@ class GraphMolecule(Graph, AbstractMolecule):
     def find_all_bonds_centers(self) -> dict:
         bonds_positions = {}
         for bond_tuple in self.bonds:
-            bonds_positions[bond_tuple] = self.find_bond_center_by_tuple(
-                bond_tuple=bond_tuple
+            bonds_positions[bond_tuple] = self.find_bond_center_by_index(
+                bond_index=bond_tuple
             )
 
         return bonds_positions

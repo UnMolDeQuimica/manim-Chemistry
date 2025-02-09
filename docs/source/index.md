@@ -28,12 +28,18 @@ And much more!
 
 
 ```{toctree}
+:caption: Introduction
 :hidden:
 
 quickstart/index
 philosophy
-mol_files
-features_table
+```
+
+```{toctree}
+:caption: Manual
+:hidden:
+
+reference_manual/index
 ```
 
 ```{toctree}
