@@ -32,6 +32,7 @@
 * [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use parsers.
 * [Issue #70](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/71): Implements AbstractMolecule across all molecule types.
 * [Issue #66](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/71): Adds tests for the new changes.
+* [Issue #74](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/77): Adds error message when trying to run ThreeDMolecules without OpenGL renderer
 
 ### Breaking changes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
