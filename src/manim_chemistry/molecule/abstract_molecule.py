@@ -172,7 +172,7 @@ class AbstractMolecule:
         name: Optional[str] = None,
         smiles: Optional[str] = None,
         inchi: Optional[str] = None,
-        three_d: bool=False,
+        three_d: bool = False,
         *args,
         **kwargs,
     ):

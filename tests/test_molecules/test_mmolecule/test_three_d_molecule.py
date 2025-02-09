@@ -38,7 +38,9 @@ class TestThreeDMolecule(BaseTestMolecule):
         assert isinstance(molecule, self.molecule_class)
 
     def test_from_pubchem_api_name_three_d(self):
-        molecule = self.molecule_class.molecule_from_pubchem(name="aspirin", three_d=True)
+        molecule = self.molecule_class.molecule_from_pubchem(
+            name="aspirin", three_d=True
+        )
         assert isinstance(molecule, self.molecule_class)
 
     def test_from_pubchem_api_smiles_three_d(self):
