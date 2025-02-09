@@ -7,6 +7,7 @@ from ..base_test_molecule import BaseTestMolecule
 
 config.renderer = "cairo"
 
+
 class TestMMolecule(BaseTestMolecule):
     molecule_class = MMoleculeObject
 

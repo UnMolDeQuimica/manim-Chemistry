@@ -15,6 +15,7 @@ from ..base_test_molecule import BaseTestMolecule
 
 config.renderer = "cairo"
 
+
 class TestGraphMolecule(BaseTestMolecule):
     morphine_file_path = "examples/element_files/morphine.mol"
     molecule_class = GraphMolecule

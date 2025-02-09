@@ -31,7 +31,9 @@ class ThreeDMolecule(OpenGLGroup, AbstractMolecule):
         **kwargs,
     ):
         if config.renderer != RendererType.OPENGL:
-            raise Exception(f"ThreeDMolecule requires using a OpenGL renderer. You can use it adding the `--renderer=opengl` flag or adding `config.renderer = opengl` to your python file.")
+            raise Exception(
+                "ThreeDMolecule requires using a OpenGL renderer. You can use it adding the `--renderer=opengl` flag or adding `config.renderer = opengl` to your python file."
+            )
         self.atoms_dict = atoms_dict
         self.bonds_dict = bonds_dict
         self.source_csv = source_csv
