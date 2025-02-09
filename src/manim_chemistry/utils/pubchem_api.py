@@ -44,11 +44,11 @@ class PubchemAPIManager:
         return self.handle_request(request=request, identifier=self.name)
 
     def from_smiles(self):
-        request = requests.get(f"{PubchemAPIManager.BASE_URL}/cid/{self.smiles}/json")
+        request = requests.get(f"{PubchemAPIManager.BASE_URL}/smiles/{self.smiles}/json")
         return self.handle_request(request=request, identifier=self.smiles)
 
     def from_inchi(self):
-        request = requests.get(f"{PubchemAPIManager.BASE_URL}/cid/{self.inchi}/json")
+        request = requests.get(f"{PubchemAPIManager.BASE_URL}/inchikey/{self.inchi}/json")
         return self.handle_request(request=request, identifier=self.inchi)
 
     def get_molecule(self):
