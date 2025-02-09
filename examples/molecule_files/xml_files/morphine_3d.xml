@@ -1,0 +1,820 @@
+<?xml version="1.0"?>
+<PC-Compounds
+    xmlns="http://www.ncbi.nlm.nih.gov"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+    xs:schemaLocation="http://www.ncbi.nlm.nih.gov ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem.xsd"
+>
+  <PC-Compound>
+    <PC-Compound_id>
+      <PC-CompoundType>
+        <PC-CompoundType_id>
+          <PC-CompoundType_id_cid>5288826</PC-CompoundType_id_cid>
+        </PC-CompoundType_id>
+      </PC-CompoundType>
+    </PC-Compound_id>
+    <PC-Compound_atoms>
+      <PC-Atoms>
+        <PC-Atoms_aid>
+          <PC-Atoms_aid_E>1</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>2</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>3</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>4</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>5</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>6</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>7</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>8</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>9</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>10</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>11</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>12</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>13</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>14</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>15</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>16</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>17</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>18</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>19</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>20</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>21</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>22</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>23</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>24</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>25</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>26</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>27</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>28</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>29</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>30</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>31</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>32</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>33</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>34</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>35</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>36</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>37</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>38</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>39</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>40</PC-Atoms_aid_E>
+        </PC-Atoms_aid>
+        <PC-Atoms_element>
+          <PC-Element value="o">8</PC-Element>
+          <PC-Element value="o">8</PC-Element>
+          <PC-Element value="o">8</PC-Element>
+          <PC-Element value="n">7</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+        </PC-Atoms_element>
+      </PC-Atoms>
+    </PC-Compound_atoms>
+    <PC-Compound_bonds>
+      <PC-Bonds>
+        <PC-Bonds_aid1>
+          <PC-Bonds_aid1_E>1</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>1</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>2</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>2</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>3</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>3</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>4</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>4</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>4</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>5</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>5</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>5</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>5</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>6</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>6</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>6</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>7</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>7</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>8</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>8</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>9</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>9</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>9</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>10</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>10</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>11</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>11</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>11</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>12</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>12</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>13</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>14</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>14</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>15</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>15</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>16</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>17</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>18</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>18</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>18</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>19</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>19</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>20</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>21</PC-Bonds_aid1_E>
+        </PC-Bonds_aid1>
+        <PC-Bonds_aid2>
+          <PC-Bonds_aid2_E>8</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>16</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>14</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>39</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>20</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>40</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>7</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>12</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>18</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>6</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>8</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>9</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>10</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>7</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>15</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>22</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>11</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>23</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>14</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>24</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>12</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>25</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>26</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>13</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>16</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>13</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>27</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>28</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>29</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>30</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>19</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>17</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>31</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>17</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>32</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>20</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>33</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>34</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>35</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>36</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>21</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>37</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>21</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>38</PC-Bonds_aid2_E>
+        </PC-Bonds_aid2>
+        <PC-Bonds_order>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="double">2</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="double">2</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="double">2</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="double">2</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+        </PC-Bonds_order>
+      </PC-Bonds>
+    </PC-Compound_bonds>
+    <PC-Compound_stereo>
+      <PC-StereoCenter>
+        <PC-StereoCenter_tetrahedral>
+          <PC-StereoTetrahedral>
+            <PC-StereoTetrahedral_center>5</PC-StereoTetrahedral_center>
+            <PC-StereoTetrahedral_above>6</PC-StereoTetrahedral_above>
+            <PC-StereoTetrahedral_top>8</PC-StereoTetrahedral_top>
+            <PC-StereoTetrahedral_bottom>9</PC-StereoTetrahedral_bottom>
+            <PC-StereoTetrahedral_below>10</PC-StereoTetrahedral_below>
+            <PC-StereoTetrahedral_parity value="clockwise">1</PC-StereoTetrahedral_parity>
+            <PC-StereoTetrahedral_type value="tetrahedral">1</PC-StereoTetrahedral_type>
+          </PC-StereoTetrahedral>
+        </PC-StereoCenter_tetrahedral>
+      </PC-StereoCenter>
+      <PC-StereoCenter>
+        <PC-StereoCenter_tetrahedral>
+          <PC-StereoTetrahedral>
+            <PC-StereoTetrahedral_center>6</PC-StereoTetrahedral_center>
+            <PC-StereoTetrahedral_above>5</PC-StereoTetrahedral_above>
+            <PC-StereoTetrahedral_top>15</PC-StereoTetrahedral_top>
+            <PC-StereoTetrahedral_bottom>7</PC-StereoTetrahedral_bottom>
+            <PC-StereoTetrahedral_below>22</PC-StereoTetrahedral_below>
+            <PC-StereoTetrahedral_parity value="counterclockwise">2</PC-StereoTetrahedral_parity>
+            <PC-StereoTetrahedral_type value="tetrahedral">1</PC-StereoTetrahedral_type>
+          </PC-StereoTetrahedral>
+        </PC-StereoCenter_tetrahedral>
+      </PC-StereoCenter>
+      <PC-StereoCenter>
+        <PC-StereoCenter_tetrahedral>
+          <PC-StereoTetrahedral>
+            <PC-StereoTetrahedral_center>7</PC-StereoTetrahedral_center>
+            <PC-StereoTetrahedral_above>4</PC-StereoTetrahedral_above>
+            <PC-StereoTetrahedral_top>6</PC-StereoTetrahedral_top>
+            <PC-StereoTetrahedral_bottom>11</PC-StereoTetrahedral_bottom>
+            <PC-StereoTetrahedral_below>23</PC-StereoTetrahedral_below>
+            <PC-StereoTetrahedral_parity value="clockwise">1</PC-StereoTetrahedral_parity>
+            <PC-StereoTetrahedral_type value="tetrahedral">1</PC-StereoTetrahedral_type>
+          </PC-StereoTetrahedral>
+        </PC-StereoCenter_tetrahedral>
+      </PC-StereoCenter>
+      <PC-StereoCenter>
+        <PC-StereoCenter_tetrahedral>
+          <PC-StereoTetrahedral>
+            <PC-StereoTetrahedral_center>8</PC-StereoTetrahedral_center>
+            <PC-StereoTetrahedral_above>1</PC-StereoTetrahedral_above>
+            <PC-StereoTetrahedral_top>14</PC-StereoTetrahedral_top>
+            <PC-StereoTetrahedral_bottom>5</PC-StereoTetrahedral_bottom>
+            <PC-StereoTetrahedral_below>24</PC-StereoTetrahedral_below>
+            <PC-StereoTetrahedral_parity value="counterclockwise">2</PC-StereoTetrahedral_parity>
+            <PC-StereoTetrahedral_type value="tetrahedral">1</PC-StereoTetrahedral_type>
+          </PC-StereoTetrahedral>
+        </PC-StereoCenter_tetrahedral>
+      </PC-StereoCenter>
+      <PC-StereoCenter>
+        <PC-StereoCenter_tetrahedral>
+          <PC-StereoTetrahedral>
+            <PC-StereoTetrahedral_center>14</PC-StereoTetrahedral_center>
+            <PC-StereoTetrahedral_above>2</PC-StereoTetrahedral_above>
+            <PC-StereoTetrahedral_top>17</PC-StereoTetrahedral_top>
+            <PC-StereoTetrahedral_bottom>8</PC-StereoTetrahedral_bottom>
+            <PC-StereoTetrahedral_below>31</PC-StereoTetrahedral_below>
+            <PC-StereoTetrahedral_parity value="counterclockwise">2</PC-StereoTetrahedral_parity>
+            <PC-StereoTetrahedral_type value="tetrahedral">1</PC-StereoTetrahedral_type>
+          </PC-StereoTetrahedral>
+        </PC-StereoCenter_tetrahedral>
+      </PC-StereoCenter>
+    </PC-Compound_stereo>
+    <PC-Compound_coords>
+      <PC-Coordinates>
+        <PC-Coordinates_type>
+          <PC-CoordinateType value="threed">2</PC-CoordinateType>
+          <PC-CoordinateType value="computed">5</PC-CoordinateType>
+          <PC-CoordinateType value="units-angstroms">10</PC-CoordinateType>
+        </PC-Coordinates_type>
+        <PC-Coordinates_aid>
+          <PC-Coordinates_aid_E>1</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>2</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>3</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>4</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>5</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>6</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>7</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>8</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>9</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>10</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>11</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>12</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>13</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>14</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>15</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>16</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>17</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>18</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>19</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>20</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>21</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>22</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>23</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>24</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>25</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>26</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>27</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>28</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>29</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>30</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>31</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>32</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>33</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>34</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>35</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>36</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>37</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>38</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>39</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>40</PC-Coordinates_aid_E>
+        </PC-Coordinates_aid>
+        <PC-Coordinates_conformers>
+          <PC-Conformer>
+            <PC-Conformer_x>
+              <PC-Conformer_x_E>-1.993</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-2.7826</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-3.622</PC-Conformer_x_E>
+              <PC-Conformer_x_E>3.1777</PC-Conformer_x_E>
+              <PC-Conformer_x_E>0.3699</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.2913</PC-Conformer_x_E>
+              <PC-Conformer_x_E>2.3441</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-0.9377</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.1988</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-0.2516</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.6887</PC-Conformer_x_E>
+              <PC-Conformer_x_E>2.4315</PC-Conformer_x_E>
+              <PC-Conformer_x_E>0.3384</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.3631</PC-Conformer_x_E>
+              <PC-Conformer_x_E>0.5066</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.5672</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-0.7155</PC-Conformer_x_E>
+              <PC-Conformer_x_E>4.3733</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-0.4184</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-2.331</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.7382</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.8278</PC-Conformer_x_E>
+              <PC-Conformer_x_E>3.0029</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-0.8451</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.5366</PC-Conformer_x_E>
+              <PC-Conformer_x_E>0.5899</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.5474</PC-Conformer_x_E>
+              <PC-Conformer_x_E>2.353</PC-Conformer_x_E>
+              <PC-Conformer_x_E>2.1271</PC-Conformer_x_E>
+              <PC-Conformer_x_E>3.0801</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.0772</PC-Conformer_x_E>
+              <PC-Conformer_x_E>0.9601</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.23</PC-Conformer_x_E>
+              <PC-Conformer_x_E>4.15</PC-Conformer_x_E>
+              <PC-Conformer_x_E>4.938</PC-Conformer_x_E>
+              <PC-Conformer_x_E>5.0444</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-0.0062</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-2.3121</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-3.1557</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-3.8483</PC-Conformer_x_E>
+            </PC-Conformer_x>
+            <PC-Conformer_y>
+              <PC-Conformer_y_E>-0.474</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.5168</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.8421</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-0.0101</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-0.7149</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-1.3046</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-0.2023</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-1.475</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-0.3907</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.5302</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.1052</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.4754</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.4306</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.5067</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-1.8183</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.6306</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.3492</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.7916</PC-Conformer_y_E>
+              <PC-Conformer_y_E>2.5415</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.7217</PC-Conformer_y_E>
+              <PC-Conformer_y_E>2.6936</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.1759</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-0.6035</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.0128</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-1.3335</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.1174</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.9596</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.968</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.5205</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.4584</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-3.5067</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-1.7947</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.7505</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.8479</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.4055</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.7352</PC-Conformer_y_E>
+              <PC-Conformer_y_E>3.2824</PC-Conformer_y_E>
+              <PC-Conformer_y_E>3.5638</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-2.6446</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.0686</PC-Conformer_y_E>
+            </PC-Conformer_y>
+            <PC-Conformer_z>
+              <PC-Conformer_z_E>1.2005</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.2218</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.5579</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.4474</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.6616</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.417</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.764</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.9848</PC-Conformer_z_E>
+              <PC-Conformer_z_E>1.9201</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.1205</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.3279</PC-Conformer_z_E>
+              <PC-Conformer_z_E>1.6126</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.748</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.0924</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.5971</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.5136</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.4425</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.2084</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.1246</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.162</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.6541</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.0118</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.5465</PC-Conformer_z_E>
+              <PC-Conformer_z_E>1.9373</PC-Conformer_z_E>
+              <PC-Conformer_z_E>2.3712</PC-Conformer_z_E>
+              <PC-Conformer_z_E>2.679</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-2.4075</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.2194</PC-Conformer_z_E>
+              <PC-Conformer_z_E>1.476</PC-Conformer_z_E>
+              <PC-Conformer_z_E>2.4975</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.2593</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-2.5831</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-2.3109</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.0287</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.6472</PC-Conformer_z_E>
+              <PC-Conformer_z_E>1.073</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-1.8043</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.9645</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.6672</PC-Conformer_z_E>
+              <PC-Conformer_z_E>1.1031</PC-Conformer_z_E>
+            </PC-Conformer_z>
+            <PC-Conformer_data>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Conformer</PC-Urn_label>
+                    <PC-Urn_name>ID</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="uint64">11</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2009.12.11</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_sval>0050B37A00000001</PC-InfoData_value_sval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Energy</PC-Urn_label>
+                    <PC-Urn_name>MMFF94 NoEstat</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>1.6.0</PC-Urn_version>
+                    <PC-Urn_software>Szybki</PC-Urn_software>
+                    <PC-Urn_source>openeye.com</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>74.8429</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Feature</PC-Urn_label>
+                    <PC-Urn_name>Self Overlap</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>52.873</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Fingerprint</PC-Urn_label>
+                    <PC-Urn_name>Shape</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="stringlist">2</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2012.11.26</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_slist>
+                    <PC-InfoData_value_slist_E>10165383 225 18201451224619826784</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>10863032 1 18271807882738128182</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>10871710 139 17975427020448559044</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>10948715 1 18269553840856601268</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>11578080 2 17916862543033451120</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>12035758 1 17979921506076134602</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>12326174 3 16761939621672351259</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>12403814 3 18127127700562790162</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>12423570 1 13554306196661771698</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>13132413 78 16832327581639147097</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>13140716 1 18188786057421996321</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>13172582 1 18260836951273720209</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>13681431 1 17258466355483259718</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>141345 1 11468367428490074574</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>144361 1 17623048910753830566</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>14817 1 13651070280742688743</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>15852999 172 18199182901892535827</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>16945 1 18189637062236146638</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>17357779 13 17772166846782183447</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>18393751 57 17187542376137546200</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>19868273 325 18263924500288743760</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>21524375 3 18267574711299526024</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>22112679 90 18121790679236681172</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>22182313 1 18194427527483256583</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>2334 1 17972616638225251261</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>23388829 49 17833828657105785732</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>23402539 116 18338509850163596911</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>23419403 2 15694871661581035675</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>23557571 272 18270408299151999272</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>23559900 14 18059580127798590934</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>238 59 17618764874292193101</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>2748010 2 17975155161707925181</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>34934 24 18113338621838265964</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>495365 180 17547829890269334821</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>7364860 26 17256519721717681045</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>81228 2 18194937829152466419</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>84936 31 17124492616027647943</PC-InfoData_value_slist_E>
+                  </PC-InfoData_value_slist>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Shape</PC-Urn_label>
+                    <PC-Urn_name>Multipoles</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="doublevec">8</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>1.8.1</PC-Urn_version>
+                    <PC-Urn_software>OEShape</PC-Urn_software>
+                    <PC-Urn_source>openeye.com</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fvec>
+                    <PC-InfoData_value_fvec_E>409.58</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>4.45</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>3.02</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>1.55</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>2.3</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0.24</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-0.13</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-1.6</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-0.99</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-2.59</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>1.17</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0.46</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0.26</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-0.03</PC-InfoData_value_fvec_E>
+                  </PC-InfoData_value_fvec>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Shape</PC-Urn_label>
+                    <PC-Urn_name>Self Overlap</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>930.437</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Shape</PC-Urn_label>
+                    <PC-Urn_name>Volume</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>1.8.1</PC-Urn_version>
+                    <PC-Urn_software>OEShape</PC-Urn_software>
+                    <PC-Urn_source>openeye.com</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>211.2</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+            </PC-Conformer_data>
+          </PC-Conformer>
+        </PC-Coordinates_conformers>
+        <PC-Coordinates_data>
+          <PC-InfoData>
+            <PC-InfoData_urn>
+              <PC-Urn>
+                <PC-Urn_label>Conformer</PC-Urn_label>
+                <PC-Urn_name>RMSD</PC-Urn_name>
+                <PC-Urn_datatype>
+                  <PC-UrnDataType value="double">7</PC-UrnDataType>
+                </PC-Urn_datatype>
+                <PC-Urn_release>2009.12.11</PC-Urn_release>
+              </PC-Urn>
+            </PC-InfoData_urn>
+            <PC-InfoData_value>
+              <PC-InfoData_value_fval>0.6</PC-InfoData_value_fval>
+            </PC-InfoData_value>
+          </PC-InfoData>
+          <PC-InfoData>
+            <PC-InfoData_urn>
+              <PC-Urn>
+                <PC-Urn_label>Diverse Conformer</PC-Urn_label>
+                <PC-Urn_name>ID List</PC-Urn_name>
+                <PC-Urn_datatype>
+                  <PC-UrnDataType value="uintvec">6</PC-UrnDataType>
+                </PC-Urn_datatype>
+                <PC-Urn_release>2010.05.05</PC-Urn_release>
+              </PC-Urn>
+            </PC-InfoData_urn>
+            <PC-InfoData_value>
+              <PC-InfoData_value_ivec>
+                <PC-InfoData_value_ivec_E>1</PC-InfoData_value_ivec_E>
+              </PC-InfoData_value_ivec>
+            </PC-InfoData_value>
+          </PC-InfoData>
+        </PC-Coordinates_data>
+      </PC-Coordinates>
+    </PC-Compound_coords>
+    <PC-Compound_props>
+      <PC-InfoData>
+        <PC-InfoData_urn>
+          <PC-Urn>
+            <PC-Urn_label>Charge</PC-Urn_label>
+            <PC-Urn_name>MMFF94 Partial</PC-Urn_name>
+            <PC-Urn_datatype>
+              <PC-UrnDataType value="stringlist">2</PC-UrnDataType>
+            </PC-Urn_datatype>
+            <PC-Urn_version>1.9.0</PC-Urn_version>
+            <PC-Urn_software>OEChem</PC-Urn_software>
+            <PC-Urn_source>openeye.com</PC-Urn_source>
+            <PC-Urn_release>2012.11.26</PC-Urn_release>
+          </PC-Urn>
+        </PC-InfoData_urn>
+        <PC-InfoData_value>
+          <PC-InfoData_value_slist>
+            <PC-InfoData_value_slist_E>26</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 -0.36</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>10 -0.14</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>11 0.14</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>12 0.27</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>13 -0.14</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>14 0.42</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>15 -0.29</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>16 0.08</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>17 -0.29</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>18 0.27</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>19 -0.15</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>2 -0.68</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>20 0.08</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>21 -0.15</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>3 -0.53</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>32 0.15</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>33 0.15</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>37 0.15</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>38 0.15</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>39 0.4</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>4 -0.81</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>40 0.45</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>5 0.14</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>6 0.14</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>7 0.27</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>8 0.28</PC-InfoData_value_slist_E>
+          </PC-InfoData_value_slist>
+        </PC-InfoData_value>
+      </PC-InfoData>
+      <PC-InfoData>
+        <PC-InfoData_urn>
+          <PC-Urn>
+            <PC-Urn_label>Count</PC-Urn_label>
+            <PC-Urn_name>Effective Rotor</PC-Urn_name>
+            <PC-Urn_datatype>
+              <PC-UrnDataType value="double">7</PC-UrnDataType>
+            </PC-Urn_datatype>
+            <PC-Urn_version>1.7.6</PC-Urn_version>
+            <PC-Urn_software>OEChem</PC-Urn_software>
+            <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+            <PC-Urn_release>2012.01.18</PC-Urn_release>
+          </PC-Urn>
+        </PC-InfoData_urn>
+        <PC-InfoData_value>
+          <PC-InfoData_value_fval>1.2</PC-InfoData_value_fval>
+        </PC-InfoData_value>
+      </PC-InfoData>
+      <PC-InfoData>
+        <PC-InfoData_urn>
+          <PC-Urn>
+            <PC-Urn_label>Features</PC-Urn_label>
+            <PC-Urn_name>Pharmacophore</PC-Urn_name>
+            <PC-Urn_datatype>
+              <PC-UrnDataType value="stringlist">2</PC-UrnDataType>
+            </PC-Urn_datatype>
+            <PC-Urn_parameters>ImplicitMillsDean merged</PC-Urn_parameters>
+            <PC-Urn_version>1.8.3</PC-Urn_version>
+            <PC-Urn_software>OEShape</PC-Urn_software>
+            <PC-Urn_source>openeye.com</PC-Urn_source>
+            <PC-Urn_release>2012.11.26</PC-Urn_release>
+          </PC-Urn>
+        </PC-InfoData_urn>
+        <PC-InfoData_value>
+          <PC-InfoData_value_slist>
+            <PC-InfoData_value_slist_E>10</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 1 acceptor</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 2 acceptor</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 2 donor</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 3 donor</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 4 cation</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>5 1 5 8 10 16 rings</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>6 10 13 16 19 20 21 rings</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>6 4 5 6 7 9 12 rings</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>6 5 6 7 10 11 13 rings</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>6 5 6 8 14 15 17 rings</PC-InfoData_value_slist_E>
+          </PC-InfoData_value_slist>
+        </PC-InfoData_value>
+      </PC-InfoData>
+    </PC-Compound_props>
+    <PC-Compound_count>
+      <PC-Count>
+        <PC-Count_heavy-atom>21</PC-Count_heavy-atom>
+        <PC-Count_atom-chiral>5</PC-Count_atom-chiral>
+        <PC-Count_atom-chiral-def>5</PC-Count_atom-chiral-def>
+        <PC-Count_atom-chiral-undef>0</PC-Count_atom-chiral-undef>
+        <PC-Count_bond-chiral>0</PC-Count_bond-chiral>
+        <PC-Count_bond-chiral-def>0</PC-Count_bond-chiral-def>
+        <PC-Count_bond-chiral-undef>0</PC-Count_bond-chiral-undef>
+        <PC-Count_isotope-atom>0</PC-Count_isotope-atom>
+        <PC-Count_covalent-unit>1</PC-Count_covalent-unit>
+        <PC-Count_tautomers>3</PC-Count_tautomers>
+      </PC-Count>
+    </PC-Compound_count>
+  </PC-Compound>
+</PC-Compounds>

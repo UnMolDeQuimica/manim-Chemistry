@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<PC-Compounds
+    xmlns="http://www.ncbi.nlm.nih.gov"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+    xs:schemaLocation="http://www.ncbi.nlm.nih.gov ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem.xsd"
+>
+  <PC-Compound>
+    <PC-Compound_id>
+      <PC-CompoundType>
+        <PC-CompoundType_id>
+          <PC-CompoundType_id_cid>180</PC-CompoundType_id_cid>
+        </PC-CompoundType_id>
+      </PC-CompoundType>
+    </PC-Compound_id>
+    <PC-Compound_atoms>
+      <PC-Atoms>
+        <PC-Atoms_aid>
+          <PC-Atoms_aid_E>1</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>2</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>3</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>4</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>5</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>6</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>7</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>8</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>9</PC-Atoms_aid_E>
+          <PC-Atoms_aid_E>10</PC-Atoms_aid_E>
+        </PC-Atoms_aid>
+        <PC-Atoms_element>
+          <PC-Element value="o">8</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="c">6</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+          <PC-Element value="h">1</PC-Element>
+        </PC-Atoms_element>
+      </PC-Atoms>
+    </PC-Compound_atoms>
+    <PC-Compound_bonds>
+      <PC-Bonds>
+        <PC-Bonds_aid1>
+          <PC-Bonds_aid1_E>1</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>2</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>2</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>3</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>3</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>3</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>4</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>4</PC-Bonds_aid1_E>
+          <PC-Bonds_aid1_E>4</PC-Bonds_aid1_E>
+        </PC-Bonds_aid1>
+        <PC-Bonds_aid2>
+          <PC-Bonds_aid2_E>2</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>3</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>4</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>5</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>6</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>7</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>8</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>9</PC-Bonds_aid2_E>
+          <PC-Bonds_aid2_E>10</PC-Bonds_aid2_E>
+        </PC-Bonds_aid2>
+        <PC-Bonds_order>
+          <PC-BondType value="double">2</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+          <PC-BondType value="single">1</PC-BondType>
+        </PC-Bonds_order>
+      </PC-Bonds>
+    </PC-Compound_bonds>
+    <PC-Compound_coords>
+      <PC-Coordinates>
+        <PC-Coordinates_type>
+          <PC-CoordinateType value="threed">2</PC-CoordinateType>
+          <PC-CoordinateType value="computed">5</PC-CoordinateType>
+          <PC-CoordinateType value="units-angstroms">10</PC-CoordinateType>
+        </PC-Coordinates_type>
+        <PC-Coordinates_aid>
+          <PC-Coordinates_aid_E>1</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>2</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>3</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>4</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>5</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>6</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>7</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>8</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>9</PC-Coordinates_aid_E>
+          <PC-Coordinates_aid_E>10</PC-Coordinates_aid_E>
+        </PC-Coordinates_aid>
+        <PC-Coordinates_conformers>
+          <PC-Conformer>
+            <PC-Conformer_x>
+              <PC-Conformer_x_E>0.0003</PC-Conformer_x_E>
+              <PC-Conformer_x_E>0</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.281</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.2813</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.3279</PC-Conformer_x_E>
+              <PC-Conformer_x_E>1.326</PC-Conformer_x_E>
+              <PC-Conformer_x_E>2.1351</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-2.1352</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.3284</PC-Conformer_x_E>
+              <PC-Conformer_x_E>-1.3266</PC-Conformer_x_E>
+            </PC-Conformer_x>
+            <PC-Conformer_y>
+              <PC-Conformer_y_E>-1.3171</PC-Conformer_y_E>
+              <PC-Conformer_y_E>-0.0872</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.7024</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.7019</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.3235</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.3282</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.0196</PC-Conformer_y_E>
+              <PC-Conformer_y_E>0.0187</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.323</PC-Conformer_y_E>
+              <PC-Conformer_y_E>1.3278</PC-Conformer_y_E>
+            </PC-Conformer_y>
+            <PC-Conformer_z>
+              <PC-Conformer_z_E>-0.0002</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.0006</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.0002</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.0002</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.898</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.8945</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.0027</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.0027</PC-Conformer_z_E>
+              <PC-Conformer_z_E>-0.898</PC-Conformer_z_E>
+              <PC-Conformer_z_E>0.8945</PC-Conformer_z_E>
+            </PC-Conformer_z>
+            <PC-Conformer_data>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Conformer</PC-Urn_label>
+                    <PC-Urn_name>ID</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="uint64">11</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2009.12.11</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_sval>000000B400000001</PC-InfoData_value_sval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Energy</PC-Urn_label>
+                    <PC-Urn_name>MMFF94 NoEstat</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>1.6.0</PC-Urn_version>
+                    <PC-Urn_software>Szybki</PC-Urn_software>
+                    <PC-Urn_source>openeye.com</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>1.6523</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Feature</PC-Urn_label>
+                    <PC-Urn_name>Self Overlap</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>5.074</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Fingerprint</PC-Urn_label>
+                    <PC-Urn_name>Shape</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="stringlist">2</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2012.11.26</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_slist>
+                    <PC-InfoData_value_slist_E>139733 1 9290717673991302211</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>20096714 4 18411138026090193976</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>21015797 1 9007056889502236007</PC-InfoData_value_slist_E>
+                    <PC-InfoData_value_slist_E>5943 1 13610069792663804549</PC-InfoData_value_slist_E>
+                  </PC-InfoData_value_slist>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Shape</PC-Urn_label>
+                    <PC-Urn_name>Multipoles</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="doublevec">8</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>1.8.1</PC-Urn_version>
+                    <PC-Urn_software>OEShape</PC-Urn_software>
+                    <PC-Urn_source>openeye.com</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fvec>
+                    <PC-InfoData_value_fvec_E>76.45</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>1.48</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>1.18</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0.59</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0.33</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-0.56</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>-0.03</PC-InfoData_value_fvec_E>
+                    <PC-InfoData_value_fvec_E>0</PC-InfoData_value_fvec_E>
+                  </PC-InfoData_value_fvec>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Shape</PC-Urn_label>
+                    <PC-Urn_name>Self Overlap</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>2.1</PC-Urn_version>
+                    <PC-Urn_software>PubChem</PC-Urn_software>
+                    <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>128.735</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+              <PC-InfoData>
+                <PC-InfoData_urn>
+                  <PC-Urn>
+                    <PC-Urn_label>Shape</PC-Urn_label>
+                    <PC-Urn_name>Volume</PC-Urn_name>
+                    <PC-Urn_datatype>
+                      <PC-UrnDataType value="double">7</PC-UrnDataType>
+                    </PC-Urn_datatype>
+                    <PC-Urn_version>1.8.1</PC-Urn_version>
+                    <PC-Urn_software>OEShape</PC-Urn_software>
+                    <PC-Urn_source>openeye.com</PC-Urn_source>
+                    <PC-Urn_release>2012.01.18</PC-Urn_release>
+                  </PC-Urn>
+                </PC-InfoData_urn>
+                <PC-InfoData_value>
+                  <PC-InfoData_value_fval>52.8</PC-InfoData_value_fval>
+                </PC-InfoData_value>
+              </PC-InfoData>
+            </PC-Conformer_data>
+          </PC-Conformer>
+        </PC-Coordinates_conformers>
+        <PC-Coordinates_data>
+          <PC-InfoData>
+            <PC-InfoData_urn>
+              <PC-Urn>
+                <PC-Urn_label>Conformer</PC-Urn_label>
+                <PC-Urn_name>RMSD</PC-Urn_name>
+                <PC-Urn_datatype>
+                  <PC-UrnDataType value="double">7</PC-UrnDataType>
+                </PC-Urn_datatype>
+                <PC-Urn_release>2009.12.11</PC-Urn_release>
+              </PC-Urn>
+            </PC-InfoData_urn>
+            <PC-InfoData_value>
+              <PC-InfoData_value_fval>0.4</PC-InfoData_value_fval>
+            </PC-InfoData_value>
+          </PC-InfoData>
+          <PC-InfoData>
+            <PC-InfoData_urn>
+              <PC-Urn>
+                <PC-Urn_label>Diverse Conformer</PC-Urn_label>
+                <PC-Urn_name>ID List</PC-Urn_name>
+                <PC-Urn_datatype>
+                  <PC-UrnDataType value="uintvec">6</PC-UrnDataType>
+                </PC-Urn_datatype>
+                <PC-Urn_release>2010.05.05</PC-Urn_release>
+              </PC-Urn>
+            </PC-InfoData_urn>
+            <PC-InfoData_value>
+              <PC-InfoData_value_ivec>
+                <PC-InfoData_value_ivec_E>1</PC-InfoData_value_ivec_E>
+              </PC-InfoData_value_ivec>
+            </PC-InfoData_value>
+          </PC-InfoData>
+        </PC-Coordinates_data>
+      </PC-Coordinates>
+    </PC-Compound_coords>
+    <PC-Compound_props>
+      <PC-InfoData>
+        <PC-InfoData_urn>
+          <PC-Urn>
+            <PC-Urn_label>Charge</PC-Urn_label>
+            <PC-Urn_name>MMFF94 Partial</PC-Urn_name>
+            <PC-Urn_datatype>
+              <PC-UrnDataType value="stringlist">2</PC-UrnDataType>
+            </PC-Urn_datatype>
+            <PC-Urn_version>1.9.0</PC-Urn_version>
+            <PC-Urn_software>OEChem</PC-Urn_software>
+            <PC-Urn_source>openeye.com</PC-Urn_source>
+            <PC-Urn_release>2012.11.26</PC-Urn_release>
+          </PC-Urn>
+        </PC-InfoData_urn>
+        <PC-InfoData_value>
+          <PC-InfoData_value_slist>
+            <PC-InfoData_value_slist_E>4</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 -0.57</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>2 0.45</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>3 0.06</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>4 0.06</PC-InfoData_value_slist_E>
+          </PC-InfoData_value_slist>
+        </PC-InfoData_value>
+      </PC-InfoData>
+      <PC-InfoData>
+        <PC-InfoData_urn>
+          <PC-Urn>
+            <PC-Urn_label>Count</PC-Urn_label>
+            <PC-Urn_name>Effective Rotor</PC-Urn_name>
+            <PC-Urn_datatype>
+              <PC-UrnDataType value="double">7</PC-UrnDataType>
+            </PC-Urn_datatype>
+            <PC-Urn_version>1.7.6</PC-Urn_version>
+            <PC-Urn_software>OEChem</PC-Urn_software>
+            <PC-Urn_source>ncbi.nlm.nih.gov</PC-Urn_source>
+            <PC-Urn_release>2012.01.18</PC-Urn_release>
+          </PC-Urn>
+        </PC-InfoData_urn>
+        <PC-InfoData_value>
+          <PC-InfoData_value_fval>0</PC-InfoData_value_fval>
+        </PC-InfoData_value>
+      </PC-InfoData>
+      <PC-InfoData>
+        <PC-InfoData_urn>
+          <PC-Urn>
+            <PC-Urn_label>Features</PC-Urn_label>
+            <PC-Urn_name>Pharmacophore</PC-Urn_name>
+            <PC-Urn_datatype>
+              <PC-UrnDataType value="stringlist">2</PC-UrnDataType>
+            </PC-Urn_datatype>
+            <PC-Urn_parameters>ImplicitMillsDean merged</PC-Urn_parameters>
+            <PC-Urn_version>1.8.3</PC-Urn_version>
+            <PC-Urn_software>OEShape</PC-Urn_software>
+            <PC-Urn_source>openeye.com</PC-Urn_source>
+            <PC-Urn_release>2012.11.26</PC-Urn_release>
+          </PC-Urn>
+        </PC-InfoData_urn>
+        <PC-InfoData_value>
+          <PC-InfoData_value_slist>
+            <PC-InfoData_value_slist_E>1</PC-InfoData_value_slist_E>
+            <PC-InfoData_value_slist_E>1 1 acceptor</PC-InfoData_value_slist_E>
+          </PC-InfoData_value_slist>
+        </PC-InfoData_value>
+      </PC-InfoData>
+    </PC-Compound_props>
+    <PC-Compound_count>
+      <PC-Count>
+        <PC-Count_heavy-atom>4</PC-Count_heavy-atom>
+        <PC-Count_atom-chiral>0</PC-Count_atom-chiral>
+        <PC-Count_atom-chiral-def>0</PC-Count_atom-chiral-def>
+        <PC-Count_atom-chiral-undef>0</PC-Count_atom-chiral-undef>
+        <PC-Count_bond-chiral>0</PC-Count_bond-chiral>
+        <PC-Count_bond-chiral-def>0</PC-Count_bond-chiral-def>
+        <PC-Count_bond-chiral-undef>0</PC-Count_bond-chiral-undef>
+        <PC-Count_isotope-atom>0</PC-Count_isotope-atom>
+        <PC-Count_covalent-unit>1</PC-Count_covalent-unit>
+        <PC-Count_tautomers>2</PC-Count_tautomers>
+      </PC-Count>
+    </PC-Compound_count>
+  </PC-Compound>
+</PC-Compounds>
