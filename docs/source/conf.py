@@ -26,6 +26,8 @@ extensions = [
     "sphinx.ext.autodoc",
     "myst_parser",
     "sphinx_copybutton",
+    "manim.utils.docbuild.manim_directive",
+    "manim.utils.docbuild.autoaliasattr_directive",
 ]
 
 templates_path = ["_templates"]
@@ -36,4 +38,4 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "furo"
-html_static_path = ["_static"]
+# html_static_path = ["_static"]
