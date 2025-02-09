@@ -9,6 +9,10 @@ from .utils import (
 from .parsers import (
     MolParser,  # noqa F841
     SDFParser,  # noqa F841
+    JSONParser,  # noqa F841
+    ASNTParser,  # noqa F841
+    XMLParser,  # noqa F841
+    
 )
 
 from .file_handler import FileHandler  # noqa F841
