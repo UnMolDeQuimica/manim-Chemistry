@@ -5,12 +5,12 @@ import numpy as np
 
 @pytest.fixture
 def dmp_atoms():
-    return mol_parser("examples/element_files/dimethylpropane.mol")[0]
+    return mol_parser("examples/molecule_files/mol_files/dimethylpropane.mol")[0]
 
 
 @pytest.fixture
 def dmp_bonds():
-    return mol_parser("examples/element_files/dimethylpropane.mol")[1]
+    return mol_parser("examples/molecule_files/mol_files/dimethylpropane.mol")[1]
 
 
 @pytest.fixture

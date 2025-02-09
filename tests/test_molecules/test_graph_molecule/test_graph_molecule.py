@@ -17,7 +17,7 @@ config.renderer = "cairo"
 
 
 class TestGraphMolecule(BaseTestMolecule):
-    morphine_file_path = "examples/element_files/morphine.mol"
+    morphine_file_path = "examples/molecule_files/mol_files/morphine_2d.mol"
     molecule_class = GraphMolecule
 
     @pytest.fixture
