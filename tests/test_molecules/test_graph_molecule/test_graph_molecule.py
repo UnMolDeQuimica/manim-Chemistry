@@ -9,9 +9,12 @@ from manim_chemistry.manim_chemistry_molecule import (
     MCMolecule,
 )
 
+from ..base_test_molecule import BaseTestMolecule
 
-class TestGraphMolecule:
+
+class TestGraphMolecule(BaseTestMolecule):
     morphine_file_path = "examples/element_files/morphine.mol"
+    molecule_class = GraphMolecule
 
     @pytest.fixture
     def mol_mc_molecule(self):
@@ -38,9 +41,27 @@ class TestGraphMolecule:
             assert isinstance(bond.to_atom, MCAtom)
             assert isinstance(bond.from_atom, MCAtom)
 
-    def test_molecule_from_file(self):
-        graph_molecule = GraphMolecule.molecule_from_file(
-            filepath=self.morphine_file_path
-        )
+    @pytest.mark.parametrize("file", BaseTestMolecule.files)
+    def test_molecule_from_file(self, file):
+        molecule = self.molecule_class.molecule_from_file(file)
+        assert isinstance(molecule, self.molecule_class)
 
-        assert isinstance(graph_molecule, GraphMolecule)
+    def test_from_pubchem_api_cid(self):
+        molecule = self.molecule_class.molecule_from_pubchem(cid="2244")
+        assert isinstance(molecule, self.molecule_class)
+
+    def test_from_pubchem_api_name(self):
+        molecule = self.molecule_class.molecule_from_pubchem(name="aspirin")
+        assert isinstance(molecule, self.molecule_class)
+
+    def test_from_pubchem_api_smiles(self):
+        molecule = self.molecule_class.molecule_from_pubchem(
+            smiles="CC(=O)OC1=CC=CC=C1C(=O)O"
+        )
+        assert isinstance(molecule, self.molecule_class)
+
+    def test_from_pubchem_api_inchi(self):
+        molecule = self.molecule_class.molecule_from_pubchem(
+            inchi="BSYNRYMUTXBXSQ-UHFFFAOYSA-N"
+        )
+        assert isinstance(molecule, self.molecule_class)

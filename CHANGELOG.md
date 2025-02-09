@@ -30,6 +30,7 @@
 * [Issue #58](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/58): Adds contribute guide and PR template.
 * [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies MMolecule to use parsers.
 * [Issue #70](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/71): Implements AbstractMolecule across all molecule types.
+* [Issue #66](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/71): Adds tests for the new changes.
 
 ### Breaking changes
 * [Issue #48 Fix](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/48): Fix test suite. Removes support for python 3.8 and python 3.9 because configuring the tests on GitHub is trickier.
@@ -70,7 +71,7 @@
 
 ## 0.3.2
 ### Fixes
-* Fixed P Orbital example. Special thanks to [@Roseleaves](https://github.com/Roseleaves) for opening the [related issue #15](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/15). [7ffdc5](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/16/commits/7ffdc52f90bae0605c27a3f9d545d0538a51c04b). 
+* Fixed P Orbital example. Special thanks to [@Roseleaves](https://github.com/Roseleaves) for opening the [related issue #15](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/15). [7ffdc5](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/16/commits/7ffdc52f90bae0605c27a3f9d545d0538a51c04b).
 
 ## 0.3.1
 ### Bugfixes
