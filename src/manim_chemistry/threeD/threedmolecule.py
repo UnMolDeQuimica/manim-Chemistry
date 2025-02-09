@@ -13,9 +13,70 @@ from ..molecule import AbstractMolecule
 
 
 class ThreeDMolecule(OpenGLGroup, AbstractMolecule):
-    """
-    Uses a .mol file, a data source csv, ThreeDAtoms
-    and ThreeDBonds to create a ThreeDMolecule.
+    """Draws a 3D Molecule
+
+    Requires using opengl renderer.
+
+    Examples:
+    ---------
+    .. code-block:: python
+
+        from manim_chemistry import *
+
+        class ThreeDMoleculeFromFile(Scene):
+            def construct(self):
+                config.renderer = "opengl"
+                molecule = GraphMolecule.molecule_from_file(
+                    "../examples/molecule_files/mol_files/acetone_3d.mol"
+                )
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+
+    .. code-block:: python
+
+        from manim_chemistry import *
+
+        class ThreeDMoleculeFromFileWithHydrogens(Scene):
+            def construct(self):
+                config.renderer = "opengl"
+                molecule = ThreeDMolecule.molecule_from_file(
+                    "../examples/molecule_files/mol_files/acetone_3d.mol",
+                    ignore_hydrogens=False
+                )
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+
+    .. code-block:: python
+
+        from manim_chemistry import *
+
+        class ThreeDMoleculeFromPubChem(Scene):
+            def construct(self):
+                config.renderer = "opengl"
+                molecule = ThreeDMolecule.molecule_from_pubchem(name="acetone")
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+    .. code-block:: python
+
+        from manim_chemistry import *
+
+        class ThreeDMoleculeFromPubChemThreeD(Scene):
+            def construct(self):
+                config.renderer = "opengl"
+                molecule = ThreeDMolecule.molecule_from_pubchem(
+                    name="acetone",
+                    three_d=True,
+                    ignore_hydrogens=False
+                )
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
     """
 
     group_class = OpenGLGroup

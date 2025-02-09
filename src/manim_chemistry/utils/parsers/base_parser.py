@@ -4,20 +4,18 @@ from typing import Any, Dict, List, Tuple, Union
 
 
 class BaseParser(ABC):
+    """Initializes the parser given a file name.
+
+    This is a base class that must be extended on child classes.
+
+    The purposes of the parser classes are:
+        - Read a file with chemical data.
+        - Parse the file to extract the atoms and bonds data.
+        - Return a dictionary with the atoms and bonds data.
+
+    """
+
     def __init__(self, filename: Union[str, bytes, os.PathLike]) -> None:
-        """
-        Initializas the parser given a file name.
-
-        This is a base  class that must be extended on child classes.
-
-        The purposes of the parser classes are:
-            - Read a file with chemical data.
-            - Parse the file to extract the atoms and bonds data.
-            - Return a dictionary with the atoms and bonds data.
-
-        Args:
-            filename (Union[str, bytes, os.PathLike]): Path of the file to be parsed
-        """
         self.file_data: str = self.read_file(filename)
         parsed_data = self.parse_file_data()
         if isinstance(parsed_data, list):
@@ -42,12 +40,14 @@ class BaseParser(ABC):
     @staticmethod
     @abstractmethod
     def data_parser(data: Any) -> Tuple[Dict, Dict] | List[Tuple[Dict, Dict]]:
-        """
-        Parses the atoms and bonds data and returns a tuple of dictionaries with each data.
+        """Parses the atoms and bonds data and returns a tuple of dictionaries with each data.
+
         The atom data follows the structure:
+
             {<atom_index>: {"element": <atom_element>, "position": [<x_pos>, <y_pos>, <z_pos>]}}
 
         The bond data follows the structure:
+
             {<bond_index>: {"from_atom_index": <from_atom_index>, "to_atom_index": <to_atom_index>, "bond_type": <bond_type>}}
         """
         ...
