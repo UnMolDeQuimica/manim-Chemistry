@@ -1,3 +1,4 @@
+from manim import config
 import numpy as np
 import pytest
 
@@ -10,6 +11,9 @@ from manim_chemistry.manim_chemistry_molecule import (
 )
 
 from ..base_test_molecule import BaseTestMolecule
+
+
+config.renderer = "cairo"
 
 
 class TestGraphMolecule(BaseTestMolecule):
