@@ -1,6 +1,7 @@
 from typing import Optional
 
-from manim import ORIGIN
+from manim import ORIGIN, config
+from manim.constants import RendererType
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
 
 from ..element import Element
@@ -29,6 +30,8 @@ class ThreeDMolecule(OpenGLGroup, AbstractMolecule):
         *mobjects,
         **kwargs,
     ):
+        if config.renderer != RendererType.OPENGL:
+            raise Exception(f"ThreeDMolecule requires using a OpenGL renderer. You can use it adding the `--renderer=opengl` flag or adding `config.renderer = opengl` to your python file.")
         self.atoms_dict = atoms_dict
         self.bonds_dict = bonds_dict
         self.source_csv = source_csv
