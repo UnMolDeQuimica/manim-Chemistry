@@ -10,7 +10,7 @@ class BohrAtom(VGroup):
     ---------
     .. manim:: BohrAtomScene
         :save_last_frame:
-        
+
         from manim_chemistry import *
 
         class BohrAtomScene(Scene):

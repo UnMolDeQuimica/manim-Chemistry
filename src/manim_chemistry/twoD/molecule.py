@@ -56,6 +56,7 @@ class MMoleculeObject(VGroup, AbstractMolecule):
                 self.wait()
 
     """
+
     def __init__(
         self,
         atoms_dict: dict,

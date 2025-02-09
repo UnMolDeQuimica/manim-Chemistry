@@ -39,6 +39,8 @@
 
 ### Documentation
 * [Issue #59](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/59): Modifies the documentation to use the new functions (`molecule_from_file`) instead of the old ones (`from_mol`, `from_sdf` and `build_from_mol`)
+* [Issue #67](https://github.com/UnMolDeQuimica/manim-Chemistry/pull/78): Adds decent documentation.
+
 
 ## 0.4.4
 

@@ -163,6 +163,7 @@ class JSONParser(BaseParser):
             8: {"from_atom_index": 4, "to_atom_index": 10, "bond_type": 1},
         }
     """
+
     @staticmethod
     def read_file(filename: Union[str, bytes, os.PathLike]) -> Any:
         """

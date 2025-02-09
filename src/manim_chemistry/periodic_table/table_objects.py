@@ -138,6 +138,7 @@ class PeriodicTable(VGroup):
                 self.add(PeriodicTable(data_file="../examples/element_files/Elementos.csv"))
 
     """
+
     # TODO Change to english database
     def __init__(self, data_file, *vmobjects, **kwargs):
         VGroup.__init__(self, *vmobjects, **kwargs)

@@ -5,7 +5,7 @@ from .mol_parser import MolParser
 
 
 class SDFParser(MolParser):
-    """ Parses sdf files.
+    """Parses sdf files.
     The sdf format is very similar to the mol format. It only contains some
     extra lines. By modifying the read file and removing those extra lines we
     can use the logic already implemented in MolParser.

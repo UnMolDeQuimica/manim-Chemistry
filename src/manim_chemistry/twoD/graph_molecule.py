@@ -120,6 +120,7 @@ class GraphMolecule(Graph, AbstractMolecule):
                 self.play(Write(molecule))
                 self.wait()
     """
+
     SUPPORTED_BOND_TYPES = {
         1: SimpleLine,
         2: DoubleLine,
