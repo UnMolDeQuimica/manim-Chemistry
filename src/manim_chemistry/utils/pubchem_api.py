@@ -13,16 +13,17 @@ class PubchemAPIManager:
         name: Optional[str] = None,
         smiles: Optional[str] = None,
         inchi: Optional[str] = None,
+        three_d: bool = False,
     ):
         if not any([cid, name, smiles, inchi]):
             raise Exception(
                 "You should provide an identifier. Available identifiers are cid, name, smiles and inchi"
             )
-
         self.cid = cid
         self.name = name
         self.smiles = smiles
         self.inchi = inchi
+        self.three_d = three_d
 
     def handle_request(self, request: requests.models.Response, identifier):
         if request.status_code == 200:
@@ -36,23 +37,35 @@ class PubchemAPIManager:
         )
 
     def from_cid(self):
-        request = requests.get(f"{PubchemAPIManager.BASE_URL}/cid/{self.cid}/json")
+        request_url = f"{PubchemAPIManager.BASE_URL}/cid/{self.cid}/json"
+        if self.three_d:
+            request_url += "?record_type=3d"
+
+        request = requests.get(request_url)
         return self.handle_request(request=request, identifier=self.cid)
 
     def from_name(self):
-        request = requests.get(f"{PubchemAPIManager.BASE_URL}/name/{self.name}/json")
+        request_url = f"{PubchemAPIManager.BASE_URL}/name/{self.name}/json"
+        if self.three_d:
+            request_url += "?record_type=3d"
+
+        request = requests.get(request_url)
         return self.handle_request(request=request, identifier=self.name)
 
     def from_smiles(self):
-        request = requests.get(
-            f"{PubchemAPIManager.BASE_URL}/smiles/{self.smiles}/json"
-        )
+        request_url = f"{PubchemAPIManager.BASE_URL}/smiles/{self.smiles}/json"
+        if self.three_d:
+            request_url += "?record_type=3d"
+
+        request = requests.get(request_url)
         return self.handle_request(request=request, identifier=self.smiles)
 
     def from_inchi(self):
-        request = requests.get(
-            f"{PubchemAPIManager.BASE_URL}/inchikey/{self.inchi}/json"
-        )
+        request_url = f"{PubchemAPIManager.BASE_URL}/inchikey/{self.inchi}/json"
+        if self.three_d:
+            request_url += "?record_type=3d"
+
+        request = requests.get(request_url)
         return self.handle_request(request=request, identifier=self.inchi)
 
     def get_molecule(self):
