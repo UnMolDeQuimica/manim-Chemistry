@@ -172,6 +172,7 @@ class AbstractMolecule:
         name: Optional[str] = None,
         smiles: Optional[str] = None,
         inchi: Optional[str] = None,
+        three_d: bool=False,
         *args,
         **kwargs,
     ):
@@ -188,7 +189,7 @@ class AbstractMolecule:
             GraphMolecule: GraphMolecule
         """
         pubchem_api_manager = PubchemAPIManager(
-            cid=cid, name=name, smiles=smiles, inchi=inchi
+            cid=cid, name=name, smiles=smiles, inchi=inchi, three_d=three_d
         )
 
         return cls.molecule_from_string(
