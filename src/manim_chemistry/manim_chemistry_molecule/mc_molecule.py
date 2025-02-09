@@ -7,7 +7,7 @@ from ..utils import FileHandler
 
 class MCMolecule:
     """
-    Abstraction of a molecule:
+    Abstraction of a molecule made of:
     - MCAtoms.
     - MCBonds.
     - Molecule name.

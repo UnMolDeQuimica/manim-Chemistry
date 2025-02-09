@@ -123,6 +123,22 @@ class MElementObject(VGroup):
 
 
 class PeriodicTable(VGroup):
+    """Draws a periodic table using the data using a configuration from a csv file.
+
+    Examples
+    ---------
+
+    .. manim:: PeriodicTableScene
+        :save_last_frame:
+
+        from manim_chemistry import *
+
+        class PeriodicTableScene(Scene):
+            def construct(self):
+                self.add(PeriodicTable(data_file="../examples/element_files/Elementos.csv"))
+
+    """
+
     # TODO Change to english database
     def __init__(self, data_file, *vmobjects, **kwargs):
         VGroup.__init__(self, *vmobjects, **kwargs)

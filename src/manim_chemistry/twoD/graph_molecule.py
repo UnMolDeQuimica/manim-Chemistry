@@ -61,6 +61,66 @@ class TripleLine(DoubleLine):
 
 
 class GraphMolecule(Graph, AbstractMolecule):
+    """Represents a molecule like a Graph from Manim.
+
+    Examples
+    ---------
+    .. manim:: GraphMoleculeFromFile
+
+        from manim_chemistry import *
+
+        class GraphMoleculeFromFile(Scene):
+            def construct(self):
+                molecule = GraphMolecule.molecule_from_file(
+                    "../examples/molecule_files/mol_files/acetone_2d.mol"
+                )
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+
+    .. manim:: GraphMoleculeFromFileWithHydrogens
+
+        from manim_chemistry import *
+
+        class GraphMoleculeFromFileWithHydrogens(Scene):
+            def construct(self):
+                molecule = GraphMolecule.molecule_from_file(
+                    "../examples/molecule_files/mol_files/acetone_2d.mol",
+                    ignore_hydrogens=False
+                )
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+
+    .. manim:: GraphMoleculeFromPubChem
+
+        from manim_chemistry import *
+
+        class GraphMoleculeFromPubChem(Scene):
+            def construct(self):
+                molecule = GraphMolecule.molecule_from_pubchem(name="acetone")
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+    .. manim:: GraphMoleculeFromPubChemThreeD
+
+        from manim_chemistry import *
+
+        class GraphMoleculeFromPubChemThreeD(Scene):
+            def construct(self):
+                molecule = GraphMolecule.molecule_from_pubchem(
+                    name="acetone",
+                    three_d=True,
+                    ignore_hydrogens=False
+                )
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+    """
+
     SUPPORTED_BOND_TYPES = {
         1: SimpleLine,
         2: DoubleLine,
@@ -258,12 +318,12 @@ class GraphMolecule(Graph, AbstractMolecule):
         )
 
     def find_atom_position_by_index(self, atom_index: int) -> np.array:
-        """_summary_
+        """
         Returns the position of a single atom given its index.
 
         Example:
         ```
-        molecule = GraphMolecule.molecule_from_file("examples/element_files/dimethylpropane.mol")
+        molecule = GraphMolecule.molecule_from_file("examples/molecule_files/mol_files/dimethylpropane.mol")
         print(molecule.find_atom_position_by_index(1))
         >>> array([ 0.9397, -0.7497,  0.    ])
         ```
@@ -289,13 +349,11 @@ class GraphMolecule(Graph, AbstractMolecule):
             raise exception
 
     def find_atoms_position_by_index(self, atoms_index_list: list) -> list:
-        """_summary_
-
-        Returns the position of multiple atoms given their indices.
+        """Returns the position of multiple atoms given their indices.
 
         Example:
         ```
-        molecule = GraphMolecule.molecule_from_file("examples/element_files/dimethylpropane.mol")
+        molecule = GraphMolecule.molecule_from_file("examples/molecule_files/mol_files/dimethylpropane.mol")
         print(molecule.find_atoms_position_by_index([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
@@ -313,16 +371,14 @@ class GraphMolecule(Graph, AbstractMolecule):
 
         return atoms_positions
 
-    def find_bond_center_by_tuple(self, bond_tuple: tuple) -> np.array:
-        """_summary_
-
-        Returns the [x, y, z] coordinates of a bond given a bond tuple.
+    def find_bond_center_by_index(self, bond_index: tuple) -> np.array:
+        """Returns the [x, y, z] coordinates of a bond given a bond tuple.
         The bund tuple corresponds to the indices of the atoms in the bond.
 
         Example:
         ```
-        molecule = GraphMolecule.molecule_from_file("examples/element_files/dimethylpropane.mol")
-        print(molecule.find_bond_center_by_tuple((1, 2))
+        molecule = GraphMolecule.molecule_from_file("examples/molecule_files/mol_files/dimethylpropane.mol")
+        print(molecule.find_bond_center_by_index((1, 2))
         >>> array([0.51935, 0.59615, 0.     ])
         ```
 
@@ -333,12 +389,12 @@ class GraphMolecule(Graph, AbstractMolecule):
             np.array: [x, y, z] coordinates of bond center.
         """
         try:
-            bond = self.bonds[bond_tuple]
+            bond = self.bonds[bond_index]
             return bond.get_center()
 
         except KeyError as key_error:
             # TODO: Change from print to proper logging system.
-            print(f"Bond tuple {bond_tuple} is not valid for molecule {self}")
+            print(f"Bond tuple {bond_index} is not valid for molecule {self}")
             raise key_error
 
         except Exception as exception:
@@ -347,8 +403,7 @@ class GraphMolecule(Graph, AbstractMolecule):
     def find_position_along_bond_axis(
         self, bond_tuple: int, position_buff: float
     ) -> np.array:
-        """_summary_
-        Returns a position along the bond axis given a bond index and depending on a position_buff.
+        """Returns a position along the bond axis given a bond index and depending on a position_buff.
         A value of 1 will return one end of the bond. A value of -1 will return the other end.
         All values in between return positions at some point of the middle of the bond, being 0 the center.
         Values bigger or lower that 1 and -1 will return positions outside the bond.
@@ -375,14 +430,12 @@ class GraphMolecule(Graph, AbstractMolecule):
 
         return bond_center + bond_vector * position_buff * 0.5
 
-    def find_bonds_center_by_tuple(self, bonds_tuples_list: list) -> list:
-        """_summary_
-
-        Returns the position of multiple bonds given their indices.
+    def find_bonds_center_by_index(self, bonds_tuples_list: list) -> list:
+        """Returns the position of multiple bonds given their indices.
 
         Example:
         ```
-        molecule = GraphMolecule.molecule_from_file("examples/element_files/dimethylpropane.mol")
+        molecule = GraphMolecule.molecule_from_file("examples/molecule_files/mol_files/dimethylpropane.mol")
         print(molecule.find_bonds_center_by_tuple([1,2,3]))
         >>> [array([ 0.0713, -0.0263,  0.    ]), array([-1.2754,  0.3464,  0.    ]), array([0.9674, 1.2186, 0.    ])]
         ```
@@ -395,7 +448,7 @@ class GraphMolecule(Graph, AbstractMolecule):
         bonds_positions = []
         for bond_index in bonds_tuples_list:
             bonds_positions.append(
-                self.find_bond_center_by_tuple(bond_index=bond_index)
+                self.find_bond_center_by_index(bond_index=bond_index)
             )
 
         return bonds_positions
@@ -412,8 +465,8 @@ class GraphMolecule(Graph, AbstractMolecule):
     def find_all_bonds_centers(self) -> dict:
         bonds_positions = {}
         for bond_tuple in self.bonds:
-            bonds_positions[bond_tuple] = self.find_bond_center_by_tuple(
-                bond_tuple=bond_tuple
+            bonds_positions[bond_tuple] = self.find_bond_center_by_index(
+                bond_index=bond_tuple
             )
 
         return bonds_positions

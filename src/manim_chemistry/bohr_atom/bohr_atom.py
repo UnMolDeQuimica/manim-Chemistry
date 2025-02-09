@@ -4,8 +4,19 @@ from manim import VGroup, WHITE, BLUE, RED, Circle, Dot, TAU, RIGHT
 
 
 class BohrAtom(VGroup):
-    """
-    Creates a Bohr like diagram
+    """Creates a Bohr like diagram
+
+    Examples
+    ---------
+    .. manim:: BohrAtomScene
+        :save_last_frame:
+
+        from manim_chemistry import *
+
+        class BohrAtomScene(Scene):
+            def construct(self):
+                diagram = BohrAtom(e=14, p=14, n=10)
+                self.add(diagram)
     """
 
     def __init__(
