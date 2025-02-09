@@ -1,0 +1,411 @@
+PC-Compounds ::= {
+  {
+    id {
+      id cid 180
+    },
+    atoms {
+      aid {
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      },
+      element {
+        o,
+        c,
+        c,
+        c,
+        h,
+        h,
+        h,
+        h,
+        h,
+        h
+      }
+    },
+    bonds {
+      aid1 {
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      },
+      aid2 {
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      },
+      order {
+        double,
+        single,
+        single,
+        single,
+        single,
+        single,
+        single,
+        single,
+        single
+      }
+    },
+    coords {
+      {
+        type {
+          twod,
+          computed,
+          units-unknown
+        },
+        aid {
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        },
+        conformers {
+          {
+            x {
+              { 3732, 10, -3 },
+              { 2866, 10, -3 },
+              { 2, 10, 0 },
+              { 2866, 10, -3 },
+              { 231, 10, -2 },
+              { 14631, 10, -4 },
+              { 169, 10, -2 },
+              { 2246, 10, -3 },
+              { 2866, 10, -3 },
+              { 3486, 10, -3 }
+            },
+            y {
+              { 75, 10, -2 },
+              { 25, 10, -2 },
+              { 75, 10, -2 },
+              { -75, 10, -2 },
+              { 12869, 10, -4 },
+              { 106, 10, -2 },
+              { 2131, 10, -4 },
+              { -75, 10, -2 },
+              { -137, 10, -2 },
+              { -75, 10, -2 }
+            }
+          }
+        }
+      }
+    },
+    charge 0,
+    props {
+      {
+        urn {
+          label "Compound",
+          name "Canonicalized",
+          datatype uint,
+          release "2021.10.14"
+        },
+        value ival 1
+      },
+      {
+        urn {
+          label "Compound Complexity",
+          datatype double,
+          implementation "E_COMPLEXITY",
+          version "3.4.8.18",
+          software "Cactvs",
+          source "Xemistry GmbH",
+          release "2021.10.14"
+        },
+        value fval { 263, 10, -1 }
+      },
+      {
+        urn {
+          label "Count",
+          name "Hydrogen Bond Acceptor",
+          datatype uint,
+          implementation "E_NHACCEPTORS",
+          version "3.4.8.18",
+          software "Cactvs",
+          source "Xemistry GmbH",
+          release "2021.10.14"
+        },
+        value ival 1
+      },
+      {
+        urn {
+          label "Count",
+          name "Hydrogen Bond Donor",
+          datatype uint,
+          implementation "E_NHDONORS",
+          version "3.4.8.18",
+          software "Cactvs",
+          source "Xemistry GmbH",
+          release "2021.10.14"
+        },
+        value ival 0
+      },
+      {
+        urn {
+          label "Count",
+          name "Rotatable Bond",
+          datatype uint,
+          implementation "E_NROTBONDS",
+          version "3.4.8.18",
+          software "Cactvs",
+          source "Xemistry GmbH",
+          release "2021.10.14"
+        },
+        value ival 0
+      },
+      {
+        urn {
+          label "Fingerprint",
+          name "SubStructure Keys",
+          datatype fingerprint,
+          parameters "extended 2",
+          implementation "E_SCREEN",
+          version "3.4.8.18",
+          software "Cactvs",
+          source "Xemistry GmbH",
+          release "2021.10.14"
+        },
+        value binary '00000371804020000000000000000000000000000000000000000000
+00000000000000000000001A000000000008048080000200000000000800801000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000'H
+      },
+      {
+        urn {
+          label "IUPAC Name",
+          name "Allowed",
+          datatype string,
+          version "2.7.0",
+          software "Lexichem TK",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "acetone"
+      },
+      {
+        urn {
+          label "IUPAC Name",
+          name "CAS-like Style",
+          datatype string,
+          version "2.7.0",
+          software "Lexichem TK",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "2-propanone"
+      },
+      {
+        urn {
+          label "IUPAC Name",
+          name "Markup",
+          datatype string,
+          version "2.7.0",
+          software "Lexichem TK",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "propan-2-one"
+      },
+      {
+        urn {
+          label "IUPAC Name",
+          name "Preferred",
+          datatype string,
+          version "2.7.0",
+          software "Lexichem TK",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "propan-2-one"
+      },
+      {
+        urn {
+          label "IUPAC Name",
+          name "Systematic",
+          datatype string,
+          version "2.7.0",
+          software "Lexichem TK",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "propan-2-one"
+      },
+      {
+        urn {
+          label "IUPAC Name",
+          name "Traditional",
+          datatype string,
+          version "2.7.0",
+          software "Lexichem TK",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "acetone"
+      },
+      {
+        urn {
+          label "InChI",
+          name "Standard",
+          datatype string,
+          version "1.0.6",
+          software "InChI",
+          source "iupac.org",
+          release "2021.10.14"
+        },
+        value sval "InChI=1S/C3H6O/c1-3(2)4/h1-2H3"
+      },
+      {
+        urn {
+          label "InChIKey",
+          name "Standard",
+          datatype string,
+          version "1.0.6",
+          software "InChI",
+          source "iupac.org",
+          release "2021.10.14"
+        },
+        value sval "CSCPPACGZOOCGX-UHFFFAOYSA-N"
+      },
+      {
+        urn {
+          label "Log P",
+          name "XLogP3-AA",
+          datatype double,
+          version "3.0",
+          source "sioc-ccbg.ac.cn",
+          release "2021.10.14"
+        },
+        value fval { -1, 10, -1 }
+      },
+      {
+        urn {
+          label "Mass",
+          name "Exact",
+          datatype string,
+          version "2.2",
+          software "PubChem",
+          source "ncbi.nlm.nih.gov",
+          release "2021.10.14"
+        },
+        value sval "58.041864811"
+      },
+      {
+        urn {
+          label "Molecular Formula",
+          datatype string,
+          version "2.2",
+          software "PubChem",
+          source "ncbi.nlm.nih.gov",
+          release "2021.10.14"
+        },
+        value sval "C3H6O"
+      },
+      {
+        urn {
+          label "Molecular Weight",
+          datatype string,
+          version "2.2",
+          software "PubChem",
+          source "ncbi.nlm.nih.gov",
+          release "2021.10.14"
+        },
+        value sval "58.08"
+      },
+      {
+        urn {
+          label "SMILES",
+          name "Absolute",
+          datatype string,
+          version "2.3.0",
+          software "OEChem",
+          source "OpenEye Scientific Software",
+          release "2024.12.12"
+        },
+        value sval "CC(=O)C"
+      },
+      {
+        urn {
+          label "SMILES",
+          name "Canonical",
+          datatype string,
+          version "2.3.0",
+          software "OEChem",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "CC(=O)C"
+      },
+      {
+        urn {
+          label "SMILES",
+          name "Isomeric",
+          datatype string,
+          version "2.3.0",
+          software "OEChem",
+          source "OpenEye Scientific Software",
+          release "2021.10.14"
+        },
+        value sval "CC(=O)C"
+      },
+      {
+        urn {
+          label "Topological",
+          name "Polar Surface Area",
+          datatype double,
+          implementation "E_TPSA",
+          version "3.4.8.18",
+          software "Cactvs",
+          source "Xemistry GmbH",
+          release "2021.10.14"
+        },
+        value fval { 171, 10, -1 }
+      },
+      {
+        urn {
+          label "Weight",
+          name "MonoIsotopic",
+          datatype string,
+          version "2.2",
+          software "PubChem",
+          source "ncbi.nlm.nih.gov",
+          release "2021.10.14"
+        },
+        value sval "58.041864811"
+      }
+    },
+    count {
+      heavy-atom 4,
+      atom-chiral 0,
+      atom-chiral-def 0,
+      atom-chiral-undef 0,
+      bond-chiral 0,
+      bond-chiral-def 0,
+      bond-chiral-undef 0,
+      isotope-atom 0,
+      covalent-unit 1,
+      tautomers -1
+    }
+  }
+}
