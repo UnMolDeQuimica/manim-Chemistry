@@ -31,7 +31,7 @@ You can also clone the repo and install it from here:
 
 ```
 git clone https://github.com/UnMolDeQuimica/manim-Chemistry.git
-cd manim-Chemistry 
+cd manim-Chemistry
 python -m pip install .
 ```
 
