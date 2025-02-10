@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Quickstart" href="quickstart/index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Reference Manual" href="reference_manual/index.html" /><link rel="prev" title="Utils" href="quickstart/utils.html" />
 
     <!-- Generated with Sphinx 8.1.2 and Furo 2024.08.06 -->
-        <title>manim-Chemistry 0.4.5 documentation</title>
+        <title>Philosophy - manim-Chemistry 0.4.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -167,7 +167,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">manim-Chemistry 0.4.5 documentation</div></a>
+      <a href="index.html"><div class="brand">manim-Chemistry 0.4.5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -188,7 +188,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">manim-Chemistry 0.4.5 documentation</span>
@@ -200,7 +200,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="quickstart/index.html">Quickstart</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Quickstart</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/drawing-a-molecule.html">Drawing a molecule</a></li>
@@ -211,7 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart/utils.html">Utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Philosophy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
 <ul>
@@ -273,7 +273,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/index.md.txt" title="View this page">
+  <a class="muted-link" href="_sources/philosophy.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -293,27 +293,14 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="welcome-to-manim-chemistry-docs">
-<h1>Welcome to Manim Chemistry Docs!<a class="headerlink" href="#welcome-to-manim-chemistry-docs" title="Link to this heading">¶</a></h1>
-<p><strong>Manim Chemistry</strong> is a <a class="reference external" href="https://www.manim.community/">Manim</a> plugin designed to make chemistry animations easier. Go to the <a class="reference internal" href="quickstart/index.html"><span class="doc std std-doc">Quickstart guide</span></a> to have a glimpse of what you can do with Manim Chemistry!</p>
-<p>Using its classes and methods you can animate:</p>
-<p><strong>2D Molecules</strong>
-<img alt="plot" src="_images/2D_morphine_corrected_bonds.png" />
-<img alt="plot" src="_images/DrawGraphMorphine_ManimCE_v0.17.3.png" /></p>
-<p><strong>3D Molecules</strong>
-<img alt="plot" src="_images/Draw3DMorphine_ManimCE_v0.17.3.png" /></p>
-<p><strong>Bohr Diagrams</strong>
-<img alt="plot" src="_images/BohrDiagram_ManimCE_v0.17.3.png" /></p>
-<p><strong>Atomic Orbitals</strong>
-<img alt="plot" src="_images/orbitals_example.png" /></p>
-<p>And much more!</p>
-<p><img alt="plot" src="_images/DrawPeriodicTable_ManimCE_v0.17.3.png" /></p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+          <section id="philosophy">
+<h1>Philosophy<a class="headerlink" href="#philosophy" title="Link to this heading">¶</a></h1>
+<p>To my knowledge, there is only another plugin related to chemistry called <a class="reference external" href="https://github.com/kilacoda/chanim">chanim</a> that aims to import to manim the chemfig package (and does an amazing job!).</p>
+<p>The philosophy of Manim Chemistry goes into a different direction: manim-Chemistry tries to use the manim tools in combination with chemical data files (such as .mol, .sdf, .json, .anst and .xml) and useful basic classes to create beatufil chemistry related animations such as a Periodic Table or 2d and 3d chemical structures.</p>
+<p>Also, manim-Chemistry will try to do as much things from scratch as possible. That means I will also avoid using libraries such as <a class="reference external" href="https://mendeleev.readthedocs.io/en/stable/">Mendeleev</a>, <a class="reference external" href="https://www.rdkit.org/">RDKit</a>, <a class="reference external" href="https://pymol.org/2/">PyMOL</a>, <a class="reference external" href="https://openbabel.org">Open Babel</a> ammong others. The reason is avoid depending on 3rd party packages that might need intensive maintenance. However, the users can combine the power of those libraries with manim-Chemistry to make life easier. The only exception to this is <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, as I usually use it as a source for molecules.</p>
+<p>That also means that some cool features such as rendering Molecular Orbitals, parsing other formats such as SMILES, optimizing structures or similarity checks between molecules are out of the scope of this package (by the time).</p>
+<p>Personally, I use those 3rd party packages to get some of the work done, so I might release a plugin for the plugin if I ever build it but I will not mantain it properly.</p>
+<p>Still, Manim Chemistry is quite powerful and easy to use. Need any help? Want a new feature? Something is broken? <a class="reference internal" href="contributing/contact.html"><span class="doc std std-doc">Contact me!</span></a></p>
 </section>
 
         </article>
@@ -321,16 +308,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="quickstart/index.html">
+          <a class="next-page" href="reference_manual/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Quickstart</div>
+                <div class="title">Reference Manual</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="quickstart/utils.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Utils</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
