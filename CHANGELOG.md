@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+# Documentation
+[Issue #79](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/79): Updates the README.
+
 ## 0.5.0
 
 ### Bugfixes
