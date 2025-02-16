@@ -7,6 +7,7 @@ from ..base_test_molecule import BaseTestMolecule
 
 
 class TestThreeDMolecule(BaseTestMolecule):
+    morphine_file_path = "examples/molecule_files/mol_files/morphine_2d.mol"
     molecule_class = ThreeDMolecule
 
     @pytest.mark.parametrize("file", BaseTestMolecule.files)
@@ -75,7 +76,10 @@ class TestThreeDMolecule(BaseTestMolecule):
         config.renderer = "cairo"
 
     def test_add_name_to_molecule(self):
+        config.renderer = "opengl"
         molecule = self.molecule_class.molecule_from_file(self.morphine_file_path)
         molecule.add_molecule_name("morphine")
 
         assert isinstance(molecule, self.molecule_class)
+        config.renderer = "cairo"
+        
