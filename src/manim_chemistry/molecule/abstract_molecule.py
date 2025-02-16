@@ -1,9 +1,11 @@
 from typing import Union, Optional, Tuple, Dict
 from abc import abstractmethod
 
-from manim import VGroup
-from ..utils import PubchemAPIManager
+from manim import VGroup, Text, Tex, DOWN
 from manim.mobject.opengl.opengl_mobject import OpenGLGroup
+import numpy as np
+
+from ..utils import PubchemAPIManager
 from ..manim_chemistry_molecule import MCMolecule
 
 
@@ -214,3 +216,57 @@ class AbstractMolecule:
             Tuple[Dict, Dict]: _description_
         """
         ...
+
+    def add_molecule_name(
+        self,
+        name: Union[Text, Tex, str],
+        direction: np.ndarray = DOWN,
+        buff: float = 0.5,
+        scale: float = 0.75,
+    ):
+        """Adds the name of the molecule.
+
+        Args:
+            name (Union[Text, Tex, str]): Name of the molecule. Can either be a string, a Manim Tex or a Manim Text
+            positdirectionion (np.ndarray, optional): Position where to set the molecule name. Defaults to DOWN.
+            buff (float, optional): Distance between the name and the molecule. Defaults to 0.5.
+            scale (float, optional): Scale of the text. Defaults to 0.75.
+
+        Examples
+        ---------
+
+        .. manim:: MMoleculeWithName
+
+        from manim_chemistry import *
+
+        class MMoleculeWithName(Scene):
+            def construct(self):
+                molecule = MMolecule.molecule_from_file(
+                    "../examples/molecule_files/mol_files/acetone_2d.mol",
+                    ignore_hydrogens=False
+                ).add_molecule_name(name="Acetone")
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+        .. manim:: GraphMoleculeWithName
+
+        from manim_chemistry import *
+
+        class GraphMoleculeWithName(Scene):
+            def construct(self):
+                molecule = GraphMolecule.molecule_from_file(
+                    "../examples/molecule_files/mol_files/acetone_2d.mol",
+                    ignore_hydrogens=False
+                ).add_molecule_name(name="Acetone")
+                self.wait()
+                self.play(Write(molecule))
+                self.wait()
+
+        """
+
+        if isinstance(name, str):
+            name = Text(name)
+
+        name.scale(scale).next_to(self, direction=direction, buff=buff)
+        self.add(name)
