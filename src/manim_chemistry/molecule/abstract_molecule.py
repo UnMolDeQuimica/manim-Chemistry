@@ -224,7 +224,6 @@ class AbstractMolecule:
         buff: float = 0.5,
         scale: float = 0.75,
     ):
-
         """Adds the name of the molecule.
 
         Args:
