@@ -28,6 +28,7 @@ extensions = [
     "sphinx_copybutton",
     "manim.utils.docbuild.manim_directive",
     "manim.utils.docbuild.autoaliasattr_directive",
+    "sphinx_click",
 ]
 
 templates_path = ["_templates"]

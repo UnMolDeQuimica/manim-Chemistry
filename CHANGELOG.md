@@ -9,8 +9,9 @@
 [Issue #69](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/69): Fixes an error when calling the PubChem API and returns an error.
 
 # New Features
-[Issue #80](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/80): Adds a function to molecules to add the name.
 [Issue #69](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/69): Adds Molecule as a proxy to get multiple molecule types.
+[Issue #80](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/80): Adds a function to molecules to add the name.
+[Issue #82](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/82): Adds a cli utility to download molecules from PubChem to files.
 
 ## 0.5.0
 
