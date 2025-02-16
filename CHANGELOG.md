@@ -5,6 +5,9 @@
 # Documentation
 [Issue #79](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/79): Updates the README.
 
+# New Features
+[Issue #80](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/80): Adds a function to molecules to add the name.
+
 ## 0.5.0
 
 ### Bugfixes
