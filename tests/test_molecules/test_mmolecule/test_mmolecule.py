@@ -9,6 +9,7 @@ config.renderer = "cairo"
 
 
 class TestMMolecule(BaseTestMolecule):
+    morphine_file_path = "examples/molecule_files/mol_files/morphine_2d.mol"
     molecule_class = MMoleculeObject
 
     @pytest.mark.parametrize("file", BaseTestMolecule.files)
@@ -56,4 +57,10 @@ class TestMMolecule(BaseTestMolecule):
         molecule = self.molecule_class.molecule_from_pubchem(
             inchi="BSYNRYMUTXBXSQ-UHFFFAOYSA-N", three_d=True
         )
+        assert isinstance(molecule, self.molecule_class)
+
+    def test_add_name_to_molecule(self):
+        molecule = self.molecule_class.molecule_from_file(self.morphine_file_path)
+        molecule.add_molecule_name("morphine")
+
         assert isinstance(molecule, self.molecule_class)
