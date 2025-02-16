@@ -5,6 +5,7 @@ from .twoD import *  # noqa F841
 from .orbitals import *  # noqa F841
 from .bohr_atom import *  # noqa F841
 from .utils import *  # noqa F841
+from .molecule import Molecule  # noqa F841
 
 from importlib.metadata import PackageNotFoundError, version
 

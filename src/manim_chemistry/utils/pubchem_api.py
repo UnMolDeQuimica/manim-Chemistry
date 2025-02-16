@@ -33,7 +33,7 @@ class PubchemAPIManager:
             raise Exception(f"Compound {identifier} not found")
 
         raise Exception(
-            f"An error occurred when calling the Pub Chem API. Status code: {request.status_code}. Request response: {request.response}"
+            f"An error occurred when calling the Pub Chem API. Status code: {request.status_code}. Request response: {request.json}"
         )
 
     def from_cid(self):
