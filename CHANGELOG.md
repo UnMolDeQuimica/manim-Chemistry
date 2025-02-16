@@ -5,6 +5,9 @@
 # Documentation
 [Issue #79](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/79): Updates the README.
 
+# Fix
+[Issue 69](https://github.com/UnMolDeQuimica/manim-Chemistry/issues/69): Fixes an error when calling the PubChem API and returns an error.
+
 ## 0.5.0
 
 ### Bugfixes
