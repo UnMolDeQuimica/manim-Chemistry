@@ -73,3 +73,9 @@ class TestThreeDMolecule(BaseTestMolecule):
         )
         assert isinstance(molecule, self.molecule_class)
         config.renderer = "cairo"
+
+    def test_add_name_to_molecule(self):
+        molecule = self.molecule_class.molecule_from_file(self.morphine_file_path)
+        molecule.add_molecule_name("morphine")
+
+        assert isinstance(molecule, self.molecule_class)
