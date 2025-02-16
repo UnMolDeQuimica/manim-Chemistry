@@ -224,6 +224,7 @@ class AbstractMolecule:
         buff: float = 0.5,
         scale: float = 0.75,
     ):
+
         """Adds the name of the molecule.
 
         Args:
@@ -232,36 +233,33 @@ class AbstractMolecule:
             buff (float, optional): Distance between the name and the molecule. Defaults to 0.5.
             scale (float, optional): Scale of the text. Defaults to 0.75.
 
-        Examples
-        ---------
-
         .. manim:: MMoleculeWithName
+            :save_last_frame:
 
-        from manim_chemistry import *
+            from manim_chemistry import *
 
-        class MMoleculeWithName(Scene):
-            def construct(self):
-                molecule = MMolecule.molecule_from_file(
-                    "../examples/molecule_files/mol_files/acetone_2d.mol",
-                    ignore_hydrogens=False
-                ).add_molecule_name(name="Acetone")
-                self.wait()
-                self.play(Write(molecule))
-                self.wait()
+            class MMoleculeWithName(Scene):
+                def construct(self):
+                    molecule = MMoleculeObject.molecule_from_file(
+                        "../examples/molecule_files/mol_files/acetone_2d.mol",
+                    ).add_molecule_name(name="Acetone")
+                    self.wait()
+                    self.play(Write(molecule))
+                    self.wait()
 
         .. manim:: GraphMoleculeWithName
+            :save_last_frame:
 
-        from manim_chemistry import *
+            from manim_chemistry import *
 
-        class GraphMoleculeWithName(Scene):
-            def construct(self):
-                molecule = GraphMolecule.molecule_from_file(
-                    "../examples/molecule_files/mol_files/acetone_2d.mol",
-                    ignore_hydrogens=False
-                ).add_molecule_name(name="Acetone")
-                self.wait()
-                self.play(Write(molecule))
-                self.wait()
+            class GraphMoleculeWithName(Scene):
+                def construct(self):
+                    molecule = GraphMolecule.molecule_from_file(
+                        "../examples/molecule_files/mol_files/acetone_2d.mol",
+                    ).add_molecule_name(name="Acetone")
+                    self.wait()
+                    self.play(Write(molecule))
+                    self.wait()
 
         """
 
@@ -270,3 +268,4 @@ class AbstractMolecule:
 
         name.scale(scale).next_to(self, direction=direction, buff=buff)
         self.add(name)
+        return self
