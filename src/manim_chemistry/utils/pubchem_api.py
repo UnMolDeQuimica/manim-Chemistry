@@ -1,5 +1,6 @@
 from typing import Optional
 import json
+import time
 
 import requests
 
@@ -28,6 +29,8 @@ class PubchemAPIManager:
         self.format = format
 
     def handle_request(self, request: requests.models.Response, identifier):
+        # Added sleep to prevent overloading the PubChem API
+        time.sleep(0.25)
         if request.status_code == 200:
             try:
                 return json.dumps(request.json())
