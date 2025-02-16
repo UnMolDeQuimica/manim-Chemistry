@@ -38,6 +38,9 @@ Source = "https://github.com/UnMolDeQuimica/manim-Chemistry"
 "Issue tracker" = "https://github.com/UnMolDeQuimica/manim-Chemistry/issues"
 Homepage = "https://github.com/UnMolDeQuimica/manim-Chemistry"
 
+[project.scripts]
+manim_chemistry = "manim_chemistry.cli:cli"
+
 [tools.setuptools.dynamic]
 version = {attr = "manim_chemistry.__version__"}
 readme = {file = ["README.md"]}
