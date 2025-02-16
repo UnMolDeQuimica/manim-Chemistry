@@ -82,4 +82,3 @@ class TestThreeDMolecule(BaseTestMolecule):
 
         assert isinstance(molecule, self.molecule_class)
         config.renderer = "cairo"
-        
