@@ -2,6 +2,7 @@ from typing import Dict, List, Optional
 
 from .mc_atom import MCAtom
 from .mc_bond import MCBond
+from .mc_element import MCElement
 from ..utils import FileHandler
 
 
@@ -19,13 +20,15 @@ class MCMolecule:
         atoms: Optional[List[MCAtom]] = None,
         bonds: Optional[List[MCBond]] = None,
         name: Optional[str] = None,
+        elements: Optional[MCElement] = None,
     ):
         self.atoms = atoms or []
         self.bonds = bonds or []
+        self.elements = elements or {}
         self.atoms_by_index = {}
         self.name = name
 
-    def add_atoms_from_atoms_dict(self, atoms_dict: Dict):
+    def add_atoms_from_atoms_dict(self, atoms_dict: Dict, elements_data_dict: Dict):
         """
         Uses the atoms dict returned by a parser to add the atoms to the molecule.
 
@@ -41,7 +44,9 @@ class MCMolecule:
 
         for atom_index, atom_data_dict in atoms_dict.items():
             mc_atom = MCAtom.construct_from_atom_dict(
-                atom_index=atom_index, atom_data_dict=atom_data_dict
+                atom_index=atom_index,
+                atom_data_dict=atom_data_dict,
+                elements_data_dict=elements_data_dict,
             )
             mc_atom.assign_molecule(self)
             self.atoms.append(mc_atom)
@@ -88,6 +93,7 @@ class MCMolecule:
         bonds_data_dict: dict,
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
     ):
         """
         Given data with the format provided by a parser, constructs a MCMolecule,
@@ -100,7 +106,9 @@ class MCMolecule:
         """
 
         mc_molecule = MCMolecule()
-        mc_molecule.add_atoms_from_atoms_dict(atoms_dict=atoms_data_dict)
+        mc_molecule.add_atoms_from_atoms_dict(
+            atoms_dict=atoms_data_dict, elements_data_dict=elements_data_dict
+        )
         mc_molecule.add_bonds_from_bonds_dict(bonds_dict=bonds_data_dict)
         mc_molecule.add_connections_between_atoms()
 
@@ -114,7 +122,10 @@ class MCMolecule:
 
     @staticmethod
     def construct_from_file(
-        filepath, ignore_hydrogens: bool = True, ignore_all_hydrogens: bool = False
+        filepath,
+        ignore_hydrogens: bool = True,
+        ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
     ):
         """
         Returns an MCMolecule given a file path.
@@ -133,11 +144,15 @@ class MCMolecule:
             bonds_dict,
             ignore_hydrogens=ignore_hydrogens,
             ignore_all_hydrogens=ignore_all_hydrogens,
+            elements_data_dict=elements_data_dict,
         )
 
     @staticmethod
     def construct_multiples_from_file(
-        filepath, ignore_hydrogens: bool = True, ignore_all_hydrogens: bool = False
+        filepath,
+        ignore_hydrogens: bool = True,
+        ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
     ):
         """
         Similar to `construct_from_file` but returning a list of MCMolecules.
@@ -152,6 +167,7 @@ class MCMolecule:
                     bonds_data_dict=bonds_dict,
                     ignore_hydrogens=ignore_hydrogens,
                     ignore_all_hydrogens=ignore_all_hydrogens,
+                    elements_data_dict=elements_data_dict,
                 )
             )
 
@@ -163,6 +179,7 @@ class MCMolecule:
         format: str = "json",
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
     ):
         """
         Reads a string and returns a molecule. Supported formats are:
@@ -180,12 +197,12 @@ class MCMolecule:
             parsed_data = parsed_data[0]
 
         atoms_dict, bonds_dict = parsed_data
-
         return MCMolecule.construct_from_data_dict(
             atoms_dict,
             bonds_dict,
             ignore_hydrogens=ignore_hydrogens,
             ignore_all_hydrogens=ignore_all_hydrogens,
+            elements_data_dict=elements_data_dict,
         )
 
     @staticmethod
@@ -194,6 +211,7 @@ class MCMolecule:
         format: str = "json",
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
     ):
         """
         Similar to `construct_from_string` but returning a list of MCMolecules.
@@ -207,6 +225,7 @@ class MCMolecule:
                     bonds_data_dict=bonds_dict,
                     ignore_hydrogens=ignore_hydrogens,
                     ignore_all_hydrogens=ignore_all_hydrogens,
+                    elements_data_dict=elements_data_dict,
                 )
             )
 
@@ -215,12 +234,14 @@ class MCMolecule:
     def remove_carbon_hydrogens(self):
         atoms_to_be_removed = []
         for index, atom in self.atoms_by_index.items():
-            if atom.element.atomic_number != 1:
+            if atom.element.atomic_number != 1 or atom.element.symbol != "H":
                 continue
 
             if (
                 atom.bonds[0].to_atom.element.atomic_number == 6
                 or atom.bonds[0].from_atom.element.atomic_number == 6
+                or atom.bonds[0].to_atom.element.symbol == "C"
+                or atom.bonds[0].from_atom.element.symbol == "C"
             ):
                 atoms_to_be_removed.append(index)
 

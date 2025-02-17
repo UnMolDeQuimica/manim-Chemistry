@@ -95,13 +95,10 @@ class TestMoleculeWithGraphMolecule(BaseTestMolecule):
         assert isinstance(molecule, GraphMolecule)
 
 
-
-
 class TestMoleculeWithMMoleculeObject(BaseTestMolecule):
     morphine_file_path = "examples/molecule_files/mol_files/morphine_2d.mol"
     molecule_class = Molecule(molecule_class=MMoleculeObject)
 
-   
     @pytest.mark.parametrize("file", BaseTestMolecule.files)
     def test_molecule_from_file(self, file):
         molecule = self.molecule_class.molecule_from_file(file)
@@ -154,7 +151,6 @@ class TestMoleculeWithThreeDMolecule(BaseTestMolecule):
     morphine_file_path = "examples/molecule_files/mol_files/morphine_2d.mol"
     molecule_class = Molecule(molecule_class=ThreeDMolecule)
 
-   
     @pytest.mark.parametrize("file", BaseTestMolecule.files)
     def test_molecule_from_file(self, file):
         config.renderer = "opengl"

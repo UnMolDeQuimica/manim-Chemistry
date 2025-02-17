@@ -29,6 +29,7 @@ class AbstractMolecule:
         filepath,
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
         *args,
         **kwargs,
     ):
@@ -47,6 +48,7 @@ class AbstractMolecule:
             filepath=filepath,
             ignore_hydrogens=ignore_hydrogens,
             ignore_all_hydrogens=ignore_all_hydrogens,
+            elements_data_dict=elements_data_dict,
         )
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
@@ -60,6 +62,7 @@ class AbstractMolecule:
         filepath,
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
         *args,
         **kwargs,
     ) -> Union[OpenGLGroup, VGroup]:
@@ -79,6 +82,7 @@ class AbstractMolecule:
             filepath=filepath,
             ignore_hydrogens=ignore_hydrogens,
             ignore_all_hydrogens=ignore_all_hydrogens,
+            elements_data_dict=elements_data_dict,
         )
 
         if not isinstance(mc_molecules, list):
@@ -98,6 +102,7 @@ class AbstractMolecule:
         format: str = "json",
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
         *args,
         **kwargs,
     ):
@@ -119,6 +124,7 @@ class AbstractMolecule:
             format=format,
             ignore_hydrogens=ignore_hydrogens,
             ignore_all_hydrogens=ignore_all_hydrogens,
+            elements_data_dict=elements_data_dict,
         )
         if isinstance(mc_molecule, list):
             mc_molecule = mc_molecule[0]
@@ -133,6 +139,7 @@ class AbstractMolecule:
         format: str = "json",
         ignore_hydrogens: bool = True,
         ignore_all_hydrogens: bool = False,
+        elements_data_dict: Optional[dict] = None,
         *args,
         **kwargs,
     ) -> OpenGLGroup:
@@ -155,6 +162,7 @@ class AbstractMolecule:
             format=format,
             ignore_hydrogens=ignore_hydrogens,
             ignore_all_hydrogens=ignore_all_hydrogens,
+            elements_data_dict=elements_data_dict,
         )
 
         if not isinstance(mc_molecules, list):
@@ -175,6 +183,7 @@ class AbstractMolecule:
         smiles: Optional[str] = None,
         inchi: Optional[str] = None,
         three_d: bool = False,
+        elements_data_dict: Optional[dict] = None,
         *args,
         **kwargs,
     ):
@@ -195,7 +204,11 @@ class AbstractMolecule:
         )
 
         return cls.molecule_from_string(
-            string=pubchem_api_manager.get_molecule(), format="json", *args, **kwargs
+            string=pubchem_api_manager.get_molecule(),
+            format="json",
+            elements_data_dict=elements_data_dict,
+            *args,
+            **kwargs,
         )
 
     @classmethod
