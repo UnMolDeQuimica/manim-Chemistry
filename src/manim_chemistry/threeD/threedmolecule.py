@@ -109,12 +109,20 @@ class ThreeDMolecule(OpenGLGroup, AbstractMolecule):
         self.move_to(ORIGIN)
 
     def get_atoms_from_csv(self):
+        elements_data_dict = {}
+        for atom in self.atoms_dict.values():
+            elements_data_dict[atom.get("element").symbol] = atom.get("element")
+
+        mc_element_dict = MC_ELEMENT_DICT.copy() | elements_data_dict
+
         atoms = OpenGLGroup()
         for _, atom in self.atoms_dict.items():
             if self.source_csv:
-                element = Element.from_csv_file(self.source_csv, atom.get("element"))
+                element = Element.from_csv_file(
+                    self.source_csv, atom.get("element").symbol
+                )
             else:
-                element = MC_ELEMENT_DICT.get(atom.get("element"))
+                element = mc_element_dict.get(atom.get("element").symbol)
             atoms.add(ThreeDAtom(element, atom.get("coords")))
 
         return atoms
@@ -165,7 +173,7 @@ class ThreeDMolecule(OpenGLGroup, AbstractMolecule):
 
             atom_data = {
                 "coords": atom.coords,
-                "element": atom.element.symbol,
+                "element": atom.element,
                 "bond_to": bond_to,
             }
 
