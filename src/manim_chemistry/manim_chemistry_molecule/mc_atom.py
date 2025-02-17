@@ -116,7 +116,9 @@ class MCAtom:
         return self.molecule_index
 
     @staticmethod
-    def construct_from_atom_dict(atom_index, atom_data_dict: Dict):
+    def construct_from_atom_dict(
+        atom_index, atom_data_dict: Dict, elements_data_dict: Dict
+    ):
         """
         Given an atom data dict from a parser, returns an MCAtom
 
@@ -142,7 +144,12 @@ class MCAtom:
                 f"Element {element} does not match any known element by human kind. Is that an alien element?"
             )
 
-        mc_element = MC_ELEMENT_DICT.get(element)
+        mc_element_dict = MC_ELEMENT_DICT.copy()
+
+        if elements_data_dict:
+            mc_element_dict |= elements_data_dict
+
+        mc_element = mc_element_dict.get(element)
 
         coords = atom_data_dict.get("coords")
 
