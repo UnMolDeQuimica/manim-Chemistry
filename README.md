@@ -13,10 +13,10 @@ Check the [documentation](https://manim-chemistry.readthedocs.io/en/latest/) for
 - [Making Bohr diagrams](#making-bohr-diagrams)
 - [Reading .mol files](#reading-mol-files)
 - [Typical issues with .mol files](#typical-issues-with-mol-files)
-- [Take a look to examples](#)
+- [Take a look at examples](#)
 - [Made with manimChemistry](#made-with-manimchemistry)
 - [How to contact](#how-to-contact)
-- [Great contributers](#great-contributers)
+- [Great contributors](#great-contributors)
 
 # Installation.
 
@@ -313,7 +313,7 @@ Here you have your nice diagram!
 ![plot](/examples/examples_assets/BohrDiagram_ManimCE_v0.17.3.png)
 
 
-# Take a look to examples:
+# Take a look at examples:
 
 Inside this repo there is a folder examples with assets and basic files that might be useful. Make sure to check them!
 
@@ -341,9 +341,10 @@ You can open issues and pull requests, but if you want to contact me directly yo
 - Twitter: https://twitter.com/unmoldequimica
 
 
-# Great contributers!
+# Great contributors!
 - [@chemnerd28](https://github.com/chemnerd28)
 - [@Ant-28](https://github.com/Ant-28)
+- [@davidmariscalf](https://github.com/davidmariscalf) (David Mariscal Fernández)
 
 
 Special thanks to [@Rodrigo-Tenorio](https://github.com/Rodrigo-Tenorio) for his help in the creation of this releasable package.
