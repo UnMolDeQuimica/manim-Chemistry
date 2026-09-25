@@ -46,9 +46,11 @@ class MolParser(BaseParser):
     @staticmethod
     def read_file(filename: Union[str, bytes, os.PathLike]) -> list:
         with open(filename) as file:
-            mol_file = file.readlines()
+            return MolParser.string_to_data(file.read())
 
-        return mol_file
+    @staticmethod
+    def string_to_data(string: str) -> list:
+        return string.splitlines(keepends=True)
 
     @staticmethod
     def data_parser(data: list) -> Tuple[Dict, Dict]:

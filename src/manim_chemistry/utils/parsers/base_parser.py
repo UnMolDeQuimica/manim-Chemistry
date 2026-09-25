@@ -38,6 +38,16 @@ class BaseParser(ABC):
         ...
 
     @staticmethod
+    def string_to_data(string: str) -> Any:
+        """
+        Converts the raw text of a file into the structure expected by
+        data_parser. Used both when reading a file and when parsing a string.
+
+        By default the text is passed through unchanged.
+        """
+        return string
+
+    @staticmethod
     @abstractmethod
     def data_parser(data: Any) -> Tuple[Dict, Dict] | List[Tuple[Dict, Dict]]:
         """Parses the atoms and bonds data and returns a tuple of dictionaries with each data.

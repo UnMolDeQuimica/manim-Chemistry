@@ -44,4 +44,4 @@ class FileHandler:
 
         parser = SUPPORTED_FORMATS.get(format)
 
-        return parser.data_parser(string)
+        return parser.data_parser(parser.string_to_data(string))

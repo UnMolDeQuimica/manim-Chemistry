@@ -55,9 +55,11 @@ class ASNTParser(BaseParser):
     @staticmethod
     def read_file(filename: Union[str, bytes, os.PathLike]) -> List[List[str]]:
         with open(filename, "r") as asnt_file:
-            file_list = asnt_file.readlines()
+            return ASNTParser.string_to_data(asnt_file.read())
 
-        return file_list
+    @staticmethod
+    def string_to_data(string: str) -> List[str]:
+        return string.splitlines(keepends=True)
 
     @staticmethod
     def replace_stuff(line: str) -> str:
