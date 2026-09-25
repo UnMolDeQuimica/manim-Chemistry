@@ -114,6 +114,7 @@ class MMoleculeObject(VGroup, AbstractMolecule):
                 # TODO: Add logic to check type of bond
                 from_atom = self.atoms_by_index.get(index)
                 to_atom = self.atoms_by_index.get(bond.get("to"))
+                bond_type = int(bond.get("type"))
                 if from_atom.element == "H" or to_atom.element == "H":
                     stereo = bond.get("stereo")
 
@@ -183,7 +184,6 @@ class MMoleculeObject(VGroup, AbstractMolecule):
                         continue
 
                 else:
-                    bond_type = int(bond.get("type"))
                     if bond_type == 2 or bond_type == 5 or bond_type == 7:
                         new_bond = DoubleBond(  # TODO: Add function inside bond to create it from data
                             from_atom=from_atom,
