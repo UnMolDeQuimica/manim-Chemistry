@@ -61,9 +61,11 @@ class SDFParser(MolParser):
             List[List[str]]: List with all the molecules data.
         """
         with open(filename) as file:
-            sdf_file_data = file.read()
+            return SDFParser.string_to_data(file.read())
 
-        sdf_molecules = sdf_file_data.split("$$$$")
+    @staticmethod
+    def string_to_data(string: str) -> List[List[str]]:
+        sdf_molecules = string.split("$$$$")
         return [molecule.split("\n") for molecule in sdf_molecules if molecule.strip()]
 
     @staticmethod
